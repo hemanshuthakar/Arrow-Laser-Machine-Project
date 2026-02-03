@@ -10,8 +10,9 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 relative z-10">
                     {/* Brand section */}
                     <div>
-                        <Link to="/" className="text-3xl font-bold tracking-tighter text-white block mb-6">
-                            ARROW<span className="text-primary italic">LASER</span>
+                        <Link to="/" className="text-3xl font-black tracking-tighter group inline-block mb-6">
+                            <span className="text-white transition-colors duration-500 group-hover:text-primary">ARROW</span>
+                            <span className="text-primary italic transition-colors duration-500 group-hover:text-white">LASER</span>
                         </Link>
                         <p className="text-text-muted mb-8 leading-relaxed">
                             Leading the innovation in laser and manufacturing technology. Precision engineering for a better industrial future.
@@ -34,7 +35,7 @@ const Footer = () => {
                     <div>
                         <h4 className="text-white text-lg font-semibold mb-8 uppercase tracking-widest border-l-2 border-primary pl-4">Company</h4>
                         <ul className="space-y-4">
-                            {['Home', 'About Us', 'Products', 'Features', 'Services', 'FAQ'].map((link) => (
+                            {['Home', 'About Us', 'Products', 'Gallery', 'FAQ'].map((link) => (
                                 <li key={link}>
                                     <Link
                                         to={link === 'Home' ? '/' : `/${link.toLowerCase().replace(' ', '')}`}

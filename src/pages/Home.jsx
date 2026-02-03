@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Cpu, Zap, ShieldCheck, Globe, ArrowRight, CheckCircle2, Layers, Scissors, Settings, Search, Shield, Timer, Award, Activity, Mail } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Counter from '../components/Counter';
+import InquiryModal from '../components/InquiryModal';
 
-const Hero = () => {
+const Hero = ({ onInquiry }) => {
+    const navigate = useNavigate();
     return (
         <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-dark-900">
             {/* Background elements */}
@@ -46,47 +49,19 @@ const Hero = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-                        <button className="btn-primary flex items-center justify-center space-x-2">
+                        <button
+                            onClick={() => navigate('/products')}
+                            className="btn-primary flex items-center justify-center space-x-2"
+                        >
                             <span>EXPLORE MACHINES</span>
                             <Zap size={18} />
                         </button>
-                        <button className="btn-outline flex items-center justify-center space-x-2">
+                        <button
+                            onClick={() => navigate('/about')}
+                            className="btn-outline flex items-center justify-center space-x-2"
+                        >
                             <span>OUR STORY</span>
                         </button>
-                    </div>
-
-                    <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-                        {[
-                            { label: 'Precision', icon: Cpu, value: 0.01, suffix: 'mm', decimals: 2 },
-                            { label: 'Speed', icon: Zap, value: 80, suffix: 'm/min' },
-                            { label: 'Reliability', icon: ShieldCheck, value: 24, suffix: '/7' },
-                            { label: 'Presence', icon: Globe, value: 25, suffix: '+ Countries' },
-                        ].map((stat, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 1 + i * 0.1 }}
-                                className="flex flex-col items-center text-center group"
-                            >
-                                <div className="text-primary mb-4 p-3 bg-primary/5 rounded-full group-hover:bg-primary group-hover:text-dark-900 transition-all duration-300">
-                                    <stat.icon size={24} />
-                                </div>
-                                <div className="text-white font-mono text-3xl font-black flex items-baseline mb-1">
-                                    {stat.decimals ? (
-                                        <span className="flex">
-                                            0.<Counter value={stat.value * 100} duration={1.5} />
-                                        </span>
-                                    ) : (
-                                        <Counter value={stat.value} duration={1.5} />
-                                    )}
-                                    <span className="text-sm ml-1 text-primary">{stat.suffix}</span>
-                                </div>
-                                <span className="text-text-muted text-[10px] uppercase tracking-[0.3em] font-bold group-hover:text-primary transition-colors">
-                                    {stat.label}
-                                </span>
-                            </motion.div>
-                        ))}
                     </div>
                 </motion.div>
 
@@ -182,7 +157,55 @@ const Hero = () => {
     );
 };
 
+const TechnicalStats = () => {
+    return (
+        <section className="relative py-12 bg-dark-950 border-y border-dark-700 overflow-hidden">
+            {/* Background Grid */}
+            <div className="absolute inset-0 opacity-[0.05]"
+                style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+
+            <div className="container-custom relative z-10">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                    {[
+                        { label: 'Precision', icon: Cpu, value: 0.1, suffix: 'mm', decimals: 1 },
+                        { label: 'Speed', icon: Zap, value: 80, suffix: 'm/min' },
+                        { label: 'Reliability', icon: ShieldCheck, value: 24, suffix: '/7' },
+                        { label: 'Presence', icon: Globe, value: 25, suffix: '+ Countries' },
+                    ].map((stat, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className="flex flex-col items-center text-center group"
+                        >
+                            <div className="text-primary mb-5 p-4 bg-dark-900 border border-dark-700/50 rounded-full group-hover:bg-primary group-hover:text-dark-900 transition-all duration-500 shadow-xl">
+                                <stat.icon size={28} />
+                            </div>
+                            <div className="text-white font-mono text-3xl md:text-4xl font-black flex items-baseline mb-2">
+                                {stat.decimals ? (
+                                    <span className="flex">
+                                        0.<Counter value={stat.value * 10} duration={1.5} />
+                                    </span>
+                                ) : (
+                                    <Counter value={stat.value} duration={1.5} />
+                                )}
+                                <span className="text-sm md:text-base ml-1 text-primary italic font-bold">{stat.suffix}</span>
+                            </div>
+                            <span className="text-text-muted text-[10px] md:text-xs uppercase tracking-[0.4em] font-black group-hover:text-primary transition-colors">
+                                {stat.label}
+                            </span>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
 const AboutPreview = () => {
+    const navigate = useNavigate();
     return (
         <section className="section-padding bg-dark-800 relative overflow-hidden">
             <div className="container-custom">
@@ -254,7 +277,10 @@ const AboutPreview = () => {
                             ))}
                         </ul>
 
-                        <button className="flex items-center space-x-4 group text-white font-bold uppercase tracking-widest text-sm">
+                        <button
+                            onClick={() => navigate('/about')}
+                            className="flex items-center space-x-4 group text-white font-bold uppercase tracking-widest text-sm"
+                        >
                             <span>More About Our Legacy</span>
                             <div className="w-10 h-10 rounded-full border border-dark-700 flex items-center justify-center group-hover:border-primary group-hover:bg-primary group-hover:text-dark-900 transition-all duration-300">
                                 <ArrowRight size={18} />
@@ -271,6 +297,7 @@ const AboutPreview = () => {
 };
 
 const Categories = () => {
+    const navigate = useNavigate();
     const categories = [
         {
             title: 'Laser Cutting',
@@ -310,7 +337,12 @@ const Categories = () => {
                         <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Our Specialization</span>
                         <h2 className="text-4xl md:text-5xl">Manufacturing Excellence <br /> for Every Industry</h2>
                     </div>
-                    <button className="btn-outline">VIEW ALL PRODUCTS</button>
+                    <button
+                        onClick={() => navigate('/products')}
+                        className="btn-outline"
+                    >
+                        VIEW ALL PRODUCTS
+                    </button>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -321,7 +353,8 @@ const Categories = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className={`group relative glass-card p-8 rounded-sm overflow-hidden h-full flex flex-col`}
+                            className={`group relative glass-card p-8 rounded-sm overflow-hidden h-full flex flex-col cursor-pointer`}
+                            onClick={() => navigate('/products')}
                         >
                             {/* Category Image Background */}
                             <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
@@ -408,7 +441,7 @@ const WhyChooseUs = () => {
                                         <feature.icon className="text-primary" size={30} />
                                     </div>
                                 </div>
-                                <div>
+                                <div className="p-0">
                                     <h3 className="text-2xl font-bold mb-4 group-hover:text-white transition-colors">{feature.title}</h3>
                                     <p className="text-text-muted leading-relaxed max-w-sm">{feature.desc}</p>
                                 </div>
@@ -463,7 +496,7 @@ const Stats = () => {
     );
 };
 
-const CTA = () => {
+const CTA = ({ onInquiry }) => {
     return (
         <section className="section-padding bg-dark-900">
             <div className="container-custom">
@@ -490,14 +523,17 @@ const CTA = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row justify-center items-center space-y-6 sm:space-y-0 sm:space-x-8">
-                            <button className="btn-primary w-full sm:w-auto px-12 py-5 text-lg">
+                            <button
+                                onClick={onInquiry}
+                                className="btn-primary w-full sm:w-auto px-12 py-5 text-lg"
+                            >
                                 GET A QUOTE
                             </button>
-                            <button className="flex items-center space-x-3 text-white font-bold group">
+                            <a href="mailto:info@arrowlaser.com" className="flex items-center space-x-3 text-white font-bold group">
                                 <Mail className="text-primary group-hover:scale-110 transition-transform" />
                                 <span className="uppercase tracking-widest text-sm">sales@arrowlaser.com</span>
                                 <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
-                            </button>
+                            </a>
                         </div>
                     </div>
 
@@ -514,16 +550,25 @@ const CTA = () => {
 };
 
 const Home = () => {
+    const [isInquiryOpen, setIsInquiryOpen] = useState(false);
+
     return (
         <div className="bg-dark-900">
-            <Hero />
+            <Hero onInquiry={() => setIsInquiryOpen(true)} />
+            <TechnicalStats />
             <AboutPreview />
             <Categories />
             <WhyChooseUs />
             <Stats />
-            <CTA />
+            <CTA onInquiry={() => setIsInquiryOpen(true)} />
+
+            <InquiryModal
+                isOpen={isInquiryOpen}
+                onClose={() => setIsInquiryOpen(false)}
+            />
         </div>
     );
 };
 
 export default Home;
+

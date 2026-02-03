@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const Preloader = () => {
     return (
         <div className="fixed inset-0 z-[9999] bg-dark-900 flex flex-col items-center justify-center">
-            <div className="relative w-64 h-32 flex flex-col items-center justify-center">
+            <div className="relative w-80 h-32 flex flex-col items-center justify-center">
                 {/* Logo Placeholder */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -36,7 +36,7 @@ const Preloader = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 0.5 }}
-                    className="mt-4 text-text-muted font-mono text-xs uppercase tracking-[0.3em]"
+                    className="mt-4 text-text-muted font-mono text-[10px] uppercase tracking-[0.3em] whitespace-nowrap"
                 >
                     Initializing Precision...
                 </motion.p>

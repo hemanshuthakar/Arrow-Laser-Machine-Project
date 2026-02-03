@@ -4,15 +4,16 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
 import Preloader from './components/Preloader';
+import ScrollToTop from './components/ScrollToTop';
 
 // Pages
 import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
-import Features from './pages/Features';
-import Services from './pages/Services';
+import ProductDetail from './pages/ProductDetail';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
+import Gallery from './pages/Gallery';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow">
@@ -38,10 +40,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/features" element={<Features />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
           </Routes>
         </main>
         <Footer />
