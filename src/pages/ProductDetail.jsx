@@ -44,19 +44,19 @@ const ProductDetail = () => {
         {
             icon: MessageSquare,
             label: 'WhatsApp',
-            link: `https://wa.me/919876543210?text=Hi, I am interested in ${product.name}`,
+            link: `https://wa.me/919909913488?text=Hi, I am interested in ${product.name}`,
             color: 'bg-green-600 hover:bg-green-700'
         },
         {
             icon: Mail,
             label: 'Email',
-            link: `mailto:info@arrowlaser.com?subject=Inquiry for ${product.name}`,
+            link: `mailto:arrowlasermachine@gmail.com?subject=Inquiry for ${product.name}`,
             color: 'bg-blue-600 hover:bg-blue-700'
         },
         {
             icon: Phone,
             label: 'Call',
-            link: 'tel:+919876543210',
+            link: 'tel:+919909913488',
             color: 'bg-orange-600 hover:bg-orange-700'
         }
     ];
@@ -111,6 +111,31 @@ const ProductDetail = () => {
                                 </button>
                             ))}
                         </div>
+
+                        {/* Actions moved to left side */}
+                        <div className="pt-8 space-y-4">
+                            <button
+                                onClick={() => setIsModalOpen(true)}
+                                className="btn-primary w-full py-5 text-base tracking-[0.2em] font-bold shadow-lg"
+                            >
+                                PRODUCT INQUIRY
+                            </button>
+
+                            <div className="grid grid-cols-3 gap-4">
+                                {contactActions.map((action, i) => (
+                                    <a
+                                        key={i}
+                                        href={action.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`flex items-center justify-center p-5 rounded-sm transition-all duration-300 ${action.color} text-white shadow-md hover:scale-105`}
+                                        title={action.label}
+                                    >
+                                        <action.icon size={24} />
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
                     {/* Right: Product Details */}
@@ -134,58 +159,50 @@ const ProductDetail = () => {
                             </p>
                         </div>
 
-                        {/* Specs Grid */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div className="p-6 bg-dark-800 border border-dark-700 rounded-sm">
-                                <Zap className="text-primary mb-4" size={24} />
-                                <h4 className="text-white font-bold mb-2 text-sm uppercase">Power Range</h4>
-                                <p className="text-text-muted text-xs font-mono">{product.spec}</p>
-                            </div>
-                            <div className="p-6 bg-dark-800 border border-dark-700 rounded-sm">
-                                <Shield className="text-primary mb-4" size={24} />
-                                <h4 className="text-white font-bold mb-2 text-sm uppercase">Warranty</h4>
-                                <p className="text-text-muted text-xs font-mono">24 Months Comprehensive</p>
-                            </div>
+                        {/* Features & Applications */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            {product.features && (
+                                <div>
+                                    <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest border-b border-primary/20 pb-2">Key Features</h4>
+                                    <ul className="space-y-3">
+                                        {product.features.map((feature, i) => (
+                                            <li key={i} className="text-text-muted text-sm flex items-start">
+                                                <span className="text-primary mr-2">•</span>
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                            {product.applications && (
+                                <div>
+                                    <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest border-b border-primary/20 pb-2">Common Applications</h4>
+                                    <ul className="space-y-3">
+                                        {product.applications.map((app, i) => (
+                                            <li key={i} className="text-text-muted text-sm flex items-start">
+                                                <CheckCircle2 size={14} className="text-primary mr-2 mt-1 shrink-0" />
+                                                {app}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
                         </div>
 
-                        {/* Technical Details */}
+                        {/* Tech Specs */}
                         <div>
                             <h3 className="text-white font-bold uppercase tracking-widest mb-6 flex items-center">
                                 <Award className="mr-3 text-primary" size={20} />
                                 Technical Specifications
                             </h3>
-                            <ul className="grid grid-cols-1 gap-4">
-                                {product.details.map((detail, i) => (
-                                    <li key={i} className="flex items-center text-text-muted text-sm border-b border-dark-700 pb-3">
-                                        <CheckCircle2 size={16} className="text-primary mr-3 shrink-0" />
-                                        {detail}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Actions */}
-                        <div className="pt-8 space-y-4">
-                            <button
-                                onClick={() => setIsModalOpen(true)}
-                                className="btn-primary w-full py-5 text-base tracking-[0.2em] font-bold"
-                            >
-                                REQUEST TECHNICAL QUOTE
-                            </button>
-
-                            <div className="grid grid-cols-3 gap-4">
-                                {contactActions.map((action, i) => (
-                                    <a
-                                        key={i}
-                                        href={action.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={`flex flex-col items-center justify-center p-4 rounded-sm transition-all duration-300 ${action.color} text-white space-y-2`}
-                                    >
-                                        <action.icon size={20} />
-                                        <span className="text-[10px] uppercase font-bold tracking-widest">{action.label}</span>
-                                    </a>
-                                ))}
+                            <div className="bg-dark-800 border border-dark-700 rounded-sm p-6 overflow-hidden">
+                                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
+                                    {product.details.map((detail, i) => (
+                                        <li key={i} className="flex items-center text-text-muted text-xs border-b border-dark-700/50 pb-2 font-mono">
+                                            {detail}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
                     </motion.div>

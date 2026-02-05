@@ -51,10 +51,10 @@ const ProductGrid = ({ activeCategory }) => {
                             <img
                                 src={p.images[0]}
                                 alt={p.name}
-                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                                className="w-full h-full object-cover transition-all duration-700 scale-105 group-hover:scale-100"
                             />
 
-                            <div className="absolute inset-0 bg-dark-900/40 group-hover:bg-dark-900/10 transition-colors" />
+                            <div className="absolute inset-0 bg-dark-900/20 group-hover:bg-dark-900/0 transition-colors" />
 
                             {/* Product Info Overlay */}
                             <div className="absolute inset-0 bg-dark-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-8 text-center translate-y-4 group-hover:translate-y-0 transition-transform">

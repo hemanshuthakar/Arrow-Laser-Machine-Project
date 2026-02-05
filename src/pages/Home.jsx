@@ -36,16 +36,15 @@ const Hero = ({ onInquiry }) => {
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                         </span>
-                        <span>Est. 2005 • Precision Engineering</span>
+                        <span>Est. 2022 • Precision Engineering</span>
                     </motion.div>
 
                     <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6">
                         Pioneering the Future of <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">Laser Technology</span>
                     </h1>
-
                     <p className="text-lg md:text-xl text-text-muted mb-10 leading-relaxed max-w-xl">
-                        Unleashing extreme precision and industrial power. We design and manufacture world-class laser machines for global manufacturing excellence.
+                        Precision Engineering Since 2022. High-performance laser machines designed for industrial excellence.
                     </p>
 
                     <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
@@ -57,10 +56,10 @@ const Hero = ({ onInquiry }) => {
                             <Zap size={18} />
                         </button>
                         <button
-                            onClick={() => navigate('/about')}
+                            onClick={onInquiry}
                             className="btn-outline flex items-center justify-center space-x-2"
                         >
-                            <span>OUR STORY</span>
+                            <span>ENQUIRE NOW</span>
                         </button>
                     </div>
                 </motion.div>
@@ -109,9 +108,9 @@ const Hero = ({ onInquiry }) => {
                     >
                         <div className="relative aspect-square rounded-xl overflow-hidden bg-dark-800">
                             <img
-                                src="/assets/images/hero-machine.png"
+                                src="/assets/images/products/prod_fiber_marking.png"
                                 alt="Industrial Laser Machine"
-                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100"
+                                className="w-full h-full object-cover transition-all duration-1000 scale-110 group-hover:scale-100"
                             />
 
                             {/* Inner Glow */}
@@ -221,7 +220,7 @@ const AboutPreview = () => {
                         <div className="relative z-10 p-2 border border-dark-700 bg-dark-900 rounded-sm overflow-hidden group">
                             <div className="aspect-[4/3] bg-dark-800 flex items-center justify-center relative overflow-hidden">
                                 <img
-                                    src="/assets/images/precision-engineering.png"
+                                    src="/assets/images/industries/ind_electronics.png"
                                     alt="Precision Engineering"
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                                 />
@@ -260,7 +259,7 @@ const AboutPreview = () => {
                         <h2 className="text-4xl md:text-5xl mb-8">Redefining Industrial <br className="hidden md:block" /> Precision Standards</h2>
 
                         <p className="text-text-body mb-8 leading-relaxed">
-                            Arrow Laser Machine is a global leader in designing and manufacturing high-end industrial laser solutions. Our engineers combine decades of experience with cutting-edge electronics to deliver machines that redefine what's possible in fabrication.
+                            Arrow Laser Machine designs and manufactures world-class laser systems for marking, engraving, cutting, welding, and cleaning applications across diverse industries. Established in 2022, we deliver precision laser technology for industrial, commercial, and customized applications.
                         </p>
 
                         <ul className="space-y-4 mb-10">
@@ -303,14 +302,14 @@ const Categories = () => {
             title: 'Laser Cutting',
             icon: Scissors,
             desc: 'High-speed precision cutting for metals, plastics, and composite materials.',
-            image: '/assets/images/cat-cutting.png',
+            image: '/assets/images/industries/ind_wood.png',
             color: 'from-orange-500/20'
         },
         {
             title: 'Laser Marking',
             icon: Layers,
             desc: 'Permanent identification, branding, and tracing for industrial components.',
-            image: '/assets/images/cat-marking.png',
+            image: '/assets/images/products/prod_uv_marking.png',
             color: 'from-blue-500/20'
         },
         {
@@ -358,7 +357,7 @@ const Categories = () => {
                         >
                             {/* Category Image Background */}
                             <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
-                                <img src={cat.image} alt={cat.title} className="w-full h-full object-cover grayscale" />
+                                <img src={cat.image} alt={cat.title} className="w-full h-full object-cover" />
                             </div>
 
                             {/* Abstract Background Icon */}
@@ -529,9 +528,9 @@ const CTA = ({ onInquiry }) => {
                             >
                                 GET A QUOTE
                             </button>
-                            <a href="mailto:info@arrowlaser.com" className="flex items-center space-x-3 text-white font-bold group">
+                            <a href="mailto:arrowlasermachine@gmail.com" className="flex items-center space-x-3 text-white font-bold group">
                                 <Mail className="text-primary group-hover:scale-110 transition-transform" />
-                                <span className="uppercase tracking-widest text-sm">sales@arrowlaser.com</span>
+                                <span className="uppercase tracking-widest text-sm">arrowlasermachine@gmail.com</span>
                                 <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
                             </a>
                         </div>

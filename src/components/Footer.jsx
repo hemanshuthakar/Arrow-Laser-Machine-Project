@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -15,13 +15,20 @@ const Footer = () => {
                             <span className="text-primary italic transition-colors duration-500 group-hover:text-white">LASER</span>
                         </Link>
                         <p className="text-text-muted mb-8 leading-relaxed">
-                            Leading the innovation in laser and manufacturing technology. Precision engineering for a better industrial future.
+                            Arrow Laser Machine is a manufacturer, importer, and supplier of advanced laser marking, engraving, cutting, welding, and cleaning solutions. Established in 2022.
                         </p>
                         <div className="flex space-x-4">
-                            {[Facebook, Twitter, Linkedin, Instagram].map((Icon, idx) => (
+                            {[
+                                { Icon: Facebook, url: 'https://www.facebook.com/arrowlaser/' },
+                                { Icon: Instagram, url: 'https://www.instagram.com/arrow.laser/' },
+                                { Icon: Youtube, url: 'https://www.youtube.com/@Arrowlasermachine' },
+                                { Icon: MessageCircle, url: 'https://whatsapp.com/channel/0029VbAKVL55q08kxVMj890Z' }
+                            ].map(({ Icon, url }, idx) => (
                                 <motion.a
                                     key={idx}
-                                    href="#"
+                                    href={url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     whileHover={{ y: -3, textShadow: "0 0 8px rgba(245,158,11,0.8)" }}
                                     className="w-10 h-10 rounded-sm bg-dark-800 border border-dark-700 flex items-center justify-center text-text-muted hover:text-primary hover:border-primary transition-colors duration-300"
                                 >
@@ -35,10 +42,10 @@ const Footer = () => {
                     <div>
                         <h4 className="text-white text-lg font-semibold mb-8 uppercase tracking-widest border-l-2 border-primary pl-4">Company</h4>
                         <ul className="space-y-4">
-                            {['Home', 'About Us', 'Products', 'Gallery', 'FAQ'].map((link) => (
+                            {['Home', 'About Us', 'Products', 'Industries', 'Gallery', 'Awards', 'Contact'].map((link) => (
                                 <li key={link}>
                                     <Link
-                                        to={link === 'Home' ? '/' : `/${link.toLowerCase().replace(' ', '')}`}
+                                        to={link === 'Home' ? '/' : `/${link.toLowerCase().replace(/ /g, '')}`}
                                         className="text-text-muted hover:text-white transition-colors flex items-center group"
                                     >
                                         <span className="w-0 h-[1px] bg-primary group-hover:w-4 transition-all duration-300 mr-0 group-hover:mr-2"></span>
@@ -55,15 +62,18 @@ const Footer = () => {
                         <ul className="space-y-6">
                             <li className="flex items-start space-x-4">
                                 <MapPin className="text-primary mt-1 shrink-0" size={20} />
-                                <span className="text-text-muted">123 Industrial Park, Manufacturing Hub, India - 380001</span>
+                                <span className="text-text-muted">38, Sardar Patel Industrial Estate, Odhav Ring Road, Ahmedabad – 382415</span>
                             </li>
                             <li className="flex items-center space-x-4">
                                 <Phone className="text-primary shrink-0" size={20} />
-                                <span className="text-text-muted">+91 98765 43210</span>
+                                <span className="text-text-muted">+91 99099 13488 / +91 91044 01022</span>
                             </li>
                             <li className="flex items-center space-x-4">
                                 <Mail className="text-primary shrink-0" size={20} />
-                                <span className="text-text-muted">info@arrowlaser.com</span>
+                                <div className="flex flex-col">
+                                    <span className="text-text-muted text-sm">arrowlasermachine@gmail.com</span>
+                                    <span className="text-text-muted text-sm">info@arrowlasermachine.com</span>
+                                </div>
                             </li>
                         </ul>
                     </div>
