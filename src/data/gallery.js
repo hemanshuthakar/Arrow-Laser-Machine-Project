@@ -17,160 +17,128 @@ import indTextile from '../assets/images/industries/ind_textile.png';
 import precisionEng from '../assets/images/precision-engineering.png';
 
 const originalGalleryItems = [
-    {
-        id: 1,
-        type: 'photo',
-<<<<<<< HEAD
-        url: indAutomotive,
-=======
-        url: '/assets/images/industries/ind_automotive.png',
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
-        title: 'Precision Metal Marking',
-        category: 'Operation'
-    },
-    {
-        id: 2,
-        type: 'photo',
-<<<<<<< HEAD
-        url: prodUvMarking,
-=======
-        url: '/assets/images/products/prod_uv_marking.png',
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
-        title: 'High-Precision UV Marking',
-        category: 'Operation'
-    },
-    {
-        id: 3,
-        type: 'photo',
-<<<<<<< HEAD
-        url: indJewelry,
-=======
-        url: '/assets/images/industries/ind_jewelry.png',
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
-        title: 'Jewelry Laser Engraving',
-        category: 'Operation'
-    },
-    {
-        id: 4,
-        type: 'photo',
-<<<<<<< HEAD
-        url: indWood,
-=======
-        url: '/assets/images/industries/ind_wood.png',
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
-        title: 'Intricate Wood Cutting',
-        category: 'Operation'
-    },
-    {
-        id: 5,
-        type: 'photo',
-<<<<<<< HEAD
-        url: prodFiberMarking,
-=======
-        url: '/assets/images/products/prod_fiber_marking.png',
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
-        title: 'Standalone Fiber System',
-        category: 'Machine'
-    },
-    {
-        id: 6,
-        type: 'photo',
-<<<<<<< HEAD
-        url: indElectronics,
-=======
-        url: '/assets/images/industries/ind_electronics.png',
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
-        title: 'Electronics Marking Lab',
-        category: 'Facility'
-    },
-    {
-        id: 7,
-        type: 'video',
-<<<<<<< HEAD
-        url: prodFlyMarking,
-=======
-        url: '/assets/images/products/prod_fly_marking.png',
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
-        title: 'High-Speed Fly Marking',
-        category: 'Live Demo'
-    },
-    {
-        id: 8,
-        type: 'video',
-<<<<<<< HEAD
-        url: catWelding,
-=======
-        url: '/assets/images/cat-welding.png',
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
-        title: 'Handheld Welding Process',
-        category: 'Tutorial'
-    }
+        {
+                id: 1,
+                type: 'photo',
+                url: indAutomotive,
+                title: 'Precision Metal Marking',
+                category: 'Operation'
+        },
+        {
+                id: 2,
+                type: 'photo',
+                url: prodUvMarking,
+                title: 'High-Precision UV Marking',
+                category: 'Operation'
+        },
+        {
+                id: 3,
+                type: 'photo',
+                url: indJewelry,
+                title: 'Jewelry Laser Engraving',
+                category: 'Operation'
+        },
+        {
+                id: 4,
+                type: 'photo',
+                url: indWood,
+                title: 'Intricate Wood Cutting',
+                category: 'Operation'
+        },
+        {
+                id: 5,
+                type: 'photo',
+                url: prodFiberMarking,
+                title: 'Standalone Fiber System',
+                category: 'Machine'
+        },
+        {
+                id: 6,
+                type: 'photo',
+                url: indElectronics,
+                title: 'Electronics Marking Lab',
+                category: 'Facility'
+        },
+        {
+                id: 7,
+                type: 'video',
+                url: prodFlyMarking,
+                title: 'High-Speed Fly Marking',
+                category: 'Live Demo'
+        },
+        {
+                id: 8,
+                type: 'video',
+                url: catWelding,
+                title: 'Handheld Welding Process',
+                category: 'Tutorial'
+        }
 ];
 
 const additionalItems = [
-    {
-        id: 9,
-        type: 'photo',
-        url: catCutting,
-        title: 'Precision Laser Cutting',
-        category: 'Operation'
-    },
-    {
-        id: 10,
-        type: 'photo',
-        url: catMarking,
-        title: 'Industrial Marking',
-        category: 'Operation'
-    },
-    {
-        id: 11,
-        type: 'photo',
-        url: heroMachine,
-        title: 'Advanced Laser Systems',
-        category: 'Machine'
-    },
-    {
-        id: 12,
-        type: 'photo',
-        url: indFood,
-        title: 'Food Industry Applications',
-        category: 'Industry'
-    },
-    {
-        id: 13,
-        type: 'photo',
-        url: indGlass,
-        title: 'Glass Engraving',
-        category: 'Operation'
-    },
-    {
-        id: 14,
-        type: 'photo',
-        url: indMedical,
-        title: 'Medical Device Marking',
-        category: 'Industry'
-    },
-    {
-        id: 15,
-        type: 'photo',
-        url: indPackaging,
-        title: 'Packaging Solutions',
-        category: 'Industry'
-    },
-    {
-        id: 16,
-        type: 'photo',
-        url: indTextile,
-        title: 'Textile Processing',
-        category: 'Industry'
-    },
-    {
-        id: 17,
-        type: 'photo',
-        url: precisionEng,
-        title: 'Engineering Excellence',
-        category: 'Machine'
-    }
+        {
+                id: 9,
+                type: 'photo',
+                url: catCutting,
+                title: 'Precision Laser Cutting',
+                category: 'Operation'
+        },
+        {
+                id: 10,
+                type: 'photo',
+                url: catMarking,
+                title: 'Industrial Marking',
+                category: 'Operation'
+        },
+        {
+                id: 11,
+                type: 'photo',
+                url: heroMachine,
+                title: 'Advanced Laser Systems',
+                category: 'Machine'
+        },
+        {
+                id: 12,
+                type: 'photo',
+                url: indFood,
+                title: 'Food Industry Applications',
+                category: 'Industry'
+        },
+        {
+                id: 13,
+                type: 'photo',
+                url: indGlass,
+                title: 'Glass Engraving',
+                category: 'Operation'
+        },
+        {
+                id: 14,
+                type: 'photo',
+                url: indMedical,
+                title: 'Medical Device Marking',
+                category: 'Industry'
+        },
+        {
+                id: 15,
+                type: 'photo',
+                url: indPackaging,
+                title: 'Packaging Solutions',
+                category: 'Industry'
+        },
+        {
+                id: 16,
+                type: 'photo',
+                url: indTextile,
+                title: 'Textile Processing',
+                category: 'Industry'
+        },
+        {
+                id: 17,
+                type: 'photo',
+                url: precisionEng,
+                title: 'Engineering Excellence',
+                category: 'Machine'
+        }
 ];
 
 export const galleryItems = [...originalGalleryItems, ...additionalItems];

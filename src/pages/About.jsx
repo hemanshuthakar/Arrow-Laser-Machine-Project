@@ -162,11 +162,7 @@ const AboutSection = () => {
                     >
                         <div className="aspect-square bg-dark-800 border border-dark-700 p-2 rounded-sm overflow-hidden group">
                             <img
-<<<<<<< HEAD
                                 src={indAutomotive}
-=======
-                                src="/assets/images/industries/ind_automotive.png"
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
                                 alt="Arrow Laser Machine Facility"
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                             />

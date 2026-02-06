@@ -38,7 +38,6 @@ const ProductDetail = () => {
         const found = products.find(p => p.id === parseInt(id));
         if (found) {
             setProduct(found);
-            // Reset active image when product changes
             setActiveImage(0);
         }
     }, [id]);
@@ -67,33 +66,11 @@ const ProductDetail = () => {
     }
 
     const contactActions = [
-<<<<<<< HEAD
         { icon: MessageSquare, label: 'WhatsApp', link: `https://wa.me/919909913488?text=Hi, I am interested in ${product.name}`, color: 'bg-[#25D366] hover:bg-[#20bd5a]' },
         { icon: Mail, label: 'Email', link: `mailto:arrowlasermachine@gmail.com?subject=Inquiry for ${product.name}`, color: 'bg-blue-600 hover:bg-blue-700' },
         { icon: Phone, label: 'Call', link: 'tel:+919909913488', color: 'bg-orange-600 hover:bg-orange-700' }
-=======
-        {
-            icon: MessageSquare,
-            label: 'WhatsApp',
-            link: `https://wa.me/919909913488?text=Hi, I am interested in ${product.name}`,
-            color: 'bg-green-600 hover:bg-green-700'
-        },
-        {
-            icon: Mail,
-            label: 'Email',
-            link: `mailto:arrowlasermachine@gmail.com?subject=Inquiry for ${product.name}`,
-            color: 'bg-blue-600 hover:bg-blue-700'
-        },
-        {
-            icon: Phone,
-            label: 'Call',
-            link: 'tel:+919909913488',
-            color: 'bg-orange-600 hover:bg-orange-700'
-        }
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
     ];
 
-    // Helper to parse specs (handling "Label: Value" format)
     const activeSpecs = product.details.map(d => {
         const parts = d.split(':');
         return {
@@ -108,8 +85,6 @@ const ProductDetail = () => {
 
     return (
         <div className="bg-dark-900 min-h-screen pt-24 pb-20 overflow-x-hidden">
-
-            {/* SECTION 1: HERO / PRODUCT OVERVIEW */}
             <section className="container-custom mb-20">
                 <div className="flex flex-col items-start gap-4 mb-8">
                     <button
@@ -122,9 +97,7 @@ const ProductDetail = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                    {/* Left: Gallery (Main Image + Thumbnails) */}
                     <div className="space-y-6">
-                        {/* Main Image */}
                         <div
                             className="relative aspect-square flex items-center justify-center bg-dark-800 rounded-sm border border-dark-700 overflow-hidden cursor-pointer group"
                             onClick={() => { setModalImage(product.images[activeImage]); setIsImageModalOpen(true); }}
@@ -134,14 +107,11 @@ const ProductDetail = () => {
                                 alt={product.name}
                                 className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-105"
                             />
-
-                            {/* Resize Icon Overlay */}
                             <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity bg-dark-900/80 p-2 rounded-sm text-primary">
                                 <Maximize2 size={20} />
                             </div>
                         </div>
 
-                        {/* Thumbnails */}
                         <div className="grid grid-cols-4 md:grid-cols-5 gap-4">
                             {product.images.map((img, idx) => (
                                 <button
@@ -153,143 +123,59 @@ const ProductDetail = () => {
                                 </button>
                             ))}
                         </div>
+                    </div>
 
-                        {/* Actions moved to left side */}
-                        <div className="pt-8 space-y-4">
+                    <div className="space-y-8">
+                        <div>
+                            <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-2 block">
+                                {product.category} Series
+                            </span>
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
+                                {product.name}
+                            </h1>
+                            <p className="text-sm md:text-base font-bold text-text-muted uppercase tracking-widest flex items-center gap-2 mb-6">
+                                <span className="w-2 h-2 rounded-full bg-primary" />
+                                High Precision • Industrial Grade • {product.category === 'Marking' ? 'EZCAD Compatible' : 'Industrial Standard'}
+                            </p>
+                            <p className="text-text-body text-lg leading-relaxed border-l-2 border-primary/30 pl-6">
+                                {product.description}
+                            </p>
+                        </div>
+
+                        <div className="flex flex-wrap gap-2">
+                            {product.tags && product.tags.map(tag => (
+                                <span key={tag} className="px-4 py-1 rounded-full bg-dark-800 border border-dark-700 text-xs font-mono uppercase tracking-widest text-primary">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
                             <button
-                                onClick={() => setIsModalOpen(true)}
-                                className="btn-primary w-full py-5 text-base tracking-[0.2em] font-bold shadow-lg"
+                                onClick={() => setIsInquiryOpen(true)}
+                                className="flex-1 btn-primary py-4 text-center text-sm tracking-[0.2em] font-bold shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] transition-all"
                             >
                                 PRODUCT INQUIRY
                             </button>
-
-                            <div className="grid grid-cols-3 gap-4">
+                            <div className="flex gap-2 justify-center sm:justify-start">
                                 {contactActions.map((action, i) => (
                                     <a
                                         key={i}
                                         href={action.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={`flex items-center justify-center p-5 rounded-sm transition-all duration-300 ${action.color} text-white shadow-md hover:scale-105`}
+                                        className={`w-12 h-12 flex items-center justify-center rounded-sm text-white shadow-lg transform hover:scale-110 transition-all duration-300 ${action.color}`}
                                         title={action.label}
                                     >
-                                        <action.icon size={24} />
+                                        <action.icon size={20} />
                                     </a>
                                 ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right: Product Info */}
-                    <div className="space-y-8">
-                        {/* ... (Product Info content - copied implicitly by not changing lines unless needed, but here I'm replacing a large block to insert finding 'activeSpecs' logic if I replaced the whole file. 
-                         Actually, I should restrict the replacement range to be safer. 
-                         Let me cancel this thought and do a targeted MultiReplace.) */}
-
-<<<<<<< HEAD
-
-                        {/* Right: Product Info */}
-                        <div className="space-y-8">
-                            <div>
-                                <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-2 block">
-                                    {product.category} Series
-                                </span>
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
-                                    {product.name}
-                                </h1>
-                                <p className="text-sm md:text-base font-bold text-text-muted uppercase tracking-widest flex items-center gap-2 mb-6">
-                                    <span className="w-2 h-2 rounded-full bg-primary" />
-                                    High Precision • Industrial Grade • {product.category === 'Marking' ? 'EZCAD Compatible' : 'Industrial Standard'}
-                                </p>
-                                <p className="text-text-body text-lg leading-relaxed border-l-2 border-primary/30 pl-6">
-                                    {product.description}
-                                </p>
-                            </div>
-
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-2">
-                                {product.tags && product.tags.map(tag => (
-                                    <span key={tag} className="px-4 py-1 rounded-full bg-dark-800 border border-dark-700 text-xs font-mono uppercase tracking-widest text-primary">
-                                        {tag}
-                                    </span>
-                                ))}
-=======
-                        {/* Features & Applications */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                            {product.features && (
-                                <div>
-                                    <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest border-b border-primary/20 pb-2">Key Features</h4>
-                                    <ul className="space-y-3">
-                                        {product.features.map((feature, i) => (
-                                            <li key={i} className="text-text-muted text-sm flex items-start">
-                                                <span className="text-primary mr-2">•</span>
-                                                {feature}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
-                            {product.applications && (
-                                <div>
-                                    <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest border-b border-primary/20 pb-2">Common Applications</h4>
-                                    <ul className="space-y-3">
-                                        {product.applications.map((app, i) => (
-                                            <li key={i} className="text-text-muted text-sm flex items-start">
-                                                <CheckCircle2 size={14} className="text-primary mr-2 mt-1 shrink-0" />
-                                                {app}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Tech Specs */}
-                        <div>
-                            <h3 className="text-white font-bold uppercase tracking-widest mb-6 flex items-center">
-                                <Award className="mr-3 text-primary" size={20} />
-                                Technical Specifications
-                            </h3>
-                            <div className="bg-dark-800 border border-dark-700 rounded-sm p-6 overflow-hidden">
-                                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
-                                    {product.details.map((detail, i) => (
-                                        <li key={i} className="flex items-center text-text-muted text-xs border-b border-dark-700/50 pb-2 font-mono">
-                                            {detail}
-                                        </li>
-                                    ))}
-                                </ul>
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
-                            </div>
-
-                            {/* CTA Buttons */}
-                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                <button
-                                    onClick={() => setIsInquiryOpen(true)}
-                                    className="flex-1 btn-primary py-4 text-center text-sm tracking-[0.2em] font-bold shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] transition-all"
-                                >
-                                    PRODUCT INQUIRY
-                                </button>
-                                <div className="flex gap-2 justify-center sm:justify-start">
-                                    {contactActions.map((action, i) => (
-                                        <a
-                                            key={i}
-                                            href={action.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={`w-12 h-12 flex items-center justify-center rounded-sm text-white shadow-lg transform hover:scale-110 transition-all duration-300 ${action.color}`}
-                                            title={action.label}
-                                        >
-                                            <action.icon size={20} />
-                                        </a>
-                                    ))}
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* SECTION 3: TECHNICAL SPECIFICATIONS */}
             <section className="container-custom mb-24">
                 <div className="flex items-center justify-center gap-4 mb-12">
                     <div className="p-3 bg-dark-800 rounded-lg border border-dark-700 text-primary">
@@ -302,11 +188,7 @@ const ProductDetail = () => {
 
                 <div className="bg-dark-800/50 backdrop-blur-md border border-dark-700 rounded-sm p-8 md:p-12 shadow-2xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -z-10" />
-
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-                        {/* We will map the parsed specs here. 
-                             Ideally these would be grouped by category in the data source, 
-                             but here we render them in a clean grid for now. */}
                         {activeSpecs.map((spec, i) => (
                             <div key={i} className="flex justify-between items-center border-b border-dark-700/50 pb-3 group hover:border-primary/30 transition-colors">
                                 <span className="text-text-muted font-mono text-sm">{spec.label}</span>
@@ -317,7 +199,6 @@ const ProductDetail = () => {
                 </div>
             </section>
 
-            {/* SECTION 4: KEY FEATURES */}
             {product.features && (
                 <section className="container-custom mb-24">
                     <div className="flex items-center justify-center gap-4 mb-12">
@@ -342,7 +223,7 @@ const ProductDetail = () => {
                                 <div className="mb-4 text-primary opacity-60 group-hover:opacity-100 transition-opacity">
                                     <CheckCircle2 size={32} />
                                 </div>
-                                <p className="text-lg text-white font-medium leading-relaxed group-hover:text-primary-foreground transition-colors">
+                                <p className="text-lg text-white font-medium leading-relaxed">
                                     {feature}
                                 </p>
                             </motion.div>
@@ -351,7 +232,6 @@ const ProductDetail = () => {
                 </section>
             )}
 
-            {/* SECTION 5: COMMON APPLICATIONS */}
             {product.applications && (
                 <section className="container-custom mb-24">
                     <div className="flex items-center justify-center gap-4 mb-12">
@@ -374,61 +254,60 @@ const ProductDetail = () => {
                 </section>
             )}
 
-            {/* SECTION 6: APPLICATION HIGHLIGHTS */}
-            <section className="container-custom mb-24 overflow-hidden">
-                <div className="flex items-center justify-center gap-4 mb-12">
-                    <div className="p-3 bg-dark-800 rounded-lg border border-dark-700 text-primary">
-                        <Award size={28} />
+            {highlightImages.length > 0 && (
+                <section className="container-custom mb-24 overflow-hidden">
+                    <div className="flex items-center justify-center gap-4 mb-12">
+                        <div className="p-3 bg-dark-800 rounded-lg border border-dark-700 text-primary">
+                            <Award size={28} />
+                        </div>
+                        <h3 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-widest text-center">
+                            Application Highlights
+                        </h3>
                     </div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-widest text-center">
-                        Application Highlights
-                    </h3>
-                </div>
 
-                <div className="relative group">
-                    {/* Scroll Buttons */}
-                    <button
-                        onClick={() => scroll('left')}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-dark-900/90 backdrop-blur-sm p-4 rounded-full text-white hover:text-primary border border-dark-700 hover:border-primary transition-all shadow-2xl opacity-0 group-hover:opacity-100 -translate-x-1/2"
-                    >
-                        <ChevronLeft size={24} />
-                    </button>
+                    <div className="relative group">
+                        <button
+                            onClick={() => scroll('left')}
+                            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-dark-900/90 backdrop-blur-sm p-4 rounded-full text-white hover:text-primary border border-dark-700 hover:border-primary transition-all shadow-2xl opacity-0 group-hover:opacity-100 -translate-x-1/2"
+                        >
+                            <ChevronLeft size={24} />
+                        </button>
 
-                    <button
-                        onClick={() => scroll('right')}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-dark-900/90 backdrop-blur-sm p-4 rounded-full text-white hover:text-primary border border-dark-700 hover:border-primary transition-all shadow-2xl opacity-0 group-hover:opacity-100 translate-x-1/2"
-                    >
-                        <ChevronRight size={24} />
-                    </button>
+                        <button
+                            onClick={() => scroll('right')}
+                            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-dark-900/90 backdrop-blur-sm p-4 rounded-full text-white hover:text-primary border border-dark-700 hover:border-primary transition-all shadow-2xl opacity-0 group-hover:opacity-100 translate-x-1/2"
+                        >
+                            <ChevronRight size={24} />
+                        </button>
 
-                    <div
-                        ref={scrollContainerRef}
-                        className="flex overflow-x-auto gap-6 pb-8 hide-scrollbar scroll-smooth"
-                    >
-                        {highlightImages.map((img, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1 }}
-                                className="w-[85%] sm:w-[45%] md:w-[32%] aspect-[16/9] bg-dark-800 rounded-sm overflow-hidden border border-dark-700 relative flex-shrink-0 group/item cursor-pointer"
-                                onClick={() => { setModalImage(img); setIsImageModalOpen(true); }}
-                            >
-                                <img src={img} alt="Application" className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent opacity-80" />
-                                <div className="absolute bottom-3 left-3">
-                                    <p className="text-white text-xs font-bold uppercase tracking-widest truncate max-w-full">
-                                        {product.applicationHighlights ? `Highlight ${idx + 1}` : `Demo ${idx + 1}`}
-                                    </p>
-                                </div>
-                            </motion.div>
-                        ))}
+                        <div
+                            ref={scrollContainerRef}
+                            className="flex overflow-x-auto gap-6 pb-8 hide-scrollbar scroll-smooth"
+                        >
+                            {highlightImages.map((img, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: idx * 0.1 }}
+                                    className="w-[85%] sm:w-[45%] md:w-[32%] aspect-[16/9] bg-dark-800 rounded-sm overflow-hidden border border-dark-700 relative flex-shrink-0 group/item cursor-pointer"
+                                    onClick={() => { setModalImage(img); setIsImageModalOpen(true); }}
+                                >
+                                    <img src={img} alt="Application" className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110" />
+                                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-dark-950 to-transparent opacity-80" />
+                                    <div className="absolute bottom-3 left-3">
+                                        <p className="text-white text-xs font-bold uppercase tracking-widest">
+                                            {product.applicationHighlights ? `Highlight ${idx + 1}` : `Demo ${idx + 1}`}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
 
-            {/* SECTION 7: PRODUCT INQUIRY CTA */}
             <section className="container-custom">
                 <div className="glass-card p-12 md:p-20 text-center rounded-sm relative overflow-hidden border border-primary/20">
                     <div className="absolute inset-0 bg-primary/5 -z-10" />
@@ -451,7 +330,6 @@ const ProductDetail = () => {
                 </div>
             </section>
 
-            {/* FULL SCREEN IMAGE MODAL */}
             <AnimatePresence>
                 {isImageModalOpen && (
                     <motion.div
@@ -477,13 +355,6 @@ const ProductDetail = () => {
                                 alt={product.name}
                                 className="w-full h-full object-contain max-h-[85vh]"
                             />
-                            {!modalImage && (
-                                <div className="absolute bottom-4 left-0 right-0 text-center">
-                                    <p className="text-white/80 font-mono text-sm tracking-widest uppercase">
-                                        {activeImage + 1} / {product.images.length}
-                                    </p>
-                                </div>
-                            )}
                         </motion.div>
                     </motion.div>
                 )}

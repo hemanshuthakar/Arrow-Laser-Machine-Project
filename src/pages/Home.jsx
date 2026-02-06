@@ -115,11 +115,7 @@ const Hero = ({ onInquiry }) => {
                     >
                         <div className="relative aspect-square rounded-xl overflow-hidden bg-dark-800">
                             <img
-<<<<<<< HEAD
                                 src={prodFiberMarking}
-=======
-                                src="/assets/images/products/prod_fiber_marking.png"
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
                                 alt="Industrial Laser Machine"
                                 className="w-full h-full object-cover transition-all duration-1000 scale-110 group-hover:scale-100"
                             />
@@ -231,11 +227,7 @@ const AboutPreview = () => {
                         <div className="relative z-10 p-2 border border-dark-700 bg-dark-900 rounded-sm overflow-hidden group">
                             <div className="aspect-[4/3] bg-dark-800 flex items-center justify-center relative overflow-hidden">
                                 <img
-<<<<<<< HEAD
                                     src={indElectronics}
-=======
-                                    src="/assets/images/industries/ind_electronics.png"
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
                                     alt="Precision Engineering"
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                                 />
@@ -392,22 +384,14 @@ const Categories = () => {
             title: 'Laser Cutting',
             icon: Scissors,
             desc: 'High-speed precision cutting for metals, plastics, and composite materials.',
-<<<<<<< HEAD
             image: indWood,
-=======
-            image: '/assets/images/industries/ind_wood.png',
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
             color: 'from-orange-500/20'
         },
         {
             title: 'Laser Marking',
             icon: Layers,
             desc: 'Permanent identification, branding, and tracing for industrial components.',
-<<<<<<< HEAD
             image: prodUvMarking,
-=======
-            image: '/assets/images/products/prod_uv_marking.png',
->>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
             color: 'from-blue-500/20'
         },
         {
