@@ -3,8 +3,11 @@ import { motion } from 'framer-motion';
 import { Award, Star, ShieldCheck, Trophy } from 'lucide-react';
 import PageHero from '../components/PageHero';
 
+<<<<<<< HEAD
 import precisionEng from '../assets/images/precision-engineering.png';
 
+=======
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
 const Awards = () => {
     const awards = [
         {
@@ -121,7 +124,11 @@ const Awards = () => {
                             className="aspect-video bg-dark-800 border border-dark-700 rounded-sm overflow-hidden p-2"
                         >
                             <img
+<<<<<<< HEAD
                                 src={precisionEng}
+=======
+                                src="/assets/images/precision-engineering.png"
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
                                 alt="Exhibition Hall"
                                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
                             />

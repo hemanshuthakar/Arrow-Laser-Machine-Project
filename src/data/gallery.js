@@ -20,56 +20,88 @@ const originalGalleryItems = [
     {
         id: 1,
         type: 'photo',
+<<<<<<< HEAD
         url: indAutomotive,
+=======
+        url: '/assets/images/industries/ind_automotive.png',
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
         title: 'Precision Metal Marking',
         category: 'Operation'
     },
     {
         id: 2,
         type: 'photo',
+<<<<<<< HEAD
         url: prodUvMarking,
+=======
+        url: '/assets/images/products/prod_uv_marking.png',
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
         title: 'High-Precision UV Marking',
         category: 'Operation'
     },
     {
         id: 3,
         type: 'photo',
+<<<<<<< HEAD
         url: indJewelry,
+=======
+        url: '/assets/images/industries/ind_jewelry.png',
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
         title: 'Jewelry Laser Engraving',
         category: 'Operation'
     },
     {
         id: 4,
         type: 'photo',
+<<<<<<< HEAD
         url: indWood,
+=======
+        url: '/assets/images/industries/ind_wood.png',
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
         title: 'Intricate Wood Cutting',
         category: 'Operation'
     },
     {
         id: 5,
         type: 'photo',
+<<<<<<< HEAD
         url: prodFiberMarking,
+=======
+        url: '/assets/images/products/prod_fiber_marking.png',
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
         title: 'Standalone Fiber System',
         category: 'Machine'
     },
     {
         id: 6,
         type: 'photo',
+<<<<<<< HEAD
         url: indElectronics,
+=======
+        url: '/assets/images/industries/ind_electronics.png',
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
         title: 'Electronics Marking Lab',
         category: 'Facility'
     },
     {
         id: 7,
         type: 'video',
+<<<<<<< HEAD
         url: prodFlyMarking,
+=======
+        url: '/assets/images/products/prod_fly_marking.png',
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
         title: 'High-Speed Fly Marking',
         category: 'Live Demo'
     },
     {
         id: 8,
         type: 'video',
+<<<<<<< HEAD
         url: catWelding,
+=======
+        url: '/assets/images/cat-welding.png',
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
         title: 'Handheld Welding Process',
         category: 'Tutorial'
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import PageHero from '../components/PageHero';
+<<<<<<< HEAD
 import catCutting from '../assets/images/cat-cutting.png';
 import catMarking from '../assets/images/cat-marking.png';
 import catWelding from '../assets/images/cat-welding.png';
@@ -56,6 +57,46 @@ const Industries = () => {
         { name: 'Kitchenware & Homeware', image: catMarking },
         { name: 'Textile & Fabric', image: indTextile },
         { name: 'Watch & Optics', image: indGlass }
+=======
+
+const Industries = () => {
+    const industries = [
+        { name: 'Acrylic & Laminates', image: '/assets/images/cat-cutting.png' },
+        { name: 'Advertising and Signage', image: '/assets/images/industries/ind_wood.png' },
+        { name: 'Agricultural Equipment', image: '/assets/images/products/prod_fiber_marking.png' },
+        { name: 'Automotive Industry', image: '/assets/images/industries/ind_automotive.png' },
+        { name: 'Bottles & Beverage', image: '/assets/images/industries/ind_glass.png' },
+        { name: 'Brass & Copper Parts', image: '/assets/images/cat-marking.png' },
+        { name: 'Cable & Wires', image: '/assets/images/industries/ind_electronics.png' },
+        { name: 'Cosmetics & Novelty', image: '/assets/images/industries/ind_packaging.png' },
+        { name: 'Cutting Tools & Dies', image: '/assets/images/cat-welding.png' },
+        { name: 'Defence & Aerospace', image: '/assets/images/precision-engineering.png' },
+        { name: 'Electrical & Electronics', image: '/assets/images/products/prod_uv_marking.png' },
+        { name: 'Elevator & Escalator', image: '/assets/images/cat-marking.png' },
+        { name: 'Food & FMCG', image: '/assets/images/industries/ind_food.png' },
+        { name: 'Furniture & Fabrication', image: '/assets/images/industries/ind_wood.png' },
+        { name: 'Gems & Jewellery', image: '/assets/images/industries/ind_jewelry.png' },
+        { name: 'Gift & Article', image: '/assets/images/industries/ind_jewelry.png' },
+        { name: 'Glass & Optical', image: '/assets/images/industries/ind_glass.png' },
+        { name: 'Gold & Silver', image: '/assets/images/industries/ind_jewelry.png' },
+        { name: 'Hardware & Bathware', image: '/assets/images/cat-welding.png' },
+        { name: 'Kitchen & Home Appliances', image: '/assets/images/cat-marking.png' },
+        { name: 'Leather & Rubber', image: '/assets/images/industries/ind_textile.png' },
+        { name: 'LED Bulb & Switches', image: '/assets/images/industries/ind_electronics.png' },
+        { name: 'Machine Tools & Equipments', image: '/assets/images/products/prod_fiber_marking.png' },
+        { name: 'Metals & Non Metals', image: '/assets/images/industries/ind_automotive.png' },
+        { name: 'Mobile Accessories & Gadgets', image: '/assets/images/industries/ind_electronics.png' },
+        { name: 'Motor & Bearing', image: '/assets/images/products/prod_fiber_marking.png' },
+        { name: 'Pharma & Medical', image: '/assets/images/industries/ind_medical.png' },
+        { name: 'Pipes & Fittings', image: '/assets/images/cat-marking.png' },
+        { name: 'Ply & Woods', image: '/assets/images/industries/ind_wood.png' },
+        { name: 'Print & Packaging', image: '/assets/images/products/prod_fly_marking.png' },
+        { name: 'Pumps & Valves', image: '/assets/images/cat-marking.png' },
+        { name: 'Steel Utensils', image: '/assets/images/cat-welding.png' },
+        { name: 'Kitchenware & Homeware', image: '/assets/images/cat-marking.png' },
+        { name: 'Textile & Fabric', image: '/assets/images/industries/ind_textile.png' },
+        { name: 'Watch & Optics', image: '/assets/images/industries/ind_glass.png' }
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
     ];
 
     return (

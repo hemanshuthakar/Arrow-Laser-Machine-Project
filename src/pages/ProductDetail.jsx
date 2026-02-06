@@ -67,9 +67,30 @@ const ProductDetail = () => {
     }
 
     const contactActions = [
+<<<<<<< HEAD
         { icon: MessageSquare, label: 'WhatsApp', link: `https://wa.me/919909913488?text=Hi, I am interested in ${product.name}`, color: 'bg-[#25D366] hover:bg-[#20bd5a]' },
         { icon: Mail, label: 'Email', link: `mailto:arrowlasermachine@gmail.com?subject=Inquiry for ${product.name}`, color: 'bg-blue-600 hover:bg-blue-700' },
         { icon: Phone, label: 'Call', link: 'tel:+919909913488', color: 'bg-orange-600 hover:bg-orange-700' }
+=======
+        {
+            icon: MessageSquare,
+            label: 'WhatsApp',
+            link: `https://wa.me/919909913488?text=Hi, I am interested in ${product.name}`,
+            color: 'bg-green-600 hover:bg-green-700'
+        },
+        {
+            icon: Mail,
+            label: 'Email',
+            link: `mailto:arrowlasermachine@gmail.com?subject=Inquiry for ${product.name}`,
+            color: 'bg-blue-600 hover:bg-blue-700'
+        },
+        {
+            icon: Phone,
+            label: 'Call',
+            link: 'tel:+919909913488',
+            color: 'bg-orange-600 hover:bg-orange-700'
+        }
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
     ];
 
     // Helper to parse specs (handling "Label: Value" format)
@@ -132,6 +153,31 @@ const ProductDetail = () => {
                                 </button>
                             ))}
                         </div>
+
+                        {/* Actions moved to left side */}
+                        <div className="pt-8 space-y-4">
+                            <button
+                                onClick={() => setIsModalOpen(true)}
+                                className="btn-primary w-full py-5 text-base tracking-[0.2em] font-bold shadow-lg"
+                            >
+                                PRODUCT INQUIRY
+                            </button>
+
+                            <div className="grid grid-cols-3 gap-4">
+                                {contactActions.map((action, i) => (
+                                    <a
+                                        key={i}
+                                        href={action.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`flex items-center justify-center p-5 rounded-sm transition-all duration-300 ${action.color} text-white shadow-md hover:scale-105`}
+                                        title={action.label}
+                                    >
+                                        <action.icon size={24} />
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
                     </div>
 
                     {/* Right: Product Info */}
@@ -140,6 +186,7 @@ const ProductDetail = () => {
                          Actually, I should restrict the replacement range to be safer. 
                          Let me cancel this thought and do a targeted MultiReplace.) */}
 
+<<<<<<< HEAD
 
                         {/* Right: Product Info */}
                         <div className="space-y-8">
@@ -166,6 +213,52 @@ const ProductDetail = () => {
                                         {tag}
                                     </span>
                                 ))}
+=======
+                        {/* Features & Applications */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            {product.features && (
+                                <div>
+                                    <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest border-b border-primary/20 pb-2">Key Features</h4>
+                                    <ul className="space-y-3">
+                                        {product.features.map((feature, i) => (
+                                            <li key={i} className="text-text-muted text-sm flex items-start">
+                                                <span className="text-primary mr-2">•</span>
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                            {product.applications && (
+                                <div>
+                                    <h4 className="text-white font-bold mb-6 text-sm uppercase tracking-widest border-b border-primary/20 pb-2">Common Applications</h4>
+                                    <ul className="space-y-3">
+                                        {product.applications.map((app, i) => (
+                                            <li key={i} className="text-text-muted text-sm flex items-start">
+                                                <CheckCircle2 size={14} className="text-primary mr-2 mt-1 shrink-0" />
+                                                {app}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Tech Specs */}
+                        <div>
+                            <h3 className="text-white font-bold uppercase tracking-widest mb-6 flex items-center">
+                                <Award className="mr-3 text-primary" size={20} />
+                                Technical Specifications
+                            </h3>
+                            <div className="bg-dark-800 border border-dark-700 rounded-sm p-6 overflow-hidden">
+                                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-4">
+                                    {product.details.map((detail, i) => (
+                                        <li key={i} className="flex items-center text-text-muted text-xs border-b border-dark-700/50 pb-2 font-mono">
+                                            {detail}
+                                        </li>
+                                    ))}
+                                </ul>
+>>>>>>> 5ea164ecd513d18fa85918ef2f50c4dce2f476b3
                             </div>
 
                             {/* CTA Buttons */}
