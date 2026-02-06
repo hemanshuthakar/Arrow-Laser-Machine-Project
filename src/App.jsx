@@ -14,6 +14,8 @@ import ProductDetail from './pages/ProductDetail';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
+import Industries from './pages/Industries';
+import Awards from './pages/Awards';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -44,6 +46,8 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/industries" element={<Industries />} />
+            <Route path="/awards" element={<Awards />} />
           </Routes>
         </main>
         <Footer />

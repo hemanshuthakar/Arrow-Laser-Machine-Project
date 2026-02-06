@@ -1,26 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, ShieldAlert, Award, ShieldCheck, CheckCircle, FileCheck } from 'lucide-react';
+import { Target, Eye, ShieldAlert, Zap, Layers, ShieldCheck, Timer, BadgeIndianRupee, CheckCircle2, User } from 'lucide-react';
 import PageHero from '../components/PageHero';
+
+import indAutomotive from '../assets/images/industries/ind_automotive.png';
 
 const MissionVision = () => {
     const values = [
         {
             title: 'Our Mission',
             icon: Target,
-            desc: 'To empower global manufacturing with the most precise, reliable, and energy-efficient laser solutions that drive industrial growth and innovation.',
+            desc: 'To deliver exceptional laser solutions that empower our clients, enhance their production capabilities, and elevate their brand presence through cutting-edge technology and unparalleled customer service.',
             color: 'bg-primary/5'
         },
         {
             title: 'Our Vision',
             icon: Eye,
-            desc: 'To become the global benchmark for laser technology excellence, setting new standards in engineering precision and customer-centric support.',
+            desc: 'We envision a future where our innovative laser technology sets the standard for quality and efficiency in marking and engraving solutions across the globe.',
             color: 'bg-secondary/5'
         },
         {
-            title: 'Core Values',
+            title: 'Quality Assurance',
             icon: ShieldAlert,
-            desc: 'Integrity in engineering, transparency in business, and an unwavering commitment to the safety and success of our clients.',
+            desc: 'Each machine undergoes strict quality checks to ensure accuracy, performance, and long-term reliability. We prioritize customer satisfaction with eco-friendly solutions that exceed industry standards.',
             color: 'bg-dark-700/50'
         }
     ];
@@ -51,80 +53,60 @@ const MissionVision = () => {
     );
 };
 
-const Timeline = () => {
-    const events = [
-        { year: '2005', title: 'Foundation', desc: 'Arrow Laser established its first R&D facility in India.' },
-        { year: '2010', title: 'Global Export', desc: 'Expanded operations to Middle East and South East Asia.' },
-        { year: '2015', title: 'Fiber Innovation', desc: 'Launched the first proprietary High-Power Fiber Laser Cutter.' },
-        { year: '2020', title: 'AI Integration', desc: 'Introduced AI-driven surface profiling and diagnostic software.' },
-        { year: '2024', title: 'Global Recognition', desc: 'Awarded as the leading industrial laser exporter in the region.' },
+const WhyChooseUs = () => {
+    const features = [
+        {
+            title: 'Advanced Laser Technology',
+            icon: Zap,
+            desc: 'High-speed, high-precision, and maintenance-free laser solutions.'
+        },
+        {
+            title: 'Wide Range of Applications',
+            icon: Layers,
+            desc: 'Ideal for marking logos, brand names, serial numbers, barcodes, QR codes, and more on metals, plastics, ceramics, glass, wood, and other materials.'
+        },
+        {
+            title: 'Unmatched Warranty & Benefits',
+            icon: Timer,
+            desc: 'One-year machine warranty, two-year laser source warranty, and exclusive add-ons such as Wi-Fi adapter, antivirus software, and accessories.'
+        },
+        {
+            title: 'Instant Availability & Fast Delivery',
+            icon: ShieldCheck,
+            desc: 'Ready stock and same-day dispatch for urgent requirements.'
+        },
+        {
+            title: '24/7 Support & Service',
+            icon: ShieldCheck,
+            desc: 'Dedicated technical assistance to ensure seamless operation.'
+        },
+        {
+            title: 'Easy and Affordable',
+            icon: BadgeIndianRupee,
+            desc: 'The best combination of price and performance in the industry.'
+        }
     ];
 
     return (
-        <section className="section-padding bg-dark-800 overflow-hidden">
+        <section className="section-padding bg-dark-800">
             <div className="container-custom">
-                <div className="text-center mb-20">
-                    <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Our Journey</span>
-                    <h2 className="text-4xl md:text-5xl">Milestones of Progress</h2>
+                <div className="text-center mb-16">
+                    <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Engineered Excellence</span>
+                    <h2 className="text-4xl md:text-5xl font-bold">Why Choose Arrow Laser Machine?</h2>
                 </div>
-
-                <div className="relative">
-                    {/* Central Line */}
-                    <div className="absolute left-1/2 top-0 bottom-0 w-px bg-dark-700 -translate-x-1/2 hidden md:block" />
-
-                    <div className="space-y-24 relative">
-                        {events.map((event, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.8 }}
-                                className={`flex flex-col md:flex-row items-center ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                            >
-                                {/* Content Side */}
-                                <div className="flex-1 w-full md:w-1/2 px-4 md:px-12 text-center md:text-left">
-                                    <div className={`p-8 glass-card border-dark-700 border-l-4 ${i % 2 === 0 ? 'md:text-right border-l-0 md:border-r-4' : 'text-left border-primary'} border-primary`}>
-                                        <span className="text-primary font-mono text-xl font-bold mb-2 block">{event.year}</span>
-                                        <h3 className="text-2xl font-bold text-white mb-4">{event.title}</h3>
-                                        <p className="text-text-muted leading-relaxed">{event.desc}</p>
-                                    </div>
-                                </div>
-
-                                {/* Dot */}
-                                <div className="relative z-10 w-12 h-12 flex items-center justify-center my-8 md:my-0">
-                                    <div className="w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(245,158,11,1)]" />
-                                    <div className="absolute inset-0 bg-primary/20 rounded-full animate-ping" />
-                                </div>
-
-                                {/* Spacer */}
-                                <div className="flex-1 hidden md:block" />
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
-
-const Team = () => {
-    return (
-        <section className="section-padding bg-dark-900 border-t border-dark-700">
-            <div className="container-custom text-center">
-                <h2 className="text-4xl font-bold mb-16">Leadership in Engineering</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    {[1, 2, 3].map((_, i) => (
-                        <motion.div key={i} whileHover={{ y: -10 }} className="glass-card p-8 rounded-sm group">
-                            <div className="w-full aspect-square bg-dark-800 rounded-sm mb-6 grayscale group-hover:grayscale-0 transition-all border border-dark-700 overflow-hidden">
-                                <img
-                                    src="/assets/images/precision-engineering.png"
-                                    alt="Engineering Leadership"
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                />
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-2">Executive Director</h3>
-                            <p className="text-primary font-mono text-xs uppercase tracking-widest">Board of Engineering</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {features.map((feature, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className="glass-card p-10 border-dark-700 hover:border-primary/30 transition-all group"
+                        >
+                            <feature.icon className="text-primary mb-6" size={40} />
+                            <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
+                            <p className="text-text-muted leading-relaxed">{feature.desc}</p>
                         </motion.div>
                     ))}
                 </div>
@@ -133,31 +115,168 @@ const Team = () => {
     );
 };
 
-const Certifications = () => {
-    const certs = [
-        { title: 'ISO 9001:2015', label: 'Quality Management', icon: ShieldCheck },
-        { title: 'CE Mark', label: 'Safety Compliance', icon: CheckCircle },
-        { title: 'TUV Certified', label: 'Engineering Excellence', icon: Award },
-        { title: 'SGS Audited', label: 'Factory Standard', icon: FileCheck },
+const AboutSection = () => {
+    return (
+        <section className="section-padding bg-dark-900 overflow-hidden">
+            <div className="container-custom">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">About Arrow Laser Machine</span>
+                        <h2 className="text-4xl md:text-5xl mb-8 leading-tight">Leading Choice for Industrial Laser Solutions</h2>
+                        <p className="text-text-body mb-6 leading-relaxed">
+                            Welcome to Arrow Laser Machine, your trusted Manufacturer, Importer and Supplier of a wide range of Fiber Laser Marking Machines, Jewellery Laser Machines, Laser Engraving & Cutting Machines, Fiber Laser Sources, and Laser Marking Machine Parts. Established in 2022 in Ahmedabad, Gujarat, India, we specialize in precision laser marking, engraving, and etching solutions tailored for a wide range of industries.
+                        </p>
+                        <p className="text-text-body mb-8 leading-relaxed">
+                            Our state-of-the-art laser machines are designed for precision marking and engraving on various materials, including metals, plastics, ceramics, glass, wood, and more. Leveraging cutting-edge laser technology, we deliver sharp, permanent, and high-quality results—whether you need to mark logos, serial numbers, barcodes, QR codes, or intricate designs.
+                        </p>
+                        <p className="text-text-body mb-8 leading-relaxed italic border-l-2 border-primary pl-6">
+                            Customer satisfaction is at the core of our operations. We take pride in offering eco-friendly laser marking solutions that exceed industry standards. At Arrow Laser, we combine reliability and innovation to provide permanent marking solutions that you can trust.
+                        </p>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            {[
+                                'High-speed and precise marking',
+                                'Long-lasting, maintenance-free',
+                                'Works on metals, plastics, ceramics',
+                                'Non-contact, non-damaging process',
+                                'Low power consumption',
+                                'High efficiency'
+                            ].map((item, i) => (
+                                <div key={i} className="flex items-center space-x-3 text-text-muted">
+                                    <CheckCircle2 size={18} className="text-primary shrink-0" />
+                                    <span className="text-sm">{item}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="relative"
+                    >
+                        <div className="aspect-square bg-dark-800 border border-dark-700 p-2 rounded-sm overflow-hidden group">
+                            <img
+                                src={indAutomotive}
+                                alt="Arrow Laser Machine Facility"
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                            />
+                        </div>
+                        <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-primary/10 border border-primary/20 backdrop-blur-sm -z-10 rounded-sm" />
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+const Leadership = () => {
+    return (
+        <section className="section-padding bg-dark-800 border-t border-dark-700">
+            <div className="container-custom text-center">
+                <h2 className="text-4xl font-bold mb-16 uppercase tracking-widest text-white">Leadership</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <motion.div
+                        whileHover={{ y: -10 }}
+                        className="glass-card p-8 rounded-sm group border-primary/20"
+                    >
+                        <div className="w-full aspect-square bg-dark-900 rounded-sm mb-6 transition-all border border-dark-700 overflow-hidden relative flex items-center justify-center">
+                            <div className="w-full h-full flex items-center justify-center bg-dark-800/50 group-hover:bg-primary/5 transition-colors">
+                                <User size={120} className="text-dark-600 group-hover:text-primary/40 transition-colors" />
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-dark-900 to-transparent opacity-60" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-2">Mr. Pankaj Diwkaar</h3>
+                        <p className="text-primary font-mono text-sm uppercase tracking-widest font-bold">Director</p>
+                        <p className="text-text-muted mt-4 text-sm font-mono">+91 99099 13488</p>
+                    </motion.div>
+
+                    <motion.div
+                        whileHover={{ y: -10 }}
+                        className="glass-card p-8 rounded-sm group border-primary/20"
+                    >
+                        <div className="w-full aspect-square bg-dark-900 rounded-sm mb-6 transition-all border border-dark-700 overflow-hidden relative flex items-center justify-center">
+                            <div className="w-full h-full flex items-center justify-center bg-dark-800/50 group-hover:bg-primary/5 transition-colors">
+                                <User size={120} className="text-dark-600 group-hover:text-primary/40 transition-colors" />
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-dark-900 to-transparent opacity-60" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-2">Sales Manager</h3>
+                        <p className="text-primary font-mono text-sm uppercase tracking-widest font-bold">Expert Support</p>
+                        <p className="text-text-muted mt-4 text-sm font-mono">+91 91044 01022</p>
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+
+const Industries = () => {
+    const industries = [
+        'Acrylic & Laminates', 'Advertising', 'Agricultural', 'Automotive', 'Beverage',
+        'Brass & Copper', 'Cable & Wires', 'Cosmetics', 'Cutting Tools', 'Defence',
+        'Electronics', 'Elevators', 'Food & FMCG', 'Furniture', 'Jewellery',
+        'Gifts', 'Glass', 'Gold & Silver', 'Hardware', 'Kitchen Appliances',
+        'Leather', 'LED & Switches', 'Machine Tools', 'Metals', 'Mobile Gadgets',
+        'Motor & Bearing', 'Medical', 'Pipes', 'Woods', 'Packaging',
+        'Pumps', 'Steel Utensils', 'Textile', 'Watch & Optics'
     ];
 
     return (
-        <section className="section-padding bg-dark-900">
-            <div className="container-custom text-center">
-                <h2 className="text-3xl font-bold mb-16 uppercase tracking-widest text-text-muted">Global Recognition & Standards</h2>
+        <section className="section-padding bg-dark-900 overflow-hidden">
+            <div className="container-custom">
+                <div className="text-center mb-16">
+                    <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Our Impact</span>
+                    <h2 className="text-4xl md:text-5xl font-bold">Industries We Serve</h2>
+                </div>
+                <div className="flex flex-wrap justify-center gap-4">
+                    {industries.map((industry, i) => (
+                        <motion.span
+                            key={i}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.05 }}
+                            className="px-6 py-3 bg-dark-800 border border-dark-700 text-text-muted hover:text-primary hover:border-primary transition-all duration-300 rounded-full text-sm font-bold uppercase tracking-wider"
+                        >
+                            {industry}
+                        </motion.span>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center opacity-70 hover:opacity-100 transition-opacity">
-                    {certs.map((cert, i) => (
+const Awards = () => {
+    return (
+        <section className="section-padding bg-dark-800 border-t border-dark-700">
+            <div className="container-custom text-center">
+                <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Global Recognition</span>
+                <h2 className="text-4xl md:text-5xl font-bold mb-16 uppercase tracking-widest">Awards & Exhibitions</h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {[
+                        { title: 'Innovation Excellence', year: '2023', org: 'Tech Expo Ahmedabad' },
+                        { title: 'Best Laser Supplier', year: '2024', org: 'Industrial Awards India' },
+                        { title: 'Eco-Friendly Solution', year: '2023', org: 'Green Tech Forum' },
+                        { title: 'Quality Benchmark', year: '2024', org: 'Manufacturing Summit' }
+                    ].map((award, i) => (
                         <motion.div
                             key={i}
                             whileHover={{ y: -5 }}
-                            className="flex flex-col items-center group"
+                            className="bg-dark-900 p-8 border border-dark-700 rounded-sm group relative overflow-hidden"
                         >
-                            <div className="w-20 h-20 border border-dark-700 rounded-sm flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
-                                <cert.icon size={36} className="text-text-muted group-hover:text-primary transition-colors" />
-                            </div>
-                            <h4 className="text-white font-bold mb-1">{cert.title}</h4>
-                            <p className="text-xs text-text-muted uppercase tracking-wider">{cert.label}</p>
+                            <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 -translate-y-8 translate-x-8 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-500" />
+                            <h4 className="text-primary font-bold mb-2 text-xl">{award.year}</h4>
+                            <h3 className="text-white font-bold mb-4 uppercase tracking-widest text-sm">{award.title}</h3>
+                            <p className="text-text-muted text-xs font-mono">{award.org}</p>
                         </motion.div>
                     ))}
                 </div>
@@ -170,14 +289,16 @@ const About = () => {
     return (
         <div className="bg-dark-900">
             <PageHero
-                title="Our Industrial Legacy"
-                subtitle="Leading the way in laser technology innovation for over two decades."
+                title="Innovation & Precision"
+                subtitle="Manufacturer, Importer and Supplier of Fiber Laser Marking Machine, Jewellery Laser Machine, Laser Engraving & Cutting Machines, and more."
                 breadcrumb="About Us"
             />
+            <AboutSection />
             <MissionVision />
-            <Timeline />
-            <Team />
-            <Certifications />
+            <WhyChooseUs />
+            <Industries />
+            <Awards />
+            <Leadership />
         </div>
     );
 };

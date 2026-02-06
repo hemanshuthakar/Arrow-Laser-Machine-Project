@@ -4,6 +4,13 @@ import { Cpu, Zap, ShieldCheck, Globe, ArrowRight, CheckCircle2, Layers, Scissor
 import { useNavigate } from 'react-router-dom';
 import Counter from '../components/Counter';
 import InquiryModal from '../components/InquiryModal';
+import { products } from '../data/products';
+import prodFiberMarking from '../assets/images/product-fiber-marking.jpg';
+import indElectronics from '../assets/images/industries/ind_electronics.png';
+import indWood from '../assets/images/industries/ind_wood.png';
+import prodUvMarking from '../assets/images/product-uv-marking.jpg';
+import catWelding from '../assets/images/cat-welding.png';
+import catCleaning from '../assets/images/cat-cleaning.png';
 
 const Hero = ({ onInquiry }) => {
     const navigate = useNavigate();
@@ -36,16 +43,15 @@ const Hero = ({ onInquiry }) => {
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                         </span>
-                        <span>Est. 2005 • Precision Engineering</span>
+                        <span>Est. 2022 • Precision Engineering</span>
                     </motion.div>
 
                     <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6">
                         Pioneering the Future of <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">Laser Technology</span>
                     </h1>
-
                     <p className="text-lg md:text-xl text-text-muted mb-10 leading-relaxed max-w-xl">
-                        Unleashing extreme precision and industrial power. We design and manufacture world-class laser machines for global manufacturing excellence.
+                        Precision Engineering Since 2022. High-performance laser machines designed for industrial excellence.
                     </p>
 
                     <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
@@ -57,10 +63,10 @@ const Hero = ({ onInquiry }) => {
                             <Zap size={18} />
                         </button>
                         <button
-                            onClick={() => navigate('/about')}
+                            onClick={onInquiry}
                             className="btn-outline flex items-center justify-center space-x-2"
                         >
-                            <span>OUR STORY</span>
+                            <span>ENQUIRE NOW</span>
                         </button>
                     </div>
                 </motion.div>
@@ -109,9 +115,9 @@ const Hero = ({ onInquiry }) => {
                     >
                         <div className="relative aspect-square rounded-xl overflow-hidden bg-dark-800">
                             <img
-                                src="/assets/images/hero-machine.png"
+                                src={prodFiberMarking}
                                 alt="Industrial Laser Machine"
-                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100"
+                                className="w-full h-full object-cover transition-all duration-1000 scale-110 group-hover:scale-100"
                             />
 
                             {/* Inner Glow */}
@@ -221,7 +227,7 @@ const AboutPreview = () => {
                         <div className="relative z-10 p-2 border border-dark-700 bg-dark-900 rounded-sm overflow-hidden group">
                             <div className="aspect-[4/3] bg-dark-800 flex items-center justify-center relative overflow-hidden">
                                 <img
-                                    src="/assets/images/precision-engineering.png"
+                                    src={indElectronics}
                                     alt="Precision Engineering"
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                                 />
@@ -260,7 +266,7 @@ const AboutPreview = () => {
                         <h2 className="text-4xl md:text-5xl mb-8">Redefining Industrial <br className="hidden md:block" /> Precision Standards</h2>
 
                         <p className="text-text-body mb-8 leading-relaxed">
-                            Arrow Laser Machine is a global leader in designing and manufacturing high-end industrial laser solutions. Our engineers combine decades of experience with cutting-edge electronics to deliver machines that redefine what's possible in fabrication.
+                            Arrow Laser Machine designs and manufactures world-class laser systems for marking, engraving, cutting, welding, and cleaning applications across diverse industries. Established in 2022, we deliver precision laser technology for industrial, commercial, and customized applications.
                         </p>
 
                         <ul className="space-y-4 mb-10">
@@ -296,6 +302,81 @@ const AboutPreview = () => {
     );
 };
 
+const FeaturedProducts = () => {
+    const navigate = useNavigate();
+    const featuredList = products.slice(0, 3);
+
+    return (
+        <section className="section-padding bg-dark-900 relative z-10 border-b border-dark-700">
+            <div className="absolute inset-0 opacity-[0.03]"
+                style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+
+            <div className="container-custom relative">
+                <div className="text-center mb-16 max-w-3xl mx-auto">
+                    <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Our Products</span>
+                    <h2 className="text-4xl md:text-5xl mb-6">Cutting-Edge Laser Solutions</h2>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
+                    {featuredList.map((p, i) => (
+                        <motion.div
+                            key={p.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className="group relative glass-card p-1 rounded-sm overflow-hidden cursor-pointer"
+                            onClick={() => navigate(`/product/${p.id}`)}
+                        >
+                            {/* Image Layer */}
+                            <div className="aspect-[4/5] bg-dark-800 flex items-center justify-center relative overflow-hidden">
+                                <img
+                                    src={p.images[0]}
+                                    alt={p.name}
+                                    className="w-full h-full object-cover transition-all duration-700 scale-105 group-hover:scale-100"
+                                />
+
+                                <div className="absolute inset-0 bg-dark-900/20 group-hover:bg-dark-900/0 transition-colors" />
+
+                                {/* Product Info Overlay */}
+                                <div className="absolute inset-0 bg-dark-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-8 text-center translate-y-4 group-hover:translate-y-0 transition-transform">
+                                    <button className="btn-primary py-3 px-6 text-xs w-full">VIEW DETAILS</button>
+                                </div>
+
+                                {/* Tag */}
+                                <div className="absolute top-4 left-4 bg-primary text-dark-900 px-3 py-1 text-[10px] font-bold uppercase tracking-widest leading-none shadow-xl">
+                                    {p.category} Series
+                                </div>
+                            </div>
+
+                            {/* Basic Info Bar */}
+                            <div className="p-6 border-t border-dark-700 bg-dark-900/50 backdrop-blur-sm">
+                                <div className="flex justify-between items-center mb-2">
+                                    <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">{p.name}</h3>
+                                </div>
+                                <p className="text-sm font-mono text-primary font-bold tracking-widest">{p.price}</p>
+                            </div>
+
+                            {/* Hover Laser Glow */}
+                            <div className="absolute inset-x-0 bottom-0 h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left shadow-[0_0_10px_#f59e0b]" />
+                        </motion.div>
+                    ))}
+                </div>
+
+                <div className="flex justify-center">
+                    <button
+                        onClick={() => navigate('/products')}
+                        className="btn-outline px-10 py-4 text-sm tracking-widest flex items-center space-x-2 group-hover:space-x-4 transition-all"
+                    >
+                        <span>MORE PRODUCTS</span>
+                        <ArrowRight size={18} />
+                    </button>
+                </div>
+            </div>
+        </section>
+    );
+};
+
 const Categories = () => {
     const navigate = useNavigate();
     const categories = [
@@ -303,28 +384,28 @@ const Categories = () => {
             title: 'Laser Cutting',
             icon: Scissors,
             desc: 'High-speed precision cutting for metals, plastics, and composite materials.',
-            image: '/assets/images/cat-cutting.png',
+            image: indWood,
             color: 'from-orange-500/20'
         },
         {
             title: 'Laser Marking',
             icon: Layers,
             desc: 'Permanent identification, branding, and tracing for industrial components.',
-            image: '/assets/images/cat-marking.png',
+            image: prodUvMarking,
             color: 'from-blue-500/20'
         },
         {
             title: 'Laser Welding',
             icon: Settings,
             desc: 'Deep penetration welding with minimal heat distortion for complex structures.',
-            image: '/assets/images/cat-welding.png',
+            image: catWelding,
             color: 'from-purple-500/20'
         },
         {
             title: 'Laser Cleaning',
             icon: Search,
             desc: 'Non-contact removal of rust, paint, and contaminants from surface layers.',
-            image: '/assets/images/cat-cleaning.png',
+            image: catCleaning,
             color: 'from-emerald-500/20'
         }
     ];
@@ -358,7 +439,7 @@ const Categories = () => {
                         >
                             {/* Category Image Background */}
                             <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700">
-                                <img src={cat.image} alt={cat.title} className="w-full h-full object-cover grayscale" />
+                                <img src={cat.image} alt={cat.title} className="w-full h-full object-cover" />
                             </div>
 
                             {/* Abstract Background Icon */}
@@ -529,9 +610,9 @@ const CTA = ({ onInquiry }) => {
                             >
                                 GET A QUOTE
                             </button>
-                            <a href="mailto:info@arrowlaser.com" className="flex items-center space-x-3 text-white font-bold group">
+                            <a href="mailto:arrowlasermachine@gmail.com" className="flex items-center space-x-3 text-white font-bold group">
                                 <Mail className="text-primary group-hover:scale-110 transition-transform" />
-                                <span className="uppercase tracking-widest text-sm">sales@arrowlaser.com</span>
+                                <span className="uppercase tracking-widest text-sm">arrowlasermachine@gmail.com</span>
                                 <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
                             </a>
                         </div>
@@ -557,6 +638,7 @@ const Home = () => {
             <Hero onInquiry={() => setIsInquiryOpen(true)} />
             <TechnicalStats />
             <AboutPreview />
+            <FeaturedProducts />
             <Categories />
             <WhyChooseUs />
             <Stats />
