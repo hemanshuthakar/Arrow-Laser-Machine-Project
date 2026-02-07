@@ -241,7 +241,7 @@ export const products = [
         category: 'Marking',
         spec: '3W / 5W / 10W',
         price: 'Contact for Quote',
-        description: 'A UV Laser Marking Machine (Ultraviolet Laser Marking Machine) is a high-precision laser system widely used for marking delicate or heat-sensitive materials. It utilizes a short-wavelength ultraviolet (typically 355nm) laser beam, which allows for "cold marking"—meaning minimal heat is transferred to the material, reducing the risk of damage or deformation.\n\nUV laser marking machines excel at high-precision, cold marking on sensitive materials like plastics, glass, and electronics without causing thermal damage, making them ideal for intricate markings, micro-marking, and applications requiring minimal heat-affected zones in industries such as medical devices, pharmaceuticals, cosmetics packaging, and electronics manufacturing for product identification, traceability, and branding.',
+        description: 'A UV Laser Marking Machine (Ultraviolet Laser Marking Machine) is a high-precision laser system widely used for marking delicate or heat-sensitive materials. It utilizes a short-wavelength ultraviolet (typically 355nm) laser beam, which allows for "cold marking"—meaning minimal heat is transferred to the material, reducing the risk of damage or deformation.',
         features: [
             'Wavelength: 355nm',
             'Marking Speed: Fast, suitable for high-volume production',
@@ -249,6 +249,7 @@ export const products = [
             'Cooling Method: Air or water cooling depending on power and usage',
             'No thermal stress: Ideal for sensitive materials'
         ],
+        applicationDescription: 'UV laser marking machines excel at high-precision, cold marking on sensitive materials like plastics, glass, and electronics without causing thermal damage, making them ideal for intricate markings, micro-marking, and applications requiring minimal heat-affected zones in industries such as medical devices, pharmaceuticals, cosmetics packaging, and electronics manufacturing for product identification, traceability, and branding.',
         applications: [
             'PCB boards – marking serial numbers, barcodes, and QR codes without damaging circuitry',
             'Microchips & semiconductors – high-precision marking on small, delicate surfaces',

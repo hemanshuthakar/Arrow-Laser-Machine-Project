@@ -243,13 +243,36 @@ const ProductDetail = () => {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        {product.applications.map((app, i) => (
-                            <div key={i} className="flex items-start space-x-3 p-4 bg-dark-900 border border-dark-800 rounded-sm">
-                                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                                <span className="text-text-muted text-sm font-semibold">{app}</span>
-                            </div>
-                        ))}
+                    {product.applicationDescription && (
+                        <div className="max-w-4xl mx-auto mb-12">
+                            <p className="text-text-muted text-lg leading-relaxed text-center">
+                                {product.applicationDescription}
+                            </p>
+                        </div>
+                    )}
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {product.applications.map((app, i) => {
+                            const match = app.match(/ [–-] /);
+                            const separatorIndex = match ? match.index : -1;
+
+                            return (
+                                <div key={i} className="flex items-start space-x-3 p-4 bg-dark-900 border border-dark-800 rounded-sm hover:border-dark-700 transition-colors">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                                    <span className="text-text-muted text-sm font-medium leading-relaxed">
+                                        {separatorIndex !== -1 ? (
+                                            <>
+                                                <strong className="text-white text-base">{app.substring(0, separatorIndex)}</strong>
+                                                <span className="mx-1">{match[0].trim()}</span>
+                                                {app.substring(separatorIndex + match[0].length)}
+                                            </>
+                                        ) : (
+                                            app
+                                        )}
+                                    </span>
+                                </div>
+                            );
+                        })}
                     </div>
                 </section>
             )}
