@@ -2,60 +2,81 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import PageHero from '../components/PageHero';
-import catCutting from '../assets/images/cat-cutting.png';
-import catMarking from '../assets/images/cat-marking.png';
-import catWelding from '../assets/images/cat-welding.png';
-import indAutomotive from '../assets/images/industries/ind_automotive.png';
-import indElectronics from '../assets/images/industries/ind_electronics.png';
-import indFood from '../assets/images/industries/ind_food.png';
-import indGlass from '../assets/images/industries/ind_glass.png';
-import indJewelry from '../assets/images/industries/ind_jewelry.png';
-import indMedical from '../assets/images/industries/ind_medical.png';
-import indPackaging from '../assets/images/industries/ind_packaging.png';
-import indTextile from '../assets/images/industries/ind_textile.png';
-import indWood from '../assets/images/industries/ind_wood.png';
-import prodFiberMarking from '../assets/images/product-fiber-marking.jpg';
-import prodFlyMarking from '../assets/images/product-fly-marking.jpg';
-import prodUvMarking from '../assets/images/product-uv-marking.jpg';
-import precisionEng from '../assets/images/precision-engineering.png';
+
+// Industry Images
+import acrylicLaminates from '../assets/images/industries/Acrylic & Laminates.jpg';
+import advertisingSignage from '../assets/images/industries/Advertising and Signage.jpeg';
+import agriculturalEquipment from '../assets/images/industries/Agricultural Equipment.jpg';
+import automotiveIndustry from '../assets/images/industries/Automotive Industry.jpg';
+import bottlesBeverage from '../assets/images/industries/Bottles & Beverage.jpg';
+import brassCopper from '../assets/images/industries/Brass & Copper Parts.jpg';
+import cableWires from '../assets/images/industries/Cable & Wires.jpg';
+import cosmeticsNovelty from '../assets/images/industries/Cosmetics & Novelty.jpg';
+import cuttingTools from '../assets/images/industries/Cutting Tools & Dies.jpg';
+import defenceAerospace from '../assets/images/industries/Defence & Aerospace.jpg';
+import electricalElectronics from '../assets/images/industries/Electrical & Electronics.jpg';
+import elevatorEscalator from '../assets/images/industries/Elevator & Escalator.jpeg';
+import foodFMCG from '../assets/images/industries/Food & FMCG.png';
+import furnitureFabrication from '../assets/images/industries/Furniture & Fabrication.jpg';
+import gemsJewellery from '../assets/images/industries/ind_jewelry.png'; // No exact match name, keeping existing
+import giftArticle from '../assets/images/industries/Gift & Article.jpeg';
+import glassOptical from '../assets/images/industries/Glass & Optical.jpg';
+import goldSilver from '../assets/images/industries/Gold & Silver.jpeg';
+import hardwareBathware from '../assets/images/industries/Hardware & Bathware.jpg';
+import kitchenHomeAppliances from '../assets/images/industries/Kitchen & Home Appliances.png';
+import kitchenwareHomeware from '../assets/images/industries/Kitchenware & Homeware.jpg';
+import ledBulbSwitches from '../assets/images/industries/LED Bulb & Switches.jpg';
+import leatherRubber from '../assets/images/industries/Leather & Rubber.png';
+import machineTools from '../assets/images/industries/Machine Tools & Equipments.jpg';
+import metalsNonMetals from '../assets/images/industries/Metals & Non Metals.png';
+import mobileAccessories from '../assets/images/industries/Mobile Accessories & Gadgets.jpg';
+import motorBearing from '../assets/images/industries/Motor & Bearing.png';
+import pharmaMedical from '../assets/images/industries/Pharma & Medical.jpg';
+import pipesFittings from '../assets/images/industries/Pipes & Fittings.png';
+import plyWoods from '../assets/images/industries/Ply & Woods.png';
+import printPackaging from '../assets/images/industries/Print & Packaging.jpg';
+import pumpsValves from '../assets/images/industries/Pumps & Valves.jpg';
+import steelUtensils from '../assets/images/industries/Steel Utensils.jpg';
+import textileFabric from '../assets/images/industries/Textile & Fabric.jpg';
+import watchOptics from '../assets/images/industries/Watch & Optics.png';
 
 const Industries = () => {
     const industries = [
-        { name: 'Acrylic & Laminates', image: catCutting },
-        { name: 'Advertising and Signage', image: indWood },
-        { name: 'Agricultural Equipment', image: prodFiberMarking },
-        { name: 'Automotive Industry', image: indAutomotive },
-        { name: 'Bottles & Beverage', image: indGlass },
-        { name: 'Brass & Copper Parts', image: catMarking },
-        { name: 'Cable & Wires', image: indElectronics },
-        { name: 'Cosmetics & Novelty', image: indPackaging },
-        { name: 'Cutting Tools & Dies', image: catWelding },
-        { name: 'Defence & Aerospace', image: precisionEng },
-        { name: 'Electrical & Electronics', image: prodUvMarking },
-        { name: 'Elevator & Escalator', image: catMarking },
-        { name: 'Food & FMCG', image: indFood },
-        { name: 'Furniture & Fabrication', image: indWood },
-        { name: 'Gems & Jewellery', image: indJewelry },
-        { name: 'Gift & Article', image: indJewelry },
-        { name: 'Glass & Optical', image: indGlass },
-        { name: 'Gold & Silver', image: indJewelry },
-        { name: 'Hardware & Bathware', image: catWelding },
-        { name: 'Kitchen & Home Appliances', image: catMarking },
-        { name: 'Leather & Rubber', image: indTextile },
-        { name: 'LED Bulb & Switches', image: indElectronics },
-        { name: 'Machine Tools & Equipments', image: prodFiberMarking },
-        { name: 'Metals & Non Metals', image: indAutomotive },
-        { name: 'Mobile Accessories & Gadgets', image: indElectronics },
-        { name: 'Motor & Bearing', image: prodFiberMarking },
-        { name: 'Pharma & Medical', image: indMedical },
-        { name: 'Pipes & Fittings', image: catMarking },
-        { name: 'Ply & Woods', image: indWood },
-        { name: 'Print & Packaging', image: prodFlyMarking },
-        { name: 'Pumps & Valves', image: catMarking },
-        { name: 'Steel Utensils', image: catWelding },
-        { name: 'Kitchenware & Homeware', image: catMarking },
-        { name: 'Textile & Fabric', image: indTextile },
-        { name: 'Watch & Optics', image: indGlass }
+        { name: 'Acrylic & Laminates', image: acrylicLaminates },
+        { name: 'Advertising and Signage', image: advertisingSignage },
+        { name: 'Agricultural Equipment', image: agriculturalEquipment },
+        { name: 'Automotive Industry', image: automotiveIndustry },
+        { name: 'Bottles & Beverage', image: bottlesBeverage },
+        { name: 'Brass & Copper Parts', image: brassCopper },
+        { name: 'Cable & Wires', image: cableWires },
+        { name: 'Cosmetics & Novelty', image: cosmeticsNovelty },
+        { name: 'Cutting Tools & Dies', image: cuttingTools },
+        { name: 'Defence & Aerospace', image: defenceAerospace },
+        { name: 'Electrical & Electronics', image: electricalElectronics },
+        { name: 'Elevator & Escalator', image: elevatorEscalator },
+        { name: 'Food & FMCG', image: foodFMCG },
+        { name: 'Furniture & Fabrication', image: furnitureFabrication },
+        { name: 'Gems & Jewellery', image: gemsJewellery },
+        { name: 'Gift & Article', image: giftArticle },
+        { name: 'Glass & Optical', image: glassOptical },
+        { name: 'Gold & Silver', image: goldSilver },
+        { name: 'Hardware & Bathware', image: hardwareBathware },
+        { name: 'Kitchen & Home Appliances', image: kitchenHomeAppliances },
+        { name: 'Leather & Rubber', image: leatherRubber },
+        { name: 'LED Bulb & Switches', image: ledBulbSwitches },
+        { name: 'Machine Tools & Equipments', image: machineTools },
+        { name: 'Metals & Non Metals', image: metalsNonMetals },
+        { name: 'Mobile Accessories & Gadgets', image: mobileAccessories },
+        { name: 'Motor & Bearing', image: motorBearing },
+        { name: 'Pharma & Medical', image: pharmaMedical },
+        { name: 'Pipes & Fittings', image: pipesFittings },
+        { name: 'Ply & Woods', image: plyWoods },
+        { name: 'Print & Packaging', image: printPackaging },
+        { name: 'Pumps & Valves', image: pumpsValves },
+        { name: 'Steel Utensils', image: steelUtensils },
+        { name: 'Kitchenware & Homeware', image: kitchenwareHomeware },
+        { name: 'Textile & Fabric', image: textileFabric },
+        { name: 'Watch & Optics', image: watchOptics }
     ];
 
     return (
