@@ -10,9 +10,12 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 relative z-10">
                     {/* Brand section */}
                     <div>
-                        <Link to="/" className="text-3xl font-black tracking-tighter group inline-block mb-6">
-                            <span className="text-white transition-colors duration-500 group-hover:text-primary">ARROW</span>
-                            <span className="text-primary italic transition-colors duration-500 group-hover:text-white">LASER</span>
+                        <Link to="/" className="inline-block mb-8">
+                            <img
+                                src="/logo.png"
+                                alt="Arrow Laser Machine"
+                                className="h-14 w-auto object-contain rounded-sm px-2 py-1"
+                            />
                         </Link>
                         <p className="text-text-muted mb-8 leading-relaxed">
                             Arrow Laser Machine is a manufacturer, importer, and supplier of advanced laser marking, engraving, cutting, welding, and cleaning solutions. Established in 2022.

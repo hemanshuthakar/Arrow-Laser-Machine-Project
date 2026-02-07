@@ -12,9 +12,11 @@ const Preloader = () => {
                     transition={{ duration: 0.5 }}
                     className="mb-8"
                 >
-                    <h1 className="text-4xl font-bold tracking-tighter text-white">
-                        ARROW<span className="text-primary italic">LASER</span>
-                    </h1>
+                    <img
+                        src="/logo.png"
+                        alt="Arrow Laser Machine"
+                        className="w-64 h-auto object-contain"
+                    />
                 </motion.div>
 
                 {/* Laser Line Animation */}

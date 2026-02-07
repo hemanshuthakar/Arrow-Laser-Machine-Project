@@ -33,9 +33,12 @@ const Header = () => {
             <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-dark-900/90 backdrop-blur-md py-4 border-b border-dark-700' : 'bg-transparent py-6'}`}>
                 <div className="container-custom flex justify-between items-center">
                     {/* Logo */}
-                    <Link to="/" className="text-2xl font-black tracking-tighter group">
-                        <span className="text-white relative z-10 transition-colors duration-500 group-hover:text-primary">ARROW</span>
-                        <span className="text-primary relative z-10 transition-colors duration-500 group-hover:text-white">LASER</span>
+                    <Link to="/" className="block">
+                        <img
+                            src="/logo.png"
+                            alt="Arrow Laser Machine"
+                            className="h-12 w-auto object-contain rounded-sm px-2 py-1"
+                        />
                     </Link>
 
                     {/* Desktop Menu */}
