@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://hemanshuthakar.github.io/Laser-Arrow-Machine/",
+  "homepage": "https://hemanshuthakar.github.io/Laser-Arrow-Machinery/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
