@@ -85,15 +85,17 @@ const ProductDetail = () => {
 
     return (
         <div className="bg-dark-900 min-h-screen pt-24 pb-20 overflow-x-hidden">
-            <section className="container-custom mb-20">
-                <div className="flex flex-col items-start gap-4 mb-8">
-                    <button
-                        onClick={() => navigate(-1)}
-                        className="flex items-center text-text-muted hover:text-primary transition-colors text-sm font-mono uppercase tracking-widest"
-                    >
-                        <ChevronLeft size={16} className="mr-2" />
-                        Back to Inventory
-                    </button>
+            <section className="container-custom mb-20 mt-12">
+                <div className="fixed top-[72px] left-0 w-full z-40 pointer-events-none">
+                    <div className="container-custom py-4">
+                        <button
+                            onClick={() => navigate(-1)}
+                            className="pointer-events-auto inline-flex items-center bg-dark-800 border border-primary/30 px-5 py-2.5 rounded-full text-white hover:bg-dark-700 hover:border-primary hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all duration-300 shadow-xl shadow-black/50 text-xs md:text-sm font-bold font-mono uppercase tracking-widest"
+                        >
+                            <ChevronLeft size={16} className="mr-2 text-primary" />
+                            Back to Inventory
+                        </button>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
