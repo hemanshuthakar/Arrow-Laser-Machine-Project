@@ -525,35 +525,5 @@ export const products = [
             weldApp1, weldApp2, weldApp3, weldApp4, weldApp5, weldApp6, weldApp7, weldApp8
         ]
     },
-    {
-        id: 9,
-        name: 'Customize Laser Marking',
-        category: 'Marking',
-        spec: 'Tailored Solutions',
-        price: 'Contact for Quote',
-        description: 'Tailored laser marking solutions for specific industrial requirements and unique materials. Designed for high speed and precision with custom configurations.',
-        features: [
-            'Scalable laser power for specific material needs',
-            'Customizable marking area and axis control',
-            'Specialized fixtures for unique product shapes',
-            'Integration with custom software or ERP systems'
-        ],
-        applications: [
-            'Specialized medical instrument marking',
-            'Aerospace component identification',
-            'Automotive assembly line integration',
-            'Large-scale industrial batch marking'
-        ],
-        details: [
-            'Customizable specifications as per request',
-            'Tailored for specific industrial materials',
-            'Flexible configuration as per industry standards'
-        ],
-        images: [
-            precisionEng,
-            catCutting,
-            catWelding
-        ],
-        tags: ['Tailored Solutions', 'Consultancy', 'Custom Engineering']
-    }
+
 ];
