@@ -30,8 +30,8 @@ const Gallery = () => {
                             key={f}
                             onClick={() => setFilter(f)}
                             className={`px-8 py-3 rounded-sm text-sm font-bold uppercase tracking-widest transition-all duration-300 border ${filter === f
-                                    ? 'bg-primary border-primary text-dark-900 shadow-[0_0_20px_rgba(245,158,11,0.3)]'
-                                    : 'border-dark-700 text-text-muted hover:border-primary/50 hover:text-white'
+                                ? 'bg-primary border-primary text-dark-900 shadow-[0_0_20px_rgba(245,158,11,0.3)]'
+                                : 'border-dark-700 text-text-muted hover:border-primary/50 hover:text-white'
                                 }`}
                         >
                             {f}
@@ -89,7 +89,7 @@ const Gallery = () => {
                         onClick={() => setSelectedItem(null)}
                     >
                         <button
-                            className="absolute top-8 right-8 text-white hover:text-primary transition-colors z-[110]"
+                            className="absolute top-28 right-4 lg:top-8 lg:right-8 text-white hover:text-primary transition-colors z-[110]"
                             onClick={() => setSelectedItem(null)}
                         >
                             <X size={40} />
@@ -99,7 +99,7 @@ const Gallery = () => {
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
-                            className="relative max-w-6xl w-full aspect-video bg-dark-900 shadow-2xl overflow-hidden border border-dark-700"
+                            className="relative max-w-6xl w-full h-[60vh] lg:h-auto lg:aspect-video bg-dark-900 shadow-2xl overflow-hidden border border-dark-700"
                             onClick={(e) => e.stopPropagation()}
                         >
                             {selectedItem.type === 'photo' ? (
@@ -114,7 +114,7 @@ const Gallery = () => {
                                 </div>
                             )}
 
-                            <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-dark-950 to-transparent">
+                            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 bg-gradient-to-t from-dark-950 to-transparent">
                                 <p className="text-primary font-mono text-xs uppercase tracking-[0.3em] mb-2">{selectedItem.category}</p>
                                 <h2 className="text-2xl md:text-3xl font-bold text-white uppercase tracking-widest">{selectedItem.title}</h2>
                             </div>

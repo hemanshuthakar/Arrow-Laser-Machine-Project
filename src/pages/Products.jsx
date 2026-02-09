@@ -57,7 +57,7 @@ const ProductGrid = ({ activeCategory }) => {
                             <div className="absolute inset-0 bg-dark-900/20 group-hover:bg-dark-900/0 transition-colors" />
 
                             {/* Product Info Overlay */}
-                            <div className="absolute inset-0 bg-dark-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-8 text-center translate-y-4 group-hover:translate-y-0 transition-transform">
+                            <div className="hidden lg:flex absolute inset-0 bg-dark-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-col items-center justify-center p-8 text-center translate-y-4 group-hover:translate-y-0 transition-transform">
                                 <button className="btn-primary py-3 px-6 text-xs w-full">VIEW DETAILS</button>
                             </div>
 
@@ -72,7 +72,8 @@ const ProductGrid = ({ activeCategory }) => {
                             <div className="flex justify-between items-center mb-2">
                                 <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">{p.name}</h3>
                             </div>
-                            <p className="text-sm font-mono text-primary font-bold tracking-widest">{p.price}</p>
+
+                            <button className="btn-primary py-2 px-4 text-xs w-full mt-4 lg:hidden">VIEW DETAILS</button>
                         </div>
 
                         {/* Hover Laser Glow */}
