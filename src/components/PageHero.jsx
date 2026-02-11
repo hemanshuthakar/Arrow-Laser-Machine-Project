@@ -1,13 +1,47 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { heroCarouselImages } from '../data/heroImages';
 
-const PageHero = ({ title, subtitle, breadcrumb }) => {
+const PageHero = ({ title, subtitle, breadcrumb, images = heroCarouselImages }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        if (!images || images.length === 0) return;
+
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % images.length);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [images]);
     return (
-        <section className="relative pt-44 pb-32 bg-dark-900 overflow-hidden border-b border-dark-700">
+        <section className="relative mt-28 pt-20 pb-32 bg-dark-900 overflow-hidden border-b border-dark-700">
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/[0.01] -skew-x-12 translate-x-32" />
+                {images && images.length > 0 ? (
+                    <>
+                        <AnimatePresence mode="popLayout">
+                            <motion.div
+                                key={images[currentImageIndex]}
+                                initial={{ opacity: 0, scale: 1 }}
+                                animate={{ opacity: 2, scale: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 1.5, ease: "easeInOut" }}
+                                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                                style={{
+                                    backgroundImage: `url(${images[currentImageIndex]})`,
+                                }}
+                            />
+                        </AnimatePresence>
+                        {/* Overlay Gradient for readability */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/80 to-dark-900/60" />
+                    </>
+                ) : (
+                    <>
+                        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+                        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/[0.01] -skew-x-12 translate-x-32" />
+                    </>
+                )}
             </div>
 
             <div className="container-custom relative z-10 text-center">

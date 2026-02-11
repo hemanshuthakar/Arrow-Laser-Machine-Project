@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle, Phone, Mail, ChevronUp } from 'lucide-react';
+import { Phone, Mail, ChevronUp } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const FloatingButtons = () => {
     const [showScrollTop, setShowScrollTop] = React.useState(false);
@@ -18,7 +19,7 @@ const FloatingButtons = () => {
     };
 
     const buttons = [
-        { icon: MessageCircle, color: 'bg-[#25D366]', label: 'WhatsApp', href: 'https://wa.me/919909913488' },
+        { icon: FaWhatsapp, color: 'bg-[#25D366]', label: 'WhatsApp', href: 'https://wa.me/919909913488' },
         { icon: Phone, color: 'bg-primary', label: 'Call', href: 'tel:+919909913488' },
         { icon: Mail, color: 'bg-secondary', label: 'Email', href: 'mailto:arrowlasermachine@gmail.com' },
     ];
@@ -26,6 +27,21 @@ const FloatingButtons = () => {
     return (
         <div className="fixed bottom-8 right-8 z-[40] flex flex-col items-center space-y-4">
             <React.Suspense fallback={null}>
+                {/* Scroll to top */}
+                <motion.button
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: showScrollTop ? 1 : 0, scale: showScrollTop ? 1 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    onClick={scrollToTop}
+                    className="bg-dark-800 text-white p-3 rounded-full border border-dark-700 hover:border-primary hover:text-primary transition-all duration-300 shadow-2xl relative group"
+                    style={{ pointerEvents: showScrollTop ? 'auto' : 'none' }}
+                >
+                    <ChevronUp size={22} />
+                    <span className="absolute right-full mr-4 bg-dark-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-dark-700 pointer-events-none uppercase tracking-widest">
+                        Back to Top
+                    </span>
+                </motion.button>
+
                 {buttons.map((btn, index) => (
                     <motion.a
                         key={index}
@@ -45,18 +61,6 @@ const FloatingButtons = () => {
                         </span>
                     </motion.a>
                 ))}
-
-                {/* Scroll to top */}
-                <motion.button
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: showScrollTop ? 1 : 0, scale: showScrollTop ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    onClick={scrollToTop}
-                    className="bg-dark-800 text-white p-3 rounded-full border border-dark-700 hover:border-primary hover:text-primary transition-all duration-300 shadow-2xl"
-                    style={{ pointerEvents: showScrollTop ? 'auto' : 'none' }}
-                >
-                    <ChevronUp size={22} />
-                </motion.button>
             </React.Suspense>
         </div>
     );

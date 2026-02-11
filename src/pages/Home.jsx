@@ -1,43 +1,66 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Cpu, Zap, ShieldCheck, Globe, ArrowRight, CheckCircle2, Layers, Scissors, Settings, Search, Shield, Timer, Award, Activity, Mail } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Counter from '../components/Counter';
 import InquiryModal from '../components/InquiryModal';
 import { products } from '../data/products';
-import prodFiberMarking from '../assets/images/product-fiber-marking.jpg';
+import { heroCarouselImages } from '../data/heroImages';
+import prodFiberMarking from '../assets/images/product-images/fiber-marking/1. Fiber Laser marking.jpg';
 import indElectronics from '../assets/images/industries/ind_electronics.png';
 import indWood from '../assets/images/industries/ind_wood.png';
-import prodUvMarking from '../assets/images/product-uv-marking.jpg';
+import prodUvMarking from '../assets/images/product-images/uv-marking/3. UV Laser Marking.jpg';
 import catWelding from '../assets/images/cat-welding.png';
 import catCleaning from '../assets/images/cat-cleaning.png';
 
 const Hero = ({ onInquiry }) => {
     const navigate = useNavigate();
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % heroCarouselImages.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
-        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-dark-900">
-            {/* Background elements */}
+        <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-dark-900">
+            {/* Background Image Carousel */}
             <div className="absolute inset-0 z-0">
-                <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent" />
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-dark-800 to-transparent" />
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={currentImageIndex}
+                        initial={{ opacity: 0, scale: 1.1 }}
+                        animate={{ opacity: 0.3, scale: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 2 }}
+                        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                        style={{ backgroundImage: `url(${heroCarouselImages[currentImageIndex]})` }}
+                    />
+                </AnimatePresence>
+                {/* Overlay Gradients for Readability */}
+                <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-transparent to-dark-900 opacity-90" />
+                <div className="absolute inset-0 bg-dark-900/40" />
 
                 {/* Animated grid background */}
-                <div className="absolute inset-0 opacity-[0.03]"
-                    style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+                <div className="absolute inset-0 opacity-[0.05]"
+                    style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
             </div>
 
-            <div className="container-custom relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="container-custom relative z-10 text-center flex flex-col items-center">
                 {/* Text Content */}
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
+                    className="max-w-4xl"
                 >
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
-                        className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono uppercase tracking-[0.2em] mb-6"
+                        className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono uppercase tracking-[0.3em] mb-10"
                     >
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -46,107 +69,30 @@ const Hero = ({ onInquiry }) => {
                         <span>Est. 2022 • Precision Engineering</span>
                     </motion.div>
 
-                    <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] mb-6">
+                    <h1 className="text-5xl md:text-8xl font-black leading-tight mb-8 uppercase tracking-tight">
                         Pioneering the Future of <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">Laser Technology</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/40">Laser Technology</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-text-muted mb-10 leading-relaxed max-w-xl">
-                        Precision Engineering Since 2022. High-performance laser machines designed for industrial excellence.
+
+                    <p className="text-lg md:text-2xl text-text-muted mb-12 leading-relaxed max-w-3xl mx-auto font-medium">
+                        Precision Engineering Since 2022. We design and manufacture high-performance laser machines for global industrial excellence.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
                         <button
                             onClick={() => navigate('/products')}
-                            className="btn-primary flex items-center justify-center space-x-2"
+                            className="btn-primary flex items-center justify-center space-x-3 px-10 py-5 group shadow-[0_0_30px_rgba(245,158,11,0.3)] hover:shadow-[0_0_50px_rgba(245,158,11,0.5)] transition-all"
                         >
-                            <span>EXPLORE MACHINES</span>
-                            <Zap size={18} />
+                            <span className="font-bold tracking-[0.2em] text-sm">EXPLORE MACHINES</span>
+                            <Zap size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                         </button>
                         <button
                             onClick={onInquiry}
-                            className="btn-outline flex items-center justify-center space-x-2"
+                            className="btn-outline flex items-center justify-center space-x-3 px-10 py-5 border-2"
                         >
-                            <span>ENQUIRE NOW</span>
+                            <span className="font-bold tracking-[0.2em] text-sm">ENQUIRE NOW</span>
                         </button>
                     </div>
-                </motion.div>
-
-                {/* Machine Visual - Premium 3D Effect */}
-                <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, ease: 'easeOut' }}
-                    className="relative perspective-2000"
-                >
-                    {/* Floating Glass Panels for Depth */}
-                    {[...Array(3)].map((_, i) => (
-                        <motion.div
-                            key={i}
-                            animate={{
-                                y: [0, -15 * (i + 1), 0],
-                                rotate: [i % 2 === 0 ? -1 : 1, i % 2 === 0 ? 1 : -1, i % 2 === 0 ? -1 : 1]
-                            }}
-                            transition={{
-                                duration: 5 + i,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                            className="absolute inset-0 border border-primary/20 bg-primary/5 backdrop-blur-[2px] rounded-2xl -z-1"
-                            style={{
-                                transform: `translateZ(${(i + 1) * -50}px) scale(${1 + (i + 1) * 0.05})`,
-                                opacity: 0.3 / (i + 1)
-                            }}
-                        />
-                    ))}
-
-                    <motion.div
-                        initial={{ rotateY: -15, rotateX: 5 }}
-                        animate={{
-                            rotateY: 15,
-                            rotateX: -5,
-                            y: [0, -20, 0]
-                        }}
-                        transition={{
-                            rotateY: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-                            rotateX: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-                            y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-                        }}
-                        className="relative z-10 p-1 bg-gradient-to-br from-primary/20 via-transparent to-primary/20 rounded-2xl shadow-2xl overflow-hidden group"
-                    >
-                        <div className="relative aspect-square rounded-xl overflow-hidden bg-dark-800">
-                            <img
-                                src={prodFiberMarking}
-                                alt="Industrial Laser Machine"
-                                className="w-full h-full object-cover transition-all duration-1000 scale-110 group-hover:scale-100"
-                            />
-
-                            {/* Inner Glow */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-60" />
-                            <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(245,158,11,0.1)]" />
-
-                            {/* Technical Overlay */}
-                            <div className="absolute top-6 left-6 font-mono text-[10px] text-primary space-y-1 opacity-50">
-                                <p>MODEL: APEX-F1</p>
-                                <p>SERIAL: 2024-X49</p>
-                                <p>POWER: 12000W</p>
-                            </div>
-
-                            {/* Pulse indicator */}
-                            <div className="absolute bottom-6 left-6 flex items-center space-x-2">
-                                <span className="relative flex h-3 w-3">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-                                </span>
-                                <span className="text-[10px] font-mono text-white tracking-widest uppercase">System Online</span>
-                            </div>
-                        </div>
-
-                        {/* Hover Laser Glow (Subtle) */}
-                        <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                    </motion.div>
-
-                    {/* Background Halo Glow */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-primary/10 blur-[150px] rounded-full -z-10" />
                 </motion.div>
             </div>
 
@@ -227,7 +173,7 @@ const AboutPreview = () => {
                         <div className="relative z-10 p-2 border border-dark-700 bg-dark-900 rounded-sm overflow-hidden group">
                             <div className="aspect-[4/3] bg-dark-800 flex items-center justify-center relative overflow-hidden">
                                 <img
-                                    src={indElectronics}
+                                    src={prodFiberMarking}
                                     alt="Precision Engineering"
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                                 />
@@ -249,7 +195,7 @@ const AboutPreview = () => {
                             className="absolute -bottom-10 -right-10 z-20 bg-primary p-8 rounded-sm shadow-2xl min-w-[160px]"
                         >
                             <h3 className="text-4xl font-bold text-dark-900 mb-1 leading-none">
-                                <Counter value={20} />+
+                                <Counter value={5} />+
                             </h3>
                             <p className="text-sm font-semibold text-dark-900/70 uppercase tracking-widest leading-none">Years Service</p>
                         </motion.div>
@@ -325,40 +271,43 @@ const FeaturedProducts = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="group relative glass-card p-1 rounded-sm overflow-hidden cursor-pointer"
+                            className="group relative card-metallic rounded-xl cursor-pointer"
                             onClick={() => navigate(`/product/${p.id}`)}
                         >
                             {/* Image Layer */}
-                            <div className="aspect-[4/5] bg-dark-800 flex items-center justify-center relative overflow-hidden">
+                            <div className="aspect-[4/5] bg-dark-900 flex items-center justify-center relative overflow-hidden">
                                 <img
                                     src={p.images[0]}
                                     alt={p.name}
-                                    className="w-full h-full object-cover transition-all duration-700 scale-105 group-hover:scale-100"
+                                    className="w-full h-full object-cover transition-all duration-700 scale-105 group-hover:scale-100 opacity-90 group-hover:opacity-100"
                                 />
 
-                                <div className="absolute inset-0 bg-dark-900/20 group-hover:bg-dark-900/0 transition-colors" />
+                                {/* Logo Overlay for All Featured Products */}
+                                <div className="absolute top-4 right-4 z-20 w-12 h-12 pointer-events-none">
+                                    <img src="/logo.png" alt="Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]" />
+                                </div>
+
+                                <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-80" />
 
                                 {/* Product Info Overlay */}
-                                <div className="absolute inset-0 bg-dark-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-8 text-center translate-y-4 group-hover:translate-y-0 transition-transform">
-                                    <button className="btn-primary py-3 px-6 text-xs w-full">VIEW DETAILS</button>
+                                <div className="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-8 text-center translate-y-4 group-hover:translate-y-0 transition-transform backdrop-blur-sm">
+                                    <button className="btn-outline border-secondary text-secondary hover:bg-secondary hover:text-white py-3 px-6 text-xs w-full tracking-widest uppercase">VIEW SOLUTIONS</button>
                                 </div>
 
                                 {/* Tag */}
-                                <div className="absolute top-4 left-4 bg-primary text-dark-900 px-3 py-1 text-[10px] font-bold uppercase tracking-widest leading-none shadow-xl">
+                                <div className="absolute top-4 left-4 bg-dark-900/90 border border-secondary/30 text-secondary px-3 py-1 text-[10px] font-bold uppercase tracking-widest leading-none shadow-lg backdrop-blur-md">
                                     {p.category} Series
                                 </div>
                             </div>
 
                             {/* Basic Info Bar */}
-                            <div className="p-6 border-t border-dark-700 bg-dark-900/50 backdrop-blur-sm">
-                                <div className="flex justify-between items-center mb-2">
-                                    <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">{p.name}</h3>
+                            <div className="p-6 border-t border-dark-700/50 bg-gradient-to-b from-dark-800 to-dark-900 absolute bottom-0 w-full">
+                                <div className="w-12 h-1 bg-secondary/50 mb-4 rounded-full group-hover:w-full group-hover:bg-secondary transition-all duration-500" />
+                                <div className="flex justify-between items-center mb-1">
+                                    <h3 className="text-xl font-bold text-white group-hover:text-secondary transition-colors font-heading leading-tight">{p.name}</h3>
                                 </div>
-                                <p className="text-sm font-mono text-primary font-bold tracking-widest">{p.price}</p>
+                                <p className="text-sm font-mono text-secondary font-bold tracking-widest">{p.price === 'Contact for Quote' ? 'PREMIUM GRADE' : p.price}</p>
                             </div>
-
-                            {/* Hover Laser Glow */}
-                            <div className="absolute inset-x-0 bottom-0 h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left shadow-[0_0_10px_#f59e0b]" />
                         </motion.div>
                     ))}
                 </div>
@@ -381,18 +330,18 @@ const Categories = () => {
     const navigate = useNavigate();
     const categories = [
         {
-            title: 'Laser Cutting',
-            icon: Scissors,
-            desc: 'High-speed precision cutting for metals, plastics, and composite materials.',
-            image: indWood,
-            color: 'from-orange-500/20'
-        },
-        {
             title: 'Laser Marking',
             icon: Layers,
             desc: 'Permanent identification, branding, and tracing for industrial components.',
             image: prodUvMarking,
             color: 'from-blue-500/20'
+        },
+        {
+            title: 'Laser Cutting',
+            icon: Scissors,
+            desc: 'High-speed precision cutting for metals, plastics, and composite materials.',
+            image: indWood,
+            color: 'from-orange-500/20'
         },
         {
             title: 'Laser Welding',
@@ -542,40 +491,7 @@ const WhyChooseUs = () => {
     );
 };
 
-const Stats = () => {
-    const stats = [
-        { label: 'Machines Installed', value: '5000', suffix: '+' },
-        { label: 'Global Offices', value: '12', suffix: '' },
-        { label: 'R&D Patents', value: '150', suffix: '+' },
-        { label: 'Satisfied Clients', value: '2500', suffix: '+' },
-    ];
 
-    return (
-        <section className="section-padding bg-dark-900 overflow-hidden">
-            <div className="container-custom">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
-                    {stats.map((stat, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className="text-center group"
-                        >
-                            <h3 className="text-5xl md:text-6xl font-black text-white mb-2 font-mono flex items-center justify-center">
-                                <Counter value={parseInt(stat.value)} duration={2} />
-                                <span className="text-primary">{stat.suffix}</span>
-                            </h3>
-                            <div className="h-1 w-12 bg-primary mx-auto mb-6 group-hover:w-24 transition-all duration-300" />
-                            <p className="text-text-muted uppercase tracking-[0.2em] font-semibold text-sm">{stat.label}</p>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
 
 const CTA = ({ onInquiry }) => {
     return (
@@ -641,7 +557,6 @@ const Home = () => {
             <FeaturedProducts />
             <Categories />
             <WhyChooseUs />
-            <Stats />
             <CTA onInquiry={() => setIsInquiryOpen(true)} />
 
             <InquiryModal

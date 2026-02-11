@@ -16,6 +16,8 @@ import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
 import Industries from './pages/Industries';
 import Awards from './pages/Awards';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -48,6 +50,8 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/awards" element={<Awards />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
           </Routes>
         </main>
         <Footer />

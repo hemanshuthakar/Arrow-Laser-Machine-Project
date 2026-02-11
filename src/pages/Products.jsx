@@ -6,7 +6,7 @@ import PageHero from '../components/PageHero';
 import { products } from '../data/products';
 
 const ProductFilters = ({ active, setActive }) => {
-    const categories = ['All', 'Cutting', 'Marking', 'Welding', 'Cleaning'];
+    const categories = ['All', 'Marking', 'Cutting', 'Welding', 'Cleaning'];
 
     return (
         <div className="flex flex-wrap items-center justify-center gap-4 mb-20">
@@ -43,41 +43,45 @@ const ProductGrid = ({ activeCategory }) => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
                         transition={{ duration: 0.4 }}
-                        className="group relative glass-card p-1 rounded-sm overflow-hidden cursor-pointer"
+                        className="group relative card-metallic rounded-xl cursor-pointer"
                         onClick={() => navigate(`/product/${p.id}`)}
                     >
                         {/* Image Layer */}
-                        <div className="aspect-[4/5] bg-dark-800 flex items-center justify-center relative overflow-hidden">
+                        <div className="aspect-[4/5] bg-dark-900 flex items-center justify-center relative overflow-hidden">
                             <img
                                 src={p.images[0]}
                                 alt={p.name}
-                                className="w-full h-full object-cover transition-all duration-700 scale-105 group-hover:scale-100"
+                                className="w-full h-full object-cover transition-all duration-700 scale-105 group-hover:scale-100 opacity-90 group-hover:opacity-100"
                             />
 
-                            <div className="absolute inset-0 bg-dark-900/20 group-hover:bg-dark-900/0 transition-colors" />
+                            {/* Logo Overlay for All Products */}
+                            <div className="absolute top-4 right-4 z-20 w-16 h-16 pointer-events-none">
+                                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(0,0,0,0.5)]" />
+                            </div>
+
+                            <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-80" />
 
                             {/* Product Info Overlay */}
-                            <div className="hidden lg:flex absolute inset-0 bg-dark-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-col items-center justify-center p-8 text-center translate-y-4 group-hover:translate-y-0 transition-transform">
-                                <button className="btn-primary py-3 px-6 text-xs w-full">VIEW DETAILS</button>
+                            <div className="hidden lg:flex absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-col items-center justify-center p-8 text-center translate-y-4 group-hover:translate-y-0 transition-transform backdrop-blur-sm">
+                                <button className="btn-outline border-secondary text-secondary hover:bg-secondary hover:text-white py-3 px-6 text-xs w-full tracking-widest">VIEW SPECIFICATIONS</button>
                             </div>
 
                             {/* Tag */}
-                            <div className="absolute top-4 left-4 bg-primary text-dark-900 px-3 py-1 text-[10px] font-bold uppercase tracking-widest leading-none shadow-xl">
+                            <div className="absolute top-4 left-4 bg-dark-900/90 border border-secondary/30 text-secondary px-3 py-1 text-[10px] font-bold uppercase tracking-widest leading-none shadow-lg backdrop-blur-md">
                                 {p.category} Series
                             </div>
                         </div>
 
                         {/* Basic Info Bar */}
-                        <div className="p-6 border-t border-dark-700 bg-dark-900/50 backdrop-blur-sm">
-                            <div className="flex justify-between items-center mb-2">
-                                <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">{p.name}</h3>
+                        <div className="p-6 border-t border-dark-700/50 bg-gradient-to-b from-dark-800 to-dark-900 absolute bottom-0 w-full">
+                            <div className="w-12 h-1 bg-secondary/50 mb-4 rounded-full group-hover:w-full group-hover:bg-secondary transition-all duration-500" />
+                            <div className="flex justify-between items-center mb-1">
+                                <h3 className="text-xl font-bold text-white group-hover:text-secondary transition-colors font-heading leading-tight">{p.name}</h3>
                             </div>
+                            <p className="text-xs text-dark-400 font-mono mt-2 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 h-0 group-hover:h-auto">{p.spec}</p>
 
-                            <button className="btn-primary py-2 px-4 text-xs w-full mt-4 lg:hidden">VIEW DETAILS</button>
+                            <button className="btn-primary py-2 px-4 text-xs w-full mt-4 lg:hidden border border-secondary/20">VIEW DETAILS</button>
                         </div>
-
-                        {/* Hover Laser Glow */}
-                        <div className="absolute inset-x-0 bottom-0 h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left shadow-[0_0_10px_#f59e0b]" />
                     </motion.div>
                 ))}
             </AnimatePresence>

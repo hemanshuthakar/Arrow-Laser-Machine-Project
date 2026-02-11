@@ -10,29 +10,29 @@ const Awards = () => {
         {
             title: 'Innovation Excellence',
             year: '2023',
-            org: 'Tech Expo Ahmedabad',
+            org: 'Vibrant India – Patna',
             desc: 'Recognized for pioneering fiber laser technology in the industrial sector.',
             icon: Award
         },
         {
-            title: 'Best Laser Supplier',
-            year: '2024',
-            org: 'Industrial Awards India',
+            title: 'LASER MACHINE SUPPLIER',
+            year: '2023',
+            org: 'Vibrant India – New Delhi',
             desc: 'Awarded for consistent quality and volume in laser machine manufacturing.',
             icon: Trophy
         },
         {
             title: 'Eco-Friendly Solution',
-            year: '2023',
-            org: 'Green Tech Forum',
-            desc: 'Acknowledged for energy-efficient laser cleaning and rust removal systems.',
+            year: '2024',
+            org: 'Vibrant India – New Delhi',
+            desc: 'Awarded as best LASER MACHINE SUPPLIER',
             icon: ShieldCheck
         },
         {
             title: 'Quality Benchmark',
-            year: '2024',
-            org: 'Manufacturing Summit',
-            desc: 'Setting new industry standards for precision in laser engraving.',
+            year: '2025',
+            org: 'Vibrant India – Chennai Edition',
+            desc: 'Awarded as best LASER MACHINE SUPPLIER',
             icon: Star
         }
     ];

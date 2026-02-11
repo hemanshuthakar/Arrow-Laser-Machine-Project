@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Send, Phone, Mail, MapPin, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import PageHero from '../components/PageHero';
 
 const ContactInfo = () => {
@@ -62,7 +63,7 @@ const SocialLinks = () => {
         { icon: Facebook, name: 'Facebook', url: 'https://www.facebook.com/arrowlaser/', color: 'hover:text-blue-500' },
         { icon: Instagram, name: 'Instagram', url: 'https://www.instagram.com/arrow.laser/', color: 'hover:text-pink-500' },
         { icon: Youtube, name: 'YouTube', url: 'https://www.youtube.com/@Arrowlasermachine', color: 'hover:text-red-500' },
-        { icon: MessageCircle, name: 'WhatsApp', url: 'https://whatsapp.com/channel/0029VbAKVL55q08kxVMj890Z', color: 'hover:text-green-500' }
+        { icon: FaWhatsapp, name: 'WhatsApp', url: 'https://whatsapp.com/channel/0029VbAKVL55q08kxVMj890Z', color: 'hover:text-green-500' }
     ];
 
     return (

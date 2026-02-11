@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Phone,
     Mail,
-    MessageSquare,
     ChevronLeft,
     ChevronRight,
     Zap,
@@ -19,6 +18,7 @@ import {
     Settings,
     Download
 } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { products } from '../data/products';
 import { galleryItems } from '../data/gallery';
 import InquiryModal from '../components/InquiryModal';
@@ -31,6 +31,8 @@ const ProductDetail = () => {
     const [isInquiryOpen, setIsInquiryOpen] = useState(false);
     const [isImageModalOpen, setIsImageModalOpen] = useState(false);
     const [modalImage, setModalImage] = useState(null);
+    const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false);
+    const [activeTab, setActiveTab] = useState('details');
     const scrollContainerRef = useRef(null);
 
     useEffect(() => {
@@ -41,6 +43,25 @@ const ProductDetail = () => {
             setActiveImage(0);
         }
     }, [id]);
+
+    useEffect(() => {
+        let interval;
+        if (!isAutoScrollPaused) {
+            interval = setInterval(() => {
+                if (scrollContainerRef.current) {
+                    const { current } = scrollContainerRef;
+                    const maxScrollLeft = current.scrollWidth - current.clientWidth;
+
+                    if (current.scrollLeft >= maxScrollLeft - 10) {
+                        current.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        current.scrollBy({ left: 300, behavior: 'smooth' });
+                    }
+                }
+            }, 3000);
+        }
+        return () => clearInterval(interval);
+    }, [isAutoScrollPaused, product]);
 
     const scroll = (direction) => {
         if (scrollContainerRef.current) {
@@ -66,7 +87,7 @@ const ProductDetail = () => {
     }
 
     const contactActions = [
-        { icon: MessageSquare, label: 'WhatsApp', link: `https://wa.me/919909913488?text=Hi, I am interested in ${product.name}`, color: 'bg-[#25D366] hover:bg-[#20bd5a]' },
+        { icon: FaWhatsapp, label: 'WhatsApp', link: `https://wa.me/919909913488?text=Hi, I am interested in ${product.name}`, color: 'bg-[#25D366] hover:bg-[#20bd5a]' },
         { icon: Mail, label: 'Email', link: `mailto:arrowlasermachine@gmail.com?subject=Inquiry for ${product.name}`, color: 'bg-blue-600 hover:bg-blue-700' },
         { icon: Phone, label: 'Call', link: 'tel:+919909913488', color: 'bg-orange-600 hover:bg-orange-700' }
     ];
@@ -98,8 +119,8 @@ const ProductDetail = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                    <div className="space-y-6">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    <div className="lg:col-span-5 space-y-6">
                         <div
                             className="relative aspect-square flex items-center justify-center bg-dark-800 rounded-sm border border-dark-700 overflow-hidden cursor-pointer group"
                             onClick={() => { setModalImage(product.images[activeImage]); setIsImageModalOpen(true); }}
@@ -109,6 +130,9 @@ const ProductDetail = () => {
                                 alt={product.name}
                                 className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-105"
                             />
+                            <div className="absolute top-6 right-6 z-30 w-24 h-24 pointer-events-none">
+                                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]" />
+                            </div>
                             <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity bg-dark-900/80 p-2 rounded-sm text-primary">
                                 <Maximize2 size={20} />
                             </div>
@@ -123,32 +147,6 @@ const ProductDetail = () => {
                                 >
                                     <img src={img} alt={`Thumbnail ${idx}`} className="w-full h-full object-cover" />
                                 </button>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="space-y-8">
-                        <div>
-                            <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-2 block">
-                                {product.category} Series
-                            </span>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
-                                {product.name}
-                            </h1>
-                            <p className="text-sm md:text-base font-bold text-text-muted uppercase tracking-widest flex items-center gap-2 mb-6">
-                                <span className="w-2 h-2 rounded-full bg-primary" />
-                                High Precision • Industrial Grade • {product.category === 'Marking' ? 'EZCAD Compatible' : 'Industrial Standard'}
-                            </p>
-                            <p className="text-text-body text-lg leading-relaxed border-l-2 border-primary/30 pl-6">
-                                {product.description}
-                            </p>
-                        </div>
-
-                        <div className="flex flex-wrap gap-2">
-                            {product.tags && product.tags.map(tag => (
-                                <span key={tag} className="px-4 py-1 rounded-full bg-dark-800 border border-dark-700 text-xs font-mono uppercase tracking-widest text-primary">
-                                    {tag}
-                                </span>
                             ))}
                         </div>
 
@@ -175,109 +173,145 @@ const ProductDetail = () => {
                             </div>
                         </div>
                     </div>
+
+                    <div className="lg:col-span-7 space-y-8">
+                        <div>
+                            <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-2 block">
+                                {product.category} Series
+                            </span>
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-4">
+                                {product.name}
+                            </h1>
+                        </div>
+
+                        {/* Tabs Navigation */}
+                        <div className="flex border-b border-dark-700 overflow-x-auto scrollbar-hide">
+                            {['details', 'Technical Specification', 'benefits', 'applications'].map((tab) => (
+                                <button
+                                    key={tab}
+                                    onClick={() => setActiveTab(tab)}
+                                    className={`px-4 py-3 text-sm font-bold uppercase tracking-wider transition-all relative whitespace-nowrap shrink-0 ${activeTab === tab
+                                        ? 'text-primary'
+                                        : 'text-text-muted hover:text-white'
+                                        }`}
+                                >
+                                    {tab}
+                                    {activeTab === tab && (
+                                        <motion.div
+                                            layoutId="activeTab"
+                                            className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                                        />
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Tab Content */}
+                        <div className="min-h-[400px]">
+                            {activeTab === 'details' && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <p className="text-sm md:text-base font-bold text-text-muted uppercase tracking-widest flex items-center gap-2 mb-6">
+                                        <span className="w-2 h-2 rounded-full bg-primary" />
+                                        High Precision • Industrial Grade • {product.category === 'Marking' ? 'EZCAD Compatible' : 'Industrial Standard'}
+                                    </p>
+                                    <div className="space-y-4 mb-6">
+                                        {product.description.split('\n\n').map((paragraph, index) => (
+                                            <p key={index} className="text-text-body text-lg leading-relaxed border-l-2 border-primary/30 pl-6">
+                                                {paragraph}
+                                            </p>
+                                        ))}
+                                    </div>
+                                    <div className="flex flex-wrap gap-2">
+                                        {product.tags && product.tags.map(tag => (
+                                            <span key={tag} className="px-4 py-1 rounded-full bg-dark-800 border border-dark-700 text-xs font-mono uppercase tracking-widest text-primary">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            )}
+
+                            {activeTab === 'Technical Specification' && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                                        {activeSpecs.map((spec, i) => (
+                                            <div key={i} className="flex flex-col border-b border-dark-700/50 pb-2">
+                                                <span className="text-text-muted font-mono text-xs uppercase tracking-wider mb-1">{spec.label}</span>
+                                                <span className="text-white font-bold text-sm">{spec.value}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            )}
+
+                            {activeTab === 'benefits' && product.features && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="grid grid-cols-1 gap-4"
+                                >
+                                    {product.features.map((feature, i) => (
+                                        <div key={i} className="p-4 bg-dark-800 border border-dark-700 rounded-sm flex items-center justify-start gap-4">
+                                            <div className="text-primary opacity-80 shrink-0">
+                                                <CheckCircle2 size={24} />
+                                            </div>
+                                            <p className="text-white font-medium leading-relaxed text-left">
+                                                {feature}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </motion.div>
+                            )}
+
+                            {activeTab === 'applications' && product.applications && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    {product.applicationDescription && (
+                                        <p className="text-text-muted mb-6 leading-relaxed">
+                                            {product.applicationDescription}
+                                        </p>
+                                    )}
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        {product.applications.map((app, i) => {
+                                            const match = app.match(/ [–-] /);
+                                            const separatorIndex = match ? match.index : -1;
+
+                                            return (
+                                                <div key={i} className="flex items-start space-x-3 p-3 bg-dark-800 border border-dark-700 rounded-sm">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                                                    <span className="text-text-muted text-sm font-medium leading-relaxed">
+                                                        {separatorIndex !== -1 ? (
+                                                            <>
+                                                                <strong className="text-white">{app.substring(0, separatorIndex)}</strong>
+                                                                <span className="mx-1">{match[0].trim()}</span>
+                                                                {app.substring(separatorIndex + match[0].length)}
+                                                            </>
+                                                        ) : (
+                                                            app
+                                                        )}
+                                                    </span>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </motion.div>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </section>
-
-            <section className="container-custom mb-24">
-                <div className="flex items-center justify-center gap-4 mb-12">
-                    <div className="p-3 bg-dark-800 rounded-lg border border-dark-700 text-primary">
-                        <Settings size={28} />
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-widest text-center">
-                        Technical Specifications
-                    </h2>
-                </div>
-
-                <div className="bg-dark-800/50 backdrop-blur-md border border-dark-700 rounded-sm p-8 md:p-12 shadow-2xl relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -z-10" />
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
-                        {activeSpecs.map((spec, i) => (
-                            <div key={i} className="flex justify-between items-center border-b border-dark-700/50 pb-3 group hover:border-primary/30 transition-colors">
-                                <span className="text-text-muted font-mono text-sm">{spec.label}</span>
-                                <span className="text-white font-bold text-sm text-right group-hover:text-primary transition-colors">{spec.value}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {product.features && (
-                <section className="container-custom mb-24">
-                    <div className="flex items-center justify-center gap-4 mb-12">
-                        <div className="p-3 bg-dark-800 rounded-lg border border-dark-700 text-primary">
-                            <Zap size={28} />
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-widest text-center">
-                            Key Features
-                        </h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {product.features.map((feature, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1 }}
-                                className="p-8 bg-dark-800 border border-dark-700 rounded-sm hover:border-primary/50 transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl"
-                            >
-                                <div className="mb-4 text-primary opacity-60 group-hover:opacity-100 transition-opacity">
-                                    <CheckCircle2 size={32} />
-                                </div>
-                                <p className="text-lg text-white font-medium leading-relaxed">
-                                    {feature}
-                                </p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </section>
-            )}
-
-            {product.applications && (
-                <section className="container-custom mb-24">
-                    <div className="flex items-center justify-center gap-4 mb-12">
-                        <div className="p-3 bg-dark-800 rounded-lg border border-dark-700 text-primary">
-                            <Layers size={28} />
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white uppercase tracking-widest text-center">
-                            Common Applications
-                        </h2>
-                    </div>
-
-                    {product.applicationDescription && (
-                        <div className="max-w-4xl mx-auto mb-12">
-                            <p className="text-text-muted text-lg leading-relaxed text-center">
-                                {product.applicationDescription}
-                            </p>
-                        </div>
-                    )}
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {product.applications.map((app, i) => {
-                            const match = app.match(/ [–-] /);
-                            const separatorIndex = match ? match.index : -1;
-
-                            return (
-                                <div key={i} className="flex items-start space-x-3 p-4 bg-dark-900 border border-dark-800 rounded-sm hover:border-dark-700 transition-colors">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                                    <span className="text-text-muted text-sm font-medium leading-relaxed">
-                                        {separatorIndex !== -1 ? (
-                                            <>
-                                                <strong className="text-white text-base">{app.substring(0, separatorIndex)}</strong>
-                                                <span className="mx-1">{match[0].trim()}</span>
-                                                {app.substring(separatorIndex + match[0].length)}
-                                            </>
-                                        ) : (
-                                            app
-                                        )}
-                                    </span>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </section>
-            )}
 
             {highlightImages.length > 0 && (
                 <section className="container-custom mb-24 overflow-hidden">
@@ -308,6 +342,10 @@ const ProductDetail = () => {
                         <div
                             ref={scrollContainerRef}
                             className="flex overflow-x-auto gap-6 pb-8 hide-scrollbar scroll-smooth"
+                            onMouseEnter={() => setIsAutoScrollPaused(true)}
+                            onMouseLeave={() => setIsAutoScrollPaused(false)}
+                            onTouchStart={() => setIsAutoScrollPaused(true)}
+                            onTouchEnd={() => setIsAutoScrollPaused(false)}
                         >
                             {highlightImages.map((img, idx) => (
                                 <motion.div

@@ -98,7 +98,41 @@
   .section-padding {
     @apply py-20 lg:py-32;
   }
+
+  .card-metallic {
+    @apply relative overflow-hidden bg-gradient-to-br from-dark-800 to-dark-900 border border-dark-700 transition-all duration-300;
+    box-shadow: 0 4px 20px -1px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .card-metallic::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-b from-transparent via-primary/10 to-transparent translate-y-[-100%] transition-none pointer-events-none z-10;
+  }
+
+  .card-metallic:hover {
+    @apply border-secondary/50 -translate-y-1;
+    box-shadow: 0 10px 40px -5px rgba(56, 189, 248, 0.2), inset 0 0 20px rgba(56, 189, 248, 0.1);
+  }
+
+  .card-metallic:hover::after {
+    animation: scan 1.5s linear infinite;
+  }
 }
+
+@theme {
+  --animate-scan: scan 1.5s linear infinite;
+
+  @keyframes scan {
+    0% {
+      transform: translateY(-100%);
+    }
+
+    100% {
+      transform: translateY(100%);
+    }
+  }
+}
+
 
 ::-webkit-scrollbar {
   width: 8px;

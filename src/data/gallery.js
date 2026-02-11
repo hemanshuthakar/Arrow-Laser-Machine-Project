@@ -1,10 +1,10 @@
 import indAutomotive from '../assets/images/industries/ind_automotive.png';
-import prodUvMarking from '../assets/images/product-uv-marking.jpg';
+import prodUvMarking from '../assets/images/product-images/uv-marking/3. UV Laser Marking.jpg';
 import indJewelry from '../assets/images/industries/ind_jewelry.png';
 import indWood from '../assets/images/industries/ind_wood.png';
-import prodFiberMarking from '../assets/images/product-fiber-marking.jpg';
+import prodFiberMarking from '../assets/images/product-images/fiber-marking/1. Fiber Laser marking.jpg';
 import indElectronics from '../assets/images/industries/ind_electronics.png';
-import prodFlyMarking from '../assets/images/product-fly-marking.jpg';
+import prodFlyMarking from '../assets/images/product-images/fly-marking/2. Fly laser Machine.png';
 import catWelding from '../assets/images/cat-welding.png';
 import catCutting from '../assets/images/cat-cutting.png';
 import catMarking from '../assets/images/cat-marking.png';
@@ -142,4 +142,6 @@ const additionalItems = [
 ];
 
 export const galleryItems = [...originalGalleryItems, ...additionalItems];
+
 // Note: In a real app, videos would have actual URLs and thumbnails
+

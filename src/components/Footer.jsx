@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Facebook, Instagram, Youtube, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Youtube } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+import { products } from '../data/products';
 
 const Footer = () => {
     return (
@@ -25,7 +27,7 @@ const Footer = () => {
                                 { Icon: Facebook, url: 'https://www.facebook.com/arrowlaser/' },
                                 { Icon: Instagram, url: 'https://www.instagram.com/arrow.laser/' },
                                 { Icon: Youtube, url: 'https://www.youtube.com/@Arrowlasermachine' },
-                                { Icon: MessageCircle, url: 'https://whatsapp.com/channel/0029VbAKVL55q08kxVMj890Z' }
+                                { Icon: FaWhatsapp, url: 'https://whatsapp.com/channel/0029VbAKVL55q08kxVMj890Z' }
                             ].map(({ Icon, url }, idx) => (
                                 <motion.a
                                     key={idx}
@@ -59,6 +61,24 @@ const Footer = () => {
                         </ul>
                     </div>
 
+                    {/* Our Machines */}
+                    <div>
+                        <h4 className="text-white text-lg font-semibold mb-8 uppercase tracking-widest border-l-2 border-primary pl-4">Our Machines</h4>
+                        <ul className="space-y-3">
+                            {products.map((product) => (
+                                <li key={product.id}>
+                                    <Link
+                                        to={`/product/${product.id}`}
+                                        className="text-text-muted hover:text-white transition-colors flex items-center group text-sm leading-snug"
+                                    >
+                                        <span className="w-0 h-[1px] bg-primary group-hover:w-3 transition-all duration-300 mr-0 group-hover:mr-2"></span>
+                                        {product.name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
                     {/* Contact info */}
                     <div>
                         <h4 className="text-white text-lg font-semibold mb-8 uppercase tracking-widest border-l-2 border-primary pl-4">Contact Info</h4>
@@ -80,30 +100,14 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-
-                    {/* Newsletter */}
-                    <div>
-                        <h4 className="text-white text-lg font-semibold mb-8 uppercase tracking-widest border-l-2 border-primary pl-4">Stay Updated</h4>
-                        <p className="text-text-muted mb-6">Subscribe to our newsletter for the latest updates in laser technology.</p>
-                        <form className="relative group">
-                            <input
-                                type="email"
-                                placeholder="Email Address"
-                                className="w-full bg-dark-800 border border-dark-700 py-3 px-4 text-white focus:outline-none focus:border-primary transition-colors"
-                            />
-                            <button className="absolute top-0 right-0 h-full px-4 bg-primary text-dark-900 font-bold">
-                                JOIN
-                            </button>
-                        </form>
-                    </div>
                 </div>
 
                 {/* Footer Bottom */}
                 <div className="pt-10 border-t border-dark-700 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm text-text-muted">
                     <p>© {new Date().getFullYear()} Arrow Laser Machine. All Rights Reserved.</p>
                     <div className="flex space-x-8">
-                        <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
+                        <Link to="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+                        <Link to="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link>
                     </div>
                 </div>
             </div>

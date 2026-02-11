@@ -1,5 +1,12 @@
 
-import fiberMarking from '../assets/images/product-fiber-marking.jpg';
+import fiberMain from '../assets/images/product-images/fiber-marking/1. Fiber Laser marking.jpg';
+import flyMain from '../assets/images/product-images/fly-marking/2. Fly laser Machine.png';
+import uvMain from '../assets/images/product-images/uv-marking/3. UV Laser Marking.jpg';
+import co2MarkMain from '../assets/images/product-images/co2-marking/4. Co2 Laser Marking.jpg';
+import co2CutMain from '../assets/images/product-images/co2-cutting/5. Co2 Laser Engraving and Cutting.png';
+import solderMain from '../assets/images/product-images/jewelry-soldering/6. Fiber Laser Jwellery Soldering.png';
+import jewelCutMain from '../assets/images/product-images/jewelry-cutting/7. Gold Laser Cutting & Engraving Machine..jpg';
+import weldMain from '../assets/images/product-images/welding-cleaning/8. Laser Welding and Rust Cleaning.png';
 
 // Import Application Highlights for Product 1 (Fiber Laser Marking)
 import fiberApp1 from '../assets/images/application-highlight/1 Fiber Laser Marking/1604453005472569.jpg';
@@ -63,12 +70,7 @@ import solderApp3 from '../assets/images/application-highlight/6 Jwellery Solder
 import solderApp4 from '../assets/images/application-highlight/6 Jwellery Soldering/IMG_7773-1.jpg';
 import solderApp5 from '../assets/images/application-highlight/6 Jwellery Soldering/IMG_7774-1.jpg';
 import solderApp6 from '../assets/images/application-highlight/6 Jwellery Soldering/IMG_7775-1.jpg';
-import flyMarking from '../assets/images/product-fly-marking.jpg';
-import uvMarking from '../assets/images/product-uv-marking.jpg';
-import co2Marking from '../assets/images/product-co2-marking.jpg';
-import co2Cutting from '../assets/images/product-co2-cutting.jpg';
-import fiberJewelry from '../assets/images/product-fiber-jewelry.jpg';
-import jewelryEngraving from '../assets/images/product-jewelry-engraving.jpg';
+
 import precisionEng from '../assets/images/precision-engineering.png';
 
 import catMarking from '../assets/images/cat-marking.png';
@@ -104,18 +106,20 @@ import weldApp8 from '../assets/images/application-highlight/8 Welding and Rust 
 export const products = [
     {
         id: 1,
-        name: 'Fiber Laser Marking Machine',
+        name: 'FIBER LASER MARKING Machine',
         category: 'Marking',
         spec: '20W | 30W | 50W | 100W',
         price: 'Contact for Quote',
-        description: 'Arrow Fiber laser marking machines are high-precision marking systems that use fiber laser technology to engrave, etch, or mark various materials. They are widely used in industries such as Metals, automotive, electronics, jewelry, medical devices, and packaging due to their speed, accuracy, and durability.\n\nLaser Machine can be used for marking and engraving logos, brand names, texts, graphics, labels, designs, serial numbers, barcodes, QR codes, photos and more on a wide range of materials, including metals (steel, titanium, aluminium, brass, copper), plastics, ceramics, glass, wood, and more.',
+        description: 'Arrow Fiber Laser Marking Machines are high-precision, high-speed systems designed for permanent marking and engraving. Using advanced fiber laser technology, they deliver accurate, durable results across industries like metal, automotive, electronics, jewellery, medical devices, and packaging.\n\nThese machines can mark and engrave logos, brand names, text, graphics, serial numbers, barcodes, QR codes, photos, and designs on a wide range of materials including steel, stainless steel, aluminium, brass, copper, titanium, plastics, ceramics, glass, wood, and more—with excellent clarity and long-lasting quality.',
         features: [
             'High-speed and precise marking',
+            'No Ink-No Chemical, 24 hours working',
             'Long-lasting, maintenance-free operation',
             'Works on metals, plastics, ceramics, and more',
             'Non-contact, non-damaging process',
             'Low power consumption and high efficiency'
         ],
+        applicationDescription: 'Laser Machine can be used for marking and engraving logos, brand names, texts, graphics, labels, designs, serial numbers, barcodes, QR codes, photos and more on a wide range of materials, including metals (steel, titanium, aluminium, brass, copper), plastics, ceramics, glass, wood, and more.',
         applications: [
             'Serial numbers & barcodes',
             'Logos & branding',
@@ -170,9 +174,7 @@ export const products = [
             'Operating System: Windows 10'
         ],
         images: [
-            fiberMarking,
-            catMarking,
-            catWelding
+            fiberMain
         ],
         tags: ['Pulsed Fiber', 'EZCAD', 'High Precision', 'Industrial'],
         applicationHighlights: [
@@ -181,17 +183,18 @@ export const products = [
     },
     {
         id: 2,
-        name: 'Fly Laser Marking Machine',
+        name: 'FLY LASER MARKING MACHINE',
         category: 'Marking',
         spec: '20W–100W',
         price: 'Contact for Quote',
-        description: 'A fly laser marking machine is primarily used for high-speed, continuous marking on products moving along a production line, enabling efficient application of serial numbers, batch codes, date codes, barcodes, QR codes, logos, and other identifying or branding information in industries like industrial manufacturing, automotive, electronics, food and beverage packaging, pharmaceuticals, cosmetics, and materials processing such as extrusion and wire/cable production. It offers benefits like increased throughput, permanent and precise marking, non-contact operation, versatility across materials, and seamless integration into automated systems.',
+        description: 'Our Fly Laser Marking Machines are engineered for high-speed, continuous marking on moving production lines, enabling real-time marking of serial numbers, batch codes, date codes, barcodes, QR codes, logos, and branding information. Trusted across industries such as industrial manufacturing, automotive, electronics, food & beverage packaging, pharmaceuticals, cosmetics, and wire, cable, and extrusion processing, these machines deliver permanent, precise, and non-contact marking while seamlessly integrating with automated conveyor systems.',
         features: [
-            'High-Speed Marking – Works in real-time on moving objects',
-            'Non-Contact Process – Ensures no damage to the material',
-            'Permanent Marking – Resistant to wear, heat, and chemicals',
-            'Supports Multiple Materials – Metals, plastics, glass, paper, and more',
-            'Integration with Production Lines – Compatible with conveyors and automation systems'
+            'Real-time marking on fast-moving production lines',
+            'Permanent, high-contrast, and precise marking',
+            'Non-contact process with no material damage',
+            'Supports metals, plastics, glass, paper, and more',
+            'Easy integration with conveyors and automation systems',
+            'Increases productivity, traceability, and operational efficiency'
         ],
         applications: [
             'Food & beverage packaging (plastic, glass, cartons)',
@@ -226,9 +229,7 @@ export const products = [
             'Power Supply: 230V AC 50/60Hz - Single Phase'
         ],
         images: [
-            flyMarking,
-            catMarking,
-            fiberMarking
+            flyMain
         ],
         tags: ['Continuous Marking', 'On-the-fly', 'Production Line'],
         applicationHighlights: [
@@ -237,17 +238,18 @@ export const products = [
     },
     {
         id: 3,
-        name: 'UV Laser Marking Machine',
+        name: 'UV LASER MARKING MACHINE',
         category: 'Marking',
         spec: '3W / 5W / 10W',
         price: 'Contact for Quote',
-        description: 'A UV Laser Marking Machine (Ultraviolet Laser Marking Machine) is a high-precision laser system widely used for marking delicate or heat-sensitive materials. It utilizes a short-wavelength ultraviolet (typically 355nm) laser beam, which allows for "cold marking"—meaning minimal heat is transferred to the material, reducing the risk of damage or deformation.',
+        description: 'A UV Laser Marking Machine is a high-precision system for marking delicate and heat-sensitive materials. Using a 355 nm ultraviolet laser, it enables cold marking with minimal heat impact, preventing material damage while delivering clean, sharp, and high-contrast marks with fine detail.',
         features: [
-            'Wavelength: 355nm',
-            'Marking Speed: Fast, suitable for high-volume production',
-            'Marking Precision: High (suitable for micro text, logos, barcodes, 2D codes)',
-            'Cooling Method: Air or water cooling depending on power and usage',
-            'No thermal stress: Ideal for sensitive materials'
+            'Cold marking technology with zero thermal stress',
+            'Ultra-fine, high-precision marking (micro text, logos, 2D codes)',
+            'High-speed marking suitable for high-volume production',
+            'Ideal for sensitive materials like plastics, electronics & glass',
+            'Permanent, high-contrast, premium-quality results',
+            'Perfect for branding, traceability & regulatory compliance'
         ],
         applicationDescription: 'UV laser marking machines excel at high-precision, cold marking on sensitive materials like plastics, glass, and electronics without causing thermal damage, making them ideal for intricate markings, micro-marking, and applications requiring minimal heat-affected zones in industries such as medical devices, pharmaceuticals, cosmetics packaging, and electronics manufacturing for product identification, traceability, and branding.',
         applications: [
@@ -295,9 +297,7 @@ export const products = [
             'Optional Accessories: Auto Z Axis, XY Stage, Rotary Table, Flip/Flop Stage, Vision System, Loading/Unloading Stage, Enclosed Cabinet'
         ],
         images: [
-            uvMarking,
-            catMarking,
-            gallery3
+            uvMain
         ],
         tags: ['Cold Marking', 'Sensitive Materials', 'Micro-Marking'],
         applicationHighlights: [
@@ -306,16 +306,18 @@ export const products = [
     },
     {
         id: 4,
-        name: 'CO2 Laser Marking Machine',
+        name: 'CO2 LASER MARKING MACHINE',
         category: 'Marking',
         spec: '20W–100W',
         price: 'Contact for Quote',
-        description: 'A CO₂ Laser Marking Machine is a cutting-edge solution engineered for fast, high-precision marking and engraving on a wide variety of organic and non-metallic materials. Whether you\'re working with wood, glass, plastics, leather, paper, or acrylic, this machine delivers outstanding accuracy and long-lasting results—ideal for both industrial and commercial use.\n\nUtilizing non-contact laser technology, CO₂ systems offer smooth, damage-free processing, making them a preferred choice across industries such as packaging, textiles, electronics, and signage manufacturing.',
+        description: 'A CO₂ Laser Marking Machine is an efficient solution for fast and precise marking and engraving on non-metal and organic materials such as wood, glass, plastics, leather, paper, and acrylic. Using non-contact laser technology, it delivers smooth, permanent, and damage-free results, making it ideal for industrial and commercial applications across packaging, textiles, electronics, and signage industries.',
         features: [
-            'Best for non-metals like wood, acrylic, glass, plastic, leather, paper, rubber, and textiles',
-            'Permanent, high-contrast marking without physical contact',
-            'Fast marking speed suitable for industrial production lines',
-            'No consumables – clean and cost-effective'
+            'Best for non-metal materials like wood, acrylic, glass, plastic, leather, paper, rubber & textiles',
+            'Permanent, high-contrast marking with no physical contact',
+            'High-speed marking suitable for industrial production lines',
+            'No consumables required – clean and cost-effective operation',
+            'Smooth, burn-free marking with consistent quality',
+            'Ideal for logos, serial numbers, barcodes & decorative designs'
         ],
         applications: [
             'Packaging – batch codes, barcodes, logos',
@@ -339,9 +341,7 @@ export const products = [
             'Electricity Req.: 220V / 50Hz'
         ],
         images: [
-            co2Marking,
-            gallery6,
-            catMarking
+            co2MarkMain
         ],
         tags: ['Non-Metallic', 'Organic Materials', 'Wood Engraving'],
         applicationHighlights: [
@@ -350,17 +350,18 @@ export const products = [
     },
     {
         id: 5,
-        name: 'CO2 Laser Engraving and Cutting Machine',
+        name: 'CO2 LASER ENGRAVING AND CUTTING',
         category: 'Cutting',
         spec: '60W–150W',
         price: 'Contact for Quote',
-        description: 'CO₂ laser engraving and cutting machines are highly versatile tools that use a carbon dioxide laser beam (10.6 µm wavelength) to engrave, cut, or mark non-metallic materials with precision and speed. These machines are widely used in industries where clean edges, detailed designs, and material flexibility are required.\n\nWhat It Does:\n\n1. Engraving:\n• Removes surface layers to create text, patterns, or logos\n• Ideal for materials like wood, acrylic, leather, paper, glass, and plastic\n• Offers fine detail and high-contrast finishes\n\n2. Cutting:\n• Cuts cleanly through materials such as acrylic, MDF, fabric, leather, and cardboard\n• Produces sealed, smooth edges with minimal post-processing\n• Can handle complex shapes and intricate designs',
+        description: 'CO₂ laser engraving and cutting machines harness a powerful 10.6 μm carbon dioxide laser to deliver fast, precise, and flawless engraving and cutting on non-metallic materials. Renowned for clean edges, sharp detailing, and exceptional versatility, they are the go-to solution for businesses seeking high-quality results, efficiency, and creative freedom.',
         features: [
-            'High precision and repeatability',
-            'Non-contact processing – no mechanical pressure',
-            'Supports a wide range of file formats (DXF, PLT, etc.)',
-            'Works with software like RDWorks, LaserGRBL, LightBurn',
-            'Available in multiple power options (e.g., 60W, 100W, 150W)'
+            'Dual Functionality: Powerful engraving and clean cutting in one machine',
+            'Wide Material Compatibility: Works on wood, acrylic, leather, glass, plastic, fabric, MDF & cardboard',
+            'High Precision & Fine Detail: Sharp text, logos, patterns, and intricate designs with excellent repeatability',
+            'Clean, Smooth Edges: Sealed cuts with minimal post-processing required',
+            'Non-Contact Processing: No mechanical pressure, no tool wear, no material damage',
+            'Flexible & Scalable: Multiple power options (60W–150W) with broad software and file format support'
         ],
         applications: [
             'Suitable Materials: Wood, Acrylic & Plastics, Paper & Cardboard, Leather & Fabric, Glass & Ceramics, Rubber and foam.',
@@ -388,9 +389,7 @@ export const products = [
             'Graphic File Support: PLT, CDR, AI, DWG, DST, DXF, BMP, JPEG, TIFF, GIF, PCX'
         ],
         images: [
-            co2Cutting,
-            catCutting,
-            gallery5
+            co2CutMain
         ],
         tags: ['MDF Cutting', 'Acrylic Work', 'Non-Metallic'],
         applicationHighlights: [
@@ -399,17 +398,18 @@ export const products = [
     },
     {
         id: 6,
-        name: 'Fiber Laser Jewellery Soldering Machine',
+        name: 'FIBER LASER JEWELLERY SOLDERING',
         category: 'Welding',
         spec: '200W',
         price: 'Contact for Quote',
-        description: 'A Fiber Laser Jewellery Soldering Machine is a precision welding system designed specifically for joining and repairing fine metal components in the jewellery industry. It uses a focused fiber laser beam to deliver accurate, clean, and non-contact soldering, ideal for delicate tasks such as chain repairs, ring resizing, prong retipping, and micro-welding.',
+        description: 'A Fiber Laser Jewellery Soldering Machine is a high-precision welding solution engineered for the jewellery industry, enabling accurate joining and repair of fine metal components. Utilizing a highly focused fibre laser beam, it provides clean, controlled, and non-contact soldering with minimal heat impact. This makes it ideal for delicate operations such as chain repairs, ring resizing, and prong retyping, and micro-welding, while preserving the integrity, finish, and value of the jewellery piece.',
         features: [
-            'High precision & control – perfect for intricate jewellery work',
-            'Minimal heat impact – protects surrounding stones and delicate designs',
-            'No filler material required for many tasks',
-            'Clean, strong welds with excellent aesthetics',
-            'Works with gold, silver, platinum, titanium, and other precious metals'
+            'High precision and control for intricate jewellery work',
+            'Minimal heat impact, protecting surrounding stones and delicate designs',
+            'Strong, clean, and aesthetically superior welds',
+            'Non-contact welding with no filler material required for many applications',
+            'Compatible with gold, silver, platinum, titanium, and other precious metals',
+            'Ideal for repairs, resizing, prong retipping, and micro-welding tasks'
         ],
         applications: [
             'Ring resizing',
@@ -431,9 +431,7 @@ export const products = [
             'Observing System: CCD or Microscope'
         ],
         images: [
-            fiberJewelry,
-            indJewelry,
-            gallery2
+            solderMain
         ],
         tags: ['Jewellery Welding', 'Gold & Silver', 'Micro-Welding'],
         applicationHighlights: [
@@ -442,17 +440,18 @@ export const products = [
     },
     {
         id: 7,
-        name: 'Fiber Laser Jewellery Engraving and Cutting Machine',
+        name: 'LASER JWELLERY CUTTING & ENGRAVING MACHINE',
         category: 'Cutting',
         spec: '50W–200W',
         price: 'Contact for Quote',
-        description: 'A Fiber Laser Jewellery Engraving and Cutting Machine is a high-precision laser system tailored for engraving intricate designs and cutting fine patterns on precious metals such as gold, silver, platinum, and titanium. Known for its accuracy, speed, and durability, it\'s a must-have tool in modern jewellery manufacturing and personalization.',
+        description: 'A Fiber Laser Jewellery Engraving and Cutting Machine is an advanced precision system designed for engraving intricate details and cutting fine, complex patterns on precious metals such as gold, silver, platinum, and titanium. Renowned for its exceptional accuracy, high speed, and long-term reliability, it is an essential tool for modern jewellery manufacturing, customization, and personalization.',
         features: [
-            'Ultra-fine engraving – logos, patterns, text, serial numbers, photos',
-            'Precision cutting – lightweight charms, pendants, bangles, and filigree designs',
-            'Works on gold, silver, copper, platinum, stainless steel, brass, and more',
-            'Non-contact, no tool wear – perfect for delicate and high-value items',
-            'High-speed operation with minimal material loss'
+            'Ultra-fine engraving for logos, patterns, text, serial numbers & photos',
+            'High-precision cutting for charms, pendants, bangles & filigree designs',
+            'Wide metal compatibility – gold, silver, copper, platinum, stainless steel, brass & more',
+            'Non-contact laser processing with zero tool wear, ideal for high-value jewellery',
+            'High-speed operation with minimal material loss',
+            'Clean edges and superior finish, reducing post-processing work'
         ],
         applications: [
             'Custom name jewellery and branding',
@@ -475,9 +474,7 @@ export const products = [
             'Min. Character Height: 0.2 mm'
         ],
         images: [
-            jewelryEngraving,
-            catCutting,
-            catMarking
+            jewelCutMain
         ],
         tags: ['Precision Cutting', 'Precious Metals', 'Custom Design'],
         applicationHighlights: [
@@ -516,9 +513,7 @@ export const products = [
             'Observing System: Red Light'
         ],
         images: [
-            catCleaning,
-            catWelding,
-            catCutting
+            weldMain
         ],
         tags: ['Rust Removal', 'Metal Welding', 'Restoration'],
         applicationHighlights: [

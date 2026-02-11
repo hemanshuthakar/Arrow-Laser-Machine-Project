@@ -42,12 +42,20 @@ import watchOptics from '../assets/images/industries/Watch & Optics.png';
 
 const Industries = () => {
     const industries = [
+        { name: 'Steel Utensils', image: steelUtensils },
+        { name: 'Kitchenware & Homeware', image: kitchenwareHomeware },
+        { name: 'Gems & Jewellery', image: gemsJewellery },
+        { name: 'Gold & Silver', image: goldSilver },
+        { name: 'Kitchen & Home Appliances', image: kitchenHomeAppliances },
+        { name: 'Hardware & Bathware', image: hardwareBathware },
+        { name: 'LED Bulb & Switches', image: ledBulbSwitches },
+        { name: 'Brass & Copper Parts', image: brassCopper },
+        { name: 'Watch & Optics', image: watchOptics },
         { name: 'Acrylic & Laminates', image: acrylicLaminates },
         { name: 'Advertising and Signage', image: advertisingSignage },
         { name: 'Agricultural Equipment', image: agriculturalEquipment },
         { name: 'Automotive Industry', image: automotiveIndustry },
         { name: 'Bottles & Beverage', image: bottlesBeverage },
-        { name: 'Brass & Copper Parts', image: brassCopper },
         { name: 'Cable & Wires', image: cableWires },
         { name: 'Cosmetics & Novelty', image: cosmeticsNovelty },
         { name: 'Cutting Tools & Dies', image: cuttingTools },
@@ -56,14 +64,9 @@ const Industries = () => {
         { name: 'Elevator & Escalator', image: elevatorEscalator },
         { name: 'Food & FMCG', image: foodFMCG },
         { name: 'Furniture & Fabrication', image: furnitureFabrication },
-        { name: 'Gems & Jewellery', image: gemsJewellery },
         { name: 'Gift & Article', image: giftArticle },
         { name: 'Glass & Optical', image: glassOptical },
-        { name: 'Gold & Silver', image: goldSilver },
-        { name: 'Hardware & Bathware', image: hardwareBathware },
-        { name: 'Kitchen & Home Appliances', image: kitchenHomeAppliances },
         { name: 'Leather & Rubber', image: leatherRubber },
-        { name: 'LED Bulb & Switches', image: ledBulbSwitches },
         { name: 'Machine Tools & Equipments', image: machineTools },
         { name: 'Metals & Non Metals', image: metalsNonMetals },
         { name: 'Mobile Accessories & Gadgets', image: mobileAccessories },
@@ -73,10 +76,7 @@ const Industries = () => {
         { name: 'Ply & Woods', image: plyWoods },
         { name: 'Print & Packaging', image: printPackaging },
         { name: 'Pumps & Valves', image: pumpsValves },
-        { name: 'Steel Utensils', image: steelUtensils },
-        { name: 'Kitchenware & Homeware', image: kitchenwareHomeware },
         { name: 'Textile & Fabric', image: textileFabric },
-        { name: 'Watch & Optics', image: watchOptics }
     ];
 
     return (
@@ -104,7 +104,7 @@ const Industries = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.05, duration: 0.5 }}
-                            className="group bg-dark-800/60 rounded-xl overflow-hidden border border-dark-700/50 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/5"
+                            className="group card-metallic rounded-xl overflow-hidden hover:border-secondary/40"
                         >
                             <div className="aspect-[4/3] overflow-hidden bg-dark-900">
                                 <img

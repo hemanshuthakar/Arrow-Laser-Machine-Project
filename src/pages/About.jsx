@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { Target, Eye, ShieldAlert, Zap, Layers, ShieldCheck, Timer, BadgeIndianRupee, CheckCircle2, User } from 'lucide-react';
 import PageHero from '../components/PageHero';
 
-import indAutomotive from '../assets/images/industries/ind_automotive.png';
+import indPackaging from '../assets/images/industries/ind_packaging.png';
+import ownerImg from '../assets/Owner.jpeg';
 
 const MissionVision = () => {
     const values = [
@@ -162,7 +163,7 @@ const AboutSection = () => {
                     >
                         <div className="aspect-square bg-dark-800 border border-dark-700 p-2 rounded-sm overflow-hidden group">
                             <img
-                                src={indAutomotive}
+                                src={indPackaging}
                                 alt="Arrow Laser Machine Facility"
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                             />
@@ -180,35 +181,22 @@ const Leadership = () => {
         <section className="section-padding bg-dark-800 border-t border-dark-700">
             <div className="container-custom text-center">
                 <h2 className="text-4xl font-bold mb-16 uppercase tracking-widest text-white">Leadership</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div className="flex justify-center items-center gap-8 max-w-4xl mx-auto">
                     <motion.div
                         whileHover={{ y: -10 }}
-                        className="glass-card p-8 rounded-sm group border-primary/20"
+                        className="glass-card p-8 rounded-sm group border-primary/20 max-w-sm w-full"
                     >
                         <div className="w-full aspect-square bg-dark-900 rounded-sm mb-6 transition-all border border-dark-700 overflow-hidden relative flex items-center justify-center">
-                            <div className="w-full h-full flex items-center justify-center bg-dark-800/50 group-hover:bg-primary/5 transition-colors">
-                                <User size={120} className="text-dark-600 group-hover:text-primary/40 transition-colors" />
-                            </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-dark-900 to-transparent opacity-60" />
+                            <img
+                                src={ownerImg}
+                                alt="Mr. Pankaj Diwkaar"
+                                className="w-full h-full object-cover filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-40 group-hover:opacity-0 transition-opacity duration-500" />
                         </div>
                         <h3 className="text-2xl font-bold text-white mb-2">Mr. Pankaj Diwkaar</h3>
                         <p className="text-primary font-mono text-sm uppercase tracking-widest font-bold">Director</p>
                         <p className="text-text-muted mt-4 text-sm font-mono">+91 99099 13488</p>
-                    </motion.div>
-
-                    <motion.div
-                        whileHover={{ y: -10 }}
-                        className="glass-card p-8 rounded-sm group border-primary/20"
-                    >
-                        <div className="w-full aspect-square bg-dark-900 rounded-sm mb-6 transition-all border border-dark-700 overflow-hidden relative flex items-center justify-center">
-                            <div className="w-full h-full flex items-center justify-center bg-dark-800/50 group-hover:bg-primary/5 transition-colors">
-                                <User size={120} className="text-dark-600 group-hover:text-primary/40 transition-colors" />
-                            </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-dark-900 to-transparent opacity-60" />
-                        </div>
-                        <h3 className="text-2xl font-bold text-white mb-2">Sales Manager</h3>
-                        <p className="text-primary font-mono text-sm uppercase tracking-widest font-bold">Expert Support</p>
-                        <p className="text-text-muted mt-4 text-sm font-mono">+91 91044 01022</p>
                     </motion.div>
                 </div>
             </div>
@@ -219,13 +207,12 @@ const Leadership = () => {
 
 const Industries = () => {
     const industries = [
-        'Acrylic & Laminates', 'Advertising', 'Agricultural', 'Automotive', 'Beverage',
+        'Steel Utensils', 'Kitchenware', 'Kitchen Appliances', 'Jewellery', 'Acrylic & Laminates', 'Advertising', 'Agricultural', 'Automotive', 'Beverage',
         'Brass & Copper', 'Cable & Wires', 'Cosmetics', 'Cutting Tools', 'Defence',
-        'Electronics', 'Elevators', 'Food & FMCG', 'Furniture', 'Jewellery',
-        'Gifts', 'Glass', 'Gold & Silver', 'Hardware', 'Kitchen Appliances',
+        'Electronics', 'Elevators', 'Food & FMCG', 'Furniture', 'Gifts', 'Glass', 'Hardware',
         'Leather', 'LED & Switches', 'Machine Tools', 'Metals', 'Mobile Gadgets',
         'Motor & Bearing', 'Medical', 'Pipes', 'Woods', 'Packaging',
-        'Pumps', 'Steel Utensils', 'Textile', 'Watch & Optics'
+        'Pumps', 'Textile', 'Watch & Optics'
     ];
 
     return (

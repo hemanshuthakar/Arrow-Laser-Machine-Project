@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Phone, MessageSquare, Mail, Loader2, CheckCircle, AlertCircle } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 
 const InquiryModal = ({ isOpen, onClose, product = null }) => {
@@ -129,6 +130,9 @@ const InquiryModal = ({ isOpen, onClose, product = null }) => {
 
                                         <div className="w-20 h-20 shrink-0 bg-dark-800 border border-dark-700 rounded-sm overflow-hidden relative z-10">
                                             <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" />
+                                            <div className="absolute top-1 right-1 z-20 w-8 h-8 pointer-events-none">
+                                                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_5px_rgba(0,0,0,0.5)]" />
+                                            </div>
                                         </div>
                                         <div className="relative z-10">
                                             <span className="block text-primary font-mono text-[10px] uppercase tracking-[0.3em] mb-1">Inquiry for:</span>
@@ -256,7 +260,7 @@ const InquiryModal = ({ isOpen, onClose, product = null }) => {
                                 <span>+91 99099 13488</span>
                             </a>
                             <a href="https://wa.me/919909913488" className="flex items-center space-x-2 text-text-muted hover:text-primary transition-colors text-xs font-mono">
-                                <MessageSquare size={14} />
+                                <FaWhatsapp size={14} />
                                 <span>WhatsApp</span>
                             </a>
                             <a href="mailto:arrowlasermachine@gmail.com" className="flex items-center space-x-2 text-text-muted hover:text-primary transition-colors text-xs font-mono">
