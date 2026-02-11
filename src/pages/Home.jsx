@@ -6,12 +6,11 @@ import Counter from '../components/Counter';
 import InquiryModal from '../components/InquiryModal';
 import { products } from '../data/products';
 import { heroCarouselImages } from '../data/heroImages';
-import prodFiberMarking from '../assets/images/product-images/fiber-marking/1. Fiber Laser marking.jpg';
-import indElectronics from '../assets/images/industries/ind_electronics.png';
+import prodFiberMarking from '../assets/images/product-images/fiber-marking/ChatGPT Image Feb 11, 2026, 02_46_20 PM.png';
 import indWood from '../assets/images/industries/ind_wood.png';
-import prodUvMarking from '../assets/images/product-images/uv-marking/3. UV Laser Marking.jpg';
-import catWelding from '../assets/images/cat-welding.png';
-import catCleaning from '../assets/images/cat-cleaning.png';
+import prodUvMarking from '../assets/images/product-images/uv-marking/ChatGPT Image Feb 11, 2026, 02_50_49 PM.png';
+import catWelding from '../assets/images/gallary/20250706_120020.jpg';
+import catCleaning from '../assets/images/gallary/20250706_120027.jpg';
 
 const Hero = ({ onInquiry }) => {
     const navigate = useNavigate();

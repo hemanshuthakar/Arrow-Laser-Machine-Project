@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Target, Eye, ShieldAlert, Zap, Layers, ShieldCheck, Timer, BadgeIndianRupee, CheckCircle2, User } from 'lucide-react';
 import PageHero from '../components/PageHero';
 
-import indPackaging from '../assets/images/industries/ind_packaging.png';
+import indPackaging from '../assets/images/ABOUT US IMAGE.jpeg';
 import ownerImg from '../assets/Owner.jpeg';
 
 const MissionVision = () => {
@@ -241,37 +241,6 @@ const Industries = () => {
     );
 };
 
-const Awards = () => {
-    return (
-        <section className="section-padding bg-dark-800 border-t border-dark-700">
-            <div className="container-custom text-center">
-                <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Global Recognition</span>
-                <h2 className="text-4xl md:text-5xl font-bold mb-16 uppercase tracking-widest">Awards & Exhibitions</h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {[
-                        { title: 'Innovation Excellence', year: '2023', org: 'Tech Expo Ahmedabad' },
-                        { title: 'Best Laser Supplier', year: '2024', org: 'Industrial Awards India' },
-                        { title: 'Eco-Friendly Solution', year: '2023', org: 'Green Tech Forum' },
-                        { title: 'Quality Benchmark', year: '2024', org: 'Manufacturing Summit' }
-                    ].map((award, i) => (
-                        <motion.div
-                            key={i}
-                            whileHover={{ y: -5 }}
-                            className="bg-dark-900 p-8 border border-dark-700 rounded-sm group relative overflow-hidden"
-                        >
-                            <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 -translate-y-8 translate-x-8 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-500" />
-                            <h4 className="text-primary font-bold mb-2 text-xl">{award.year}</h4>
-                            <h3 className="text-white font-bold mb-4 uppercase tracking-widest text-sm">{award.title}</h3>
-                            <p className="text-text-muted text-xs font-mono">{award.org}</p>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
-
 const About = () => {
     return (
         <div className="bg-dark-900">
@@ -284,7 +253,6 @@ const About = () => {
             <MissionVision />
             <WhyChooseUs />
             <Industries />
-            <Awards />
             <Leadership />
         </div>
     );

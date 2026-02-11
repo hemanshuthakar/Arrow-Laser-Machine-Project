@@ -1,12 +1,29 @@
 
-import fiberMain from '../assets/images/product-images/fiber-marking/1. Fiber Laser marking.jpg';
-import flyMain from '../assets/images/product-images/fly-marking/2. Fly laser Machine.png';
-import uvMain from '../assets/images/product-images/uv-marking/3. UV Laser Marking.jpg';
-import co2MarkMain from '../assets/images/product-images/co2-marking/4. Co2 Laser Marking.jpg';
-import co2CutMain from '../assets/images/product-images/co2-cutting/5. Co2 Laser Engraving and Cutting.png';
-import solderMain from '../assets/images/product-images/jewelry-soldering/6. Fiber Laser Jwellery Soldering.png';
-import jewelCutMain from '../assets/images/product-images/jewelry-cutting/7. Gold Laser Cutting & Engraving Machine..jpg';
-import weldMain from '../assets/images/product-images/welding-cleaning/8. Laser Welding and Rust Cleaning.png';
+// Fiber Marking Images
+import fiberMain1 from '../assets/images/product-images/fiber-marking/ChatGPT Image Feb 11, 2026, 02_46_20 PM.png';
+import fiberMain2 from '../assets/images/product-images/fiber-marking/ChatGPT Image Feb 11, 2026, 02_48_00 PM.png';
+
+// Fly Marking Image
+import flyMain from '../assets/images/product-images/fly-marking/ChatGPT Image Feb 11, 2026, 02_49_23 PM.png';
+
+// UV Marking Image
+import uvMain from '../assets/images/product-images/uv-marking/ChatGPT Image Feb 11, 2026, 02_50_49 PM.png';
+
+// CO2 Marking Image
+import co2MarkMain from '../assets/images/product-images/co2-marking/ChatGPT Image Feb 11, 2026, 02_52_40 PM.png';
+
+// CO2 Cutting Image
+import co2CutMain from '../assets/images/product-images/co2-cutting/Gemini_Generated_Image_ogq39sogq39sogq3.png';
+
+// Jewelry Soldering Images
+import solderMain1 from '../assets/images/product-images/jewelry-soldering/Gemini_Generated_Image_3uta8f3uta8f3uta.png';
+import solderMain2 from '../assets/images/product-images/jewelry-soldering/Gemini_Generated_Image_i2ti4fi2ti4fi2ti.png';
+
+// Jewelry Cutting Image
+import jewelCutMain from '../assets/images/product-images/jewelry-cutting/Gemini_Generated_Image_ipcpdjipcpdjipcp.png';
+
+// Welding & Cleaning Image
+import weldMain from '../assets/images/product-images/welding-cleaning/Gemini_Generated_Image_w9eah4w9eah4w9ea.png';
 
 // Import Application Highlights for Product 1 (Fiber Laser Marking)
 import fiberApp1 from '../assets/images/application-highlight/1 Fiber Laser Marking/1604453005472569.jpg';
@@ -70,20 +87,6 @@ import solderApp3 from '../assets/images/application-highlight/6 Jwellery Solder
 import solderApp4 from '../assets/images/application-highlight/6 Jwellery Soldering/IMG_7773-1.jpg';
 import solderApp5 from '../assets/images/application-highlight/6 Jwellery Soldering/IMG_7774-1.jpg';
 import solderApp6 from '../assets/images/application-highlight/6 Jwellery Soldering/IMG_7775-1.jpg';
-
-import precisionEng from '../assets/images/precision-engineering.png';
-
-import catMarking from '../assets/images/cat-marking.png';
-import catWelding from '../assets/images/cat-welding.png';
-import catCutting from '../assets/images/cat-cutting.png';
-import catCleaning from '../assets/images/cat-cleaning.png';
-
-import gallery2 from '../assets/images/gallery-2.jpg';
-import gallery3 from '../assets/images/gallery-3.jpg';
-import gallery5 from '../assets/images/gallery-5.jpg';
-import gallery6 from '../assets/images/gallery-6.jpg';
-
-import indJewelry from '../assets/images/industries/ind_jewelry.png';
 
 // Import Application Highlights for Product 7 (Jewelry Cutting)
 import jewelApp1 from '../assets/images/application-highlight/7 Jwellery Cutting & Engraving/Gemini_Generated_Image_3jcttm3jcttm3jct.png';
@@ -174,7 +177,8 @@ export const products = [
             'Operating System: Windows 10'
         ],
         images: [
-            fiberMain
+            fiberMain1,
+            fiberMain2
         ],
         tags: ['Pulsed Fiber', 'EZCAD', 'High Precision', 'Industrial'],
         applicationHighlights: [
@@ -431,7 +435,8 @@ export const products = [
             'Observing System: CCD or Microscope'
         ],
         images: [
-            solderMain
+            solderMain1,
+            solderMain2
         ],
         tags: ['Jewellery Welding', 'Gold & Silver', 'Micro-Welding'],
         applicationHighlights: [
