@@ -5,105 +5,179 @@ import { useNavigate } from 'react-router-dom';
 import Counter from '../components/Counter';
 import InquiryModal from '../components/InquiryModal';
 import { products } from '../data/products';
-import { heroCarouselImages } from '../data/heroImages';
 import prodFiberMarking from '../assets/images/product-images/fiber-marking/ChatGPT Image Feb 11, 2026, 02_46_20 PM.png';
 import indWood from '../assets/images/industries/ind_wood.png';
 import prodUvMarking from '../assets/images/product-images/uv-marking/ChatGPT Image Feb 11, 2026, 02_50_49 PM.png';
 import catWelding from '../assets/images/gallary/20250706_120020.jpg';
 import catCleaning from '../assets/images/gallary/20250706_120027.jpg';
+import heroBanner from '../assets/images/BANNER IMAGE/collage-2.png';
 
 const Hero = ({ onInquiry }) => {
     const navigate = useNavigate();
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const slides = [
+        {
+            id: 1,
+            badge: "Est. 2022 • Precision Engineering",
+            titleFirst: "Pioneering the Future of",
+            titleHighlight: "Laser Technology",
+            desc: "Precision Engineering Since 2022. We design and manufacture high-performance laser machines for global industrial excellence.",
+            image: heroBanner,
+            btnPrimary: "EXPLORE MACHINES",
+            btnSecondary: "ENQUIRE NOW"
+        },
+        {
+            id: 2,
+            badge: "Industrial Excellence",
+            titleFirst: "Advanced Fiber Laser",
+            titleHighlight: "Marking Systems",
+            desc: "High-speed, permanent marking solutions for metals and plastics. Engineered for durability, precision, and efficiency in every pulse.",
+            image: prodFiberMarking,
+            btnPrimary: "VIEW FIBER SERIES",
+            btnSecondary: "GET QUOTE"
+        },
+        {
+            id: 3,
+            badge: "Cold Laser Technology",
+            titleFirst: "Ultra-Fine UV Laser",
+            titleHighlight: "Marking Machines",
+            desc: "Cold marking technology for delicate materials like glass, crystal, and plastics. Delivering minimal thermal impact with maximum clarity.",
+            image: prodUvMarking,
+            btnPrimary: "VIEW UV SERIES",
+            btnSecondary: "CONTACT US"
+        }
+    ];
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prev) => (prev + 1) % heroCarouselImages.length);
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
         }, 5000);
-        return () => clearInterval(interval);
-    }, []);
+        return () => clearInterval(timer);
+    }, [slides.length]);
+
+    const slideVariants = {
+        enter: { x: '100%', opacity: 0 },
+        center: { x: 0, opacity: 1 },
+        exit: { x: '-100%', opacity: 0 }
+    };
 
     return (
         <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-dark-900">
-            {/* Background Image Carousel */}
+            {/* Background */}
             <div className="absolute inset-0 z-0">
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={currentImageIndex}
-                        initial={{ opacity: 0, scale: 1.1 }}
-                        animate={{ opacity: 0.3, scale: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 2 }}
-                        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                        style={{ backgroundImage: `url(${heroCarouselImages[currentImageIndex]})` }}
-                    />
-                </AnimatePresence>
-                {/* Overlay Gradients for Readability */}
-                <div className="absolute inset-0 bg-gradient-to-b from-dark-900 via-transparent to-dark-900 opacity-90" />
-                <div className="absolute inset-0 bg-dark-900/40" />
-
                 {/* Animated grid background */}
                 <div className="absolute inset-0 opacity-[0.05]"
                     style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
             </div>
 
-            <div className="container-custom relative z-10 text-center flex flex-col items-center">
-                {/* Text Content */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="max-w-4xl"
-                >
+            <div className="relative w-full h-screen"> {/* Container for absolute slides */}
+                <AnimatePresence initial={false} mode="popLayout">
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.5 }}
-                        className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono uppercase tracking-[0.3em] mb-10"
+                        key={currentSlide}
+                        variants={slideVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{ duration: 0.8, ease: "easeInOut" }}
+                        className="absolute inset-0 flex items-center justify-center"
                     >
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                        </span>
-                        <span>Est. 2022 • Precision Engineering</span>
+                        <div className="container-custom relative z-10 w-full">
+                            {/* Two Column Grid Layout */}
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                                {/* Left Side - Text Content */}
+                                <div className="text-left">
+                                    <div
+                                        className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono uppercase tracking-[0.3em] mb-10"
+                                    >
+                                        <span className="relative flex h-2 w-2">
+                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                                        </span>
+                                        <span>{slides[currentSlide].badge}</span>
+                                    </div>
+
+                                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-8 uppercase tracking-tight">
+                                        {slides[currentSlide].titleFirst} <br />
+                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/40">
+                                            {slides[currentSlide].titleHighlight}
+                                        </span>
+                                    </h1>
+
+                                    <p className="text-lg md:text-xl text-text-muted mb-12 leading-relaxed font-medium">
+                                        {slides[currentSlide].desc}
+                                    </p>
+
+                                    <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
+                                        <button
+                                            onClick={() => navigate('/products')}
+                                            className="btn-primary flex items-center justify-center space-x-3 px-10 py-5 group shadow-[0_0_30px_rgba(245,158,11,0.3)] hover:shadow-[0_0_50px_rgba(245,158,11,0.5)] transition-all"
+                                        >
+                                            <span className="font-bold tracking-[0.2em] text-sm">{slides[currentSlide].btnPrimary}</span>
+                                            <Zap size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                        </button>
+                                        <button
+                                            onClick={onInquiry}
+                                            className="btn-outline flex items-center justify-center space-x-3 px-10 py-5 border-2"
+                                        >
+                                            <span className="font-bold tracking-[0.2em] text-sm">{slides[currentSlide].btnSecondary}</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                {/* Right Side - Machine Image */}
+                                <div className="relative flex justify-center lg:justify-end">
+                                    <div
+                                        className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(245,158,11,0.3)] border-4 border-primary/30 bg-gradient-to-br from-dark-800 to-dark-900 p-2"
+                                        style={{
+                                            transform: 'perspective(1000px) rotateY(-8deg) rotateX(2deg)',
+                                            maxWidth: '550px',
+                                            width: '100%'
+                                        }}
+                                    >
+                                        <div className="relative rounded-xl overflow-hidden bg-white">
+                                            <img
+                                                src={slides[currentSlide].image}
+                                                alt="Arrow Laser Machine"
+                                                className="w-full h-auto object-contain"
+                                                style={{ minHeight: '400px', maxHeight: '500px' }}
+                                            />
+                                        </div>
+                                        {/* Glow effect */}
+                                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent pointer-events-none rounded-xl"></div>
+                                    </div>
+
+                                    {/* Decorative glow behind */}
+                                    <div className="absolute inset-0 bg-primary/5 blur-3xl -z-10 scale-90"></div>
+                                </div>
+                            </div>
+                        </div>
                     </motion.div>
-
-                    <h1 className="text-5xl md:text-8xl font-black leading-tight mb-8 uppercase tracking-tight">
-                        Pioneering the Future of <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/40">Laser Technology</span>
-                    </h1>
-
-                    <p className="text-lg md:text-2xl text-text-muted mb-12 leading-relaxed max-w-3xl mx-auto font-medium">
-                        Precision Engineering Since 2022. We design and manufacture high-performance laser machines for global industrial excellence.
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
-                        <button
-                            onClick={() => navigate('/products')}
-                            className="btn-primary flex items-center justify-center space-x-3 px-10 py-5 group shadow-[0_0_30px_rgba(245,158,11,0.3)] hover:shadow-[0_0_50px_rgba(245,158,11,0.5)] transition-all"
-                        >
-                            <span className="font-bold tracking-[0.2em] text-sm">EXPLORE MACHINES</span>
-                            <Zap size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                        </button>
-                        <button
-                            onClick={onInquiry}
-                            className="btn-outline flex items-center justify-center space-x-3 px-10 py-5 border-2"
-                        >
-                            <span className="font-bold tracking-[0.2em] text-sm">ENQUIRE NOW</span>
-                        </button>
-                    </div>
-                </motion.div>
+                </AnimatePresence>
             </div>
 
-            {/* Scroll Down Indicator */}
+            {/* Scroll Down Indicator - Fixed Position independent of slides */}
             <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 opacity-50"
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 opacity-50 z-20"
             >
                 <span className="text-[10px] uppercase font-mono tracking-[0.4em] text-white">SCROLL</span>
                 <div className="w-[1px] h-10 bg-gradient-to-b from-primary to-transparent" />
             </motion.div>
+
+            {/* Carousel Indicators (Dots) */}
+            <div className="absolute bottom-10 right-10 z-20 flex space-x-3">
+                {slides.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-primary w-8' : 'bg-dark-700 hover:bg-primary/50'
+                            }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                    />
+                ))}
+            </div>
         </section >
     );
 };

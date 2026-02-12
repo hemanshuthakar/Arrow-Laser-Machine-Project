@@ -4,7 +4,7 @@ import { Target, Eye, ShieldAlert, Zap, Layers, ShieldCheck, Timer, BadgeIndianR
 import PageHero from '../components/PageHero';
 
 import indPackaging from '../assets/images/ABOUT US IMAGE.jpeg';
-import ownerImg from '../assets/Owner.jpeg';
+import ownerImg from '../assets/Owner.png';
 
 const MissionVision = () => {
     const values = [
@@ -177,27 +177,49 @@ const AboutSection = () => {
 };
 
 const Leadership = () => {
+    const leaders = [
+        {
+            name: 'Mr. Pankaj Diwkaar',
+            role: 'Director',
+            phone: '+91 99099 13488',
+            image: ownerImg
+        },
+        {
+            name: 'Mr. Sales Manager',
+            role: 'Sales Manager',
+            phone: '+91 91044 01022',
+            image: null
+        }
+    ];
+
     return (
         <section className="section-padding bg-dark-800 border-t border-dark-700">
             <div className="container-custom text-center">
                 <h2 className="text-4xl font-bold mb-16 uppercase tracking-widest text-white">Leadership</h2>
-                <div className="flex justify-center items-center gap-8 max-w-4xl mx-auto">
-                    <motion.div
-                        whileHover={{ y: -10 }}
-                        className="glass-card p-8 rounded-sm group border-primary/20 max-w-sm w-full"
-                    >
-                        <div className="w-full aspect-square bg-dark-900 rounded-sm mb-6 transition-all border border-dark-700 overflow-hidden relative flex items-center justify-center">
-                            <img
-                                src={ownerImg}
-                                alt="Mr. Pankaj Diwkaar"
-                                className="w-full h-full object-cover filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-40 group-hover:opacity-0 transition-opacity duration-500" />
-                        </div>
-                        <h3 className="text-2xl font-bold text-white mb-2">Mr. Pankaj Diwkaar</h3>
-                        <p className="text-primary font-mono text-sm uppercase tracking-widest font-bold">Director</p>
-                        <p className="text-text-muted mt-4 text-sm font-mono">+91 99099 13488</p>
-                    </motion.div>
+                <div className="flex flex-wrap justify-center items-center gap-8 max-w-4xl mx-auto">
+                    {leaders.map((leader, index) => (
+                        <motion.div
+                            key={index}
+                            whileHover={{ y: -10 }}
+                            className="glass-card p-8 rounded-sm group border-primary/20 max-w-sm w-full"
+                        >
+                            <div className="w-full aspect-square bg-dark-900 rounded-sm mb-6 transition-all border border-dark-700 overflow-hidden relative flex items-center justify-center">
+                                {leader.image ? (
+                                    <img
+                                        src={leader.image}
+                                        alt={leader.name}
+                                        className="w-full h-full object-cover filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
+                                    />
+                                ) : (
+                                    <User size={64} className="text-dark-700 group-hover:text-primary transition-colors duration-500" />
+                                )}
+                                <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-40 group-hover:opacity-0 transition-opacity duration-500" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-2">{leader.name}</h3>
+                            <p className="text-primary font-mono text-sm uppercase tracking-widest font-bold">{leader.role}</p>
+                            <p className="text-text-muted mt-4 text-sm font-mono">{leader.phone}</p>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>
