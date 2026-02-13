@@ -96,7 +96,7 @@
   }
 
   .section-padding {
-    @apply py-20 lg:py-32;
+    @apply py-16 lg:py-24;
   }
 
   .card-metallic {
@@ -159,11 +159,38 @@
   @apply transition-transform duration-700;
 }
 
+/* Responsive Header Spacing Utility */
+.hero-pt-responsive {
+  padding-top: 64px;
+  /* Default Mobile Header Height */
+}
+
+@media (min-width: 768px) {
+  .hero-pt-responsive {
+    padding-top: 80px;
+    /* Tablet Header Height */
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-pt-responsive {
+    padding-top: 96px;
+    /* Desktop Header Height */
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-pt-responsive {
+    padding-top: 110px;
+    /* Large Screens Header Height */
+  }
+}
+
 @media (min-width: 1024px) {
   .hero-machine-transform {
     transform: perspective(1000px) rotateY(-8deg) rotateX(2deg);
   }
-  
+
   .hero-machine-transform:hover {
     transform: perspective(1000px) rotateY(-4deg) rotateX(1deg) scale(1.02);
   }

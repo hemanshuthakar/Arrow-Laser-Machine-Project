@@ -9,9 +9,9 @@ const Footer = () => {
     return (
         <footer className="bg-dark-900 border-t border-dark-700 pt-20 pb-10 overflow-hidden relative">
             <div className="container-custom">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-20 mb-16 relative z-10">
                     {/* Brand section */}
-                    <div>
+                    <div className="lg:col-span-4">
                         <Link to="/" className="inline-block mb-8">
                             <img
                                 src="/logo.png"
@@ -19,7 +19,7 @@ const Footer = () => {
                                 className="h-14 w-auto object-contain rounded-sm px-2 py-1"
                             />
                         </Link>
-                        <p className="text-text-muted mb-8 leading-relaxed">
+                        <p className="text-text-muted mb-8 leading-relaxed max-w-sm">
                             Arrow Laser Machine is a manufacturer, importer, and supplier of advanced laser marking, engraving, cutting, welding, and cleaning solutions. Established in 2022.
                         </p>
                         <div className="flex space-x-4">
@@ -44,7 +44,7 @@ const Footer = () => {
                     </div>
 
                     {/* Quick links */}
-                    <div>
+                    <div className="lg:col-span-2">
                         <h4 className="text-white text-lg font-semibold mb-8 uppercase tracking-widest border-l-2 border-primary pl-4">Company</h4>
                         <ul className="space-y-4">
                             {['Home', 'About Us', 'Products', 'Industries', 'Gallery', 'Awards', 'Contact'].map((link) => (
@@ -62,7 +62,7 @@ const Footer = () => {
                     </div>
 
                     {/* Our Machines */}
-                    <div>
+                    <div className="lg:col-span-3">
                         <h4 className="text-white text-lg font-semibold mb-8 uppercase tracking-widest border-l-2 border-primary pl-4">Our Machines</h4>
                         <ul className="space-y-3">
                             {products.map((product) => (
@@ -80,7 +80,7 @@ const Footer = () => {
                     </div>
 
                     {/* Contact info */}
-                    <div>
+                    <div className="lg:col-span-3">
                         <h4 className="text-white text-lg font-semibold mb-8 uppercase tracking-widest border-l-2 border-primary pl-4">Contact Info</h4>
                         <ul className="space-y-6">
                             <li className="flex items-start space-x-4">

@@ -186,7 +186,7 @@ const ProductDetail = () => {
 
                         {/* Tabs Navigation */}
                         <div className="flex border-b border-dark-700 overflow-x-auto scrollbar-hide">
-                            {['details', 'Technical Specification', 'benefits', 'applications'].map((tab) => (
+                            {['details', 'benefits', 'applications', 'Technical Specification'].map((tab) => (
                                 <button
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}

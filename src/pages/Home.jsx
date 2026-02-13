@@ -5,12 +5,14 @@ import { useNavigate } from 'react-router-dom';
 import Counter from '../components/Counter';
 import InquiryModal from '../components/InquiryModal';
 import { products } from '../data/products';
-import prodFiberMarking from '../assets/images/product-images/fiber-marking/ChatGPT Image Feb 11, 2026, 02_46_20 PM.png';
 import indWood from '../assets/images/industries/ind_wood.png';
-import prodUvMarking from '../assets/images/product-images/uv-marking/ChatGPT Image Feb 11, 2026, 02_50_49 PM.png';
 import catWelding from '../assets/images/gallary/20250706_120020.jpg';
 import catCleaning from '../assets/images/gallary/20250706_120027.jpg';
-import heroBanner from '../assets/images/BANNER IMAGE/collage-2.png';
+// Banner Images from Hero Section
+import heroBanner from '../assets/images/BANNER IMAGE/1.png';
+import prodFiberMarking from '../assets/images/home_desc_image.png';
+import prodUvMarking from '../assets/images/BANNER IMAGE/3.png';
+import banner4 from '../assets/images/BANNER IMAGE/4.png';
 
 const Hero = ({ onInquiry }) => {
     const navigate = useNavigate();
@@ -19,33 +21,20 @@ const Hero = ({ onInquiry }) => {
     const slides = [
         {
             id: 1,
-            badge: "Est. 2022 • Precision Engineering",
-            titleFirst: "Pioneering the Future of",
-            titleHighlight: "Laser Technology",
-            desc: "Precision Engineering Since 2022. We design and manufacture high-performance laser machines for global industrial excellence.",
             image: heroBanner,
-            btnPrimary: "EXPLORE MACHINES",
-            btnSecondary: "ENQUIRE NOW"
+
         },
         {
             id: 2,
-            badge: "Industrial Excellence",
-            titleFirst: "Advanced Fiber Laser",
-            titleHighlight: "Marking Systems",
-            desc: "High-speed, permanent marking solutions for metals and plastics. Engineered for durability, precision, and efficiency in every pulse.",
-            image: prodFiberMarking,
-            btnPrimary: "VIEW FIBER SERIES",
-            btnSecondary: "GET QUOTE"
+            image: prodFiberMarking
         },
         {
             id: 3,
-            badge: "Cold Laser Technology",
-            titleFirst: "Ultra-Fine UV Laser",
-            titleHighlight: "Marking Machines",
-            desc: "Cold marking technology for delicate materials like glass, crystal, and plastics. Delivering minimal thermal impact with maximum clarity.",
-            image: prodUvMarking,
-            btnPrimary: "VIEW UV SERIES",
-            btnSecondary: "CONTACT US"
+            image: prodUvMarking
+        },
+        {
+            id: 4,
+            image: banner4
         }
     ];
 
@@ -63,15 +52,15 @@ const Hero = ({ onInquiry }) => {
     };
 
     return (
-        <section className="relative min-h-[100dvh] lg:min-h-screen flex items-center justify-center pt-20 pb-12 sm:pt-32 md:pt-48 lg:pt-32 md:pb-20 overflow-hidden bg-dark-900">
+        <section className="relative flex justify-center hero-pt-responsive pb-20 overflow-hidden bg-[#0a0a0a]">
             {/* Background */}
             <div className="absolute inset-0 z-0">
                 {/* Animated grid background */}
-                <div className="absolute inset-0 opacity-[0.05]"
+                <div className="absolute inset-0 opacity-[0.03]"
                     style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
             </div>
 
-            <div className="relative w-full min-h-[100dvh] lg:h-screen flex items-center"> {/* Container for absolute slides */}
+            <div className="relative w-full h-[250px] sm:h-[400px] md:h-[550px] lg:h-[780px] flex items-start"> {/* Height controlled container */}
                 <AnimatePresence initial={false} mode="popLayout">
                     <motion.div
                         key={currentSlide}
@@ -80,75 +69,24 @@ const Hero = ({ onInquiry }) => {
                         animate="center"
                         exit="exit"
                         transition={{ duration: 0.8, ease: "easeInOut" }}
-                        className="absolute inset-0 flex items-center justify-center"
+                        className="absolute inset-0 flex items-start justify-center"
                     >
-                        <div className="container-custom relative z-10 w-full">
-                            {/* Two Column Grid Layout */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                                {/* Left Side - Text Content */}
-                                <div className="text-left">
-                                    <div
-                                        className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] md:tracking-[0.3em] mb-6 md:mb-10"
-                                    >
-                                        <span className="relative flex h-2 w-2">
-                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                                            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                                        </span>
-                                        <span>{slides[currentSlide].badge}</span>
-                                    </div>
-
-                                    <h1 className="text-[28px] sm:text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] md:leading-tight mb-6 md:mb-8 uppercase tracking-tight">
-                                        {slides[currentSlide].titleFirst} <br className="hidden lg:block" />
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/40">
-                                            {slides[currentSlide].titleHighlight}
-                                        </span>
-                                    </h1>
-
-                                    <p className="text-base md:text-xl text-text-muted mb-8 md:mb-12 leading-relaxed font-medium max-w-xl">
-                                        {slides[currentSlide].desc}
-                                    </p>
-
-                                    <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                                        <button
-                                            onClick={() => navigate('/products')}
-                                            className="btn-primary w-full sm:w-auto flex items-center justify-center space-x-3 px-8 md:px-10 py-4 md:py-5 group shadow-[0_0_30px_rgba(245,158,11,0.3)] hover:shadow-[0_0_50px_rgba(245,158,11,0.5)] transition-all"
-                                        >
-                                            <span className="font-bold tracking-[0.2em] text-xs md:text-sm">{slides[currentSlide].btnPrimary}</span>
-                                            <Zap size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                                        </button>
-                                        <button
-                                            onClick={onInquiry}
-                                            className="btn-outline w-full sm:w-auto flex items-center justify-center space-x-3 px-8 md:px-10 py-4 md:py-5 border-2"
-                                        >
-                                            <span className="font-bold tracking-[0.2em] text-xs md:text-sm">{slides[currentSlide].btnSecondary}</span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* Right Side - Machine Image */}
-                                <div className="relative flex justify-center lg:justify-end">
-                                    <div
-                                        className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(245,158,11,0.3)] border-4 border-primary/30 bg-gradient-to-br from-dark-800 to-dark-900 p-2 hero-machine-transform"
-                                        style={{
-                                            maxWidth: '550px',
-                                            width: '100%'
-                                        }}
-                                    >
-                                        <div className="relative rounded-xl overflow-hidden bg-white">
-                                            <img
-                                                src={slides[currentSlide].image}
-                                                alt="Arrow Laser Machine"
-                                                className="w-full h-auto object-contain"
-                                                style={{ minHeight: '300px', maxHeight: '500px' }}
-                                            />
-                                        </div>
-                                        {/* Glow effect */}
-                                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent pointer-events-none rounded-xl"></div>
-                                    </div>
-
-                                    {/* Decorative glow behind */}
-                                    <div className="absolute inset-0 bg-primary/5 blur-3xl -z-10 scale-90"></div>
-                                </div>
+                        <div className="w-full relative z-10">
+                            {/* Full-Width Banner Image Slide */}
+                            <div className="flex justify-center items-start w-full">
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    className="relative w-full overflow-hidden"
+                                >
+                                    <img
+                                        src={slides[currentSlide].image}
+                                        alt={`Arrow Laser Banner ${slides[currentSlide].id}`}
+                                        className="w-full h-auto min-h-[250px] sm:min-h-[400px] md:min-h-[550px] lg:min-h-[780px] object-cover object-top block"
+                                    />
+                                    {/* Subtle gradient to merge with dark theme at bottom */}
+                                    <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent pointer-events-none" />
+                                </motion.div>
                             </div>
                         </div>
                     </motion.div>
@@ -177,19 +115,19 @@ const Hero = ({ onInquiry }) => {
                     />
                 ))}
             </div>
-        </section >
+        </section>
     );
 };
 
 const TechnicalStats = () => {
     return (
-        <section className="relative py-12 bg-dark-950 border-y border-dark-700 overflow-hidden">
+        <section className="relative py-8 bg-dark-950 border-y border-dark-700 overflow-hidden">
             {/* Background Grid */}
             <div className="absolute inset-0 opacity-[0.05]"
                 style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
-            <div className="container-custom relative z-10">
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+            <div className="container-custom relative z-10 w-full px-4 overflow-hidden">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-4 md:gap-8 lg:gap-16">
                     {[
                         { label: 'Precision', icon: Cpu, value: 0.1, suffix: 'mm', decimals: 1 },
                         { label: 'Speed', icon: Zap, value: 80, suffix: 'm/min' },
@@ -198,16 +136,16 @@ const TechnicalStats = () => {
                     ].map((stat, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            className="flex flex-col items-center text-center group"
+                            transition={{ delay: i * 0.1, type: 'spring', stiffness: 100 }}
+                            className="flex flex-col items-center text-center group w-full"
                         >
-                            <div className="text-primary mb-5 p-4 bg-dark-900 border border-dark-700/50 rounded-full group-hover:bg-primary group-hover:text-dark-900 transition-all duration-500 shadow-xl">
-                                <stat.icon size={28} />
+                            <div className="text-primary mb-4 p-4 bg-dark-900 border border-dark-700/50 rounded-2xl group-hover:bg-primary group-hover:text-dark-900 transition-all duration-500 shadow-2xl group-hover:shadow-primary/20 group-hover:-translate-y-1">
+                                <stat.icon size={24} />
                             </div>
-                            <div className="text-white font-mono text-3xl md:text-4xl font-black flex items-baseline mb-2">
+                            <div className="text-white font-mono text-3xl md:text-4xl lg:text-5xl font-black flex items-baseline mb-2 whitespace-nowrap">
                                 {stat.decimals ? (
                                     <span className="flex">
                                         0.<Counter value={stat.value * 10} duration={1.5} />
@@ -215,11 +153,14 @@ const TechnicalStats = () => {
                                 ) : (
                                     <Counter value={stat.value} duration={1.5} />
                                 )}
-                                <span className="text-sm md:text-base ml-1 text-primary italic font-bold">{stat.suffix}</span>
+                                <span className="text-xs md:text-sm lg:text-base ml-1 text-primary italic font-bold shrink-0">{stat.suffix}</span>
                             </div>
-                            <span className="text-text-muted text-[10px] md:text-xs uppercase tracking-[0.4em] font-black group-hover:text-primary transition-colors">
-                                {stat.label}
-                            </span>
+                            <div className="flex flex-col items-center">
+                                <span className="text-text-muted text-[8px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.4em] font-black group-hover:text-primary transition-colors">
+                                    {stat.label}
+                                </span>
+                                <div className="w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300 mt-1" />
+                            </div>
                         </motion.div>
                     ))}
                 </div>
@@ -330,12 +271,12 @@ const FeaturedProducts = () => {
                 style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
             <div className="container-custom relative">
-                <div className="text-center mb-16 max-w-3xl mx-auto">
+                <div className="text-center mb-12 max-w-3xl mx-auto">
                     <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Our Products</span>
                     <h2 className="text-4xl md:text-5xl mb-6">Cutting-Edge Laser Solutions</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
                     {featuredList.map((p, i) => (
                         <motion.div
                             key={p.id}
@@ -434,7 +375,7 @@ const Categories = () => {
     return (
         <section className="section-padding bg-dark-900 border-t border-dark-700">
             <div className="container-custom">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-8">
                     <div className="max-w-2xl">
                         <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Our Specialization</span>
                         <h2 className="text-4xl md:text-5xl">Manufacturing Excellence <br /> for Every Industry</h2>
@@ -521,7 +462,7 @@ const WhyChooseUs = () => {
     return (
         <section className="section-padding bg-dark-800 relative overflow-hidden">
             <div className="container-custom relative z-10">
-                <div className="text-center mb-20 max-w-3xl mx-auto">
+                <div className="text-center mb-16 max-w-3xl mx-auto">
                     <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block underline underline-offset-8">Our Core Strengths</span>
                     <h2 className="text-4xl md:text-6xl mb-6">Why Industry Leaders <br /> Trust Arrow Laser</h2>
                     <p className="text-text-muted text-lg">We don't just sell machines; we provide precision manufacturing partnerships that last decades.</p>

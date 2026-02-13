@@ -6,7 +6,7 @@ import PageHero from '../components/PageHero';
 
 // Import award images
 import award1 from '../assets/images/Awards/award_01.png';
-import award2 from '../assets/images/Awards/award_02.jpg';
+import award2 from '../assets/images/Awards/award_02.png';
 
 const Awards = () => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -117,7 +117,7 @@ const Awards = () => {
                 </div>
 
                 {/* Awards & Certifications Gallery */}
-                <div className="mt-32">
+                <div className="mt-20">
                     <div className="text-center mb-16">
                         <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Certifications</span>
                         <h2 className="text-4xl md:text-5xl font-bold mb-4 uppercase tracking-widest">Awards & Certifications</h2>
@@ -128,7 +128,7 @@ const Awards = () => {
 
                     {/* Centered Award Images Grid */}
                     <div className="flex justify-center">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full">
                             {awardImages.map((award, i) => (
                                 <motion.div
                                     key={i}
@@ -141,11 +141,11 @@ const Awards = () => {
                                     onClick={() => setSelectedImage(award)}
                                 >
                                     {/* Award Image */}
-                                    <div className="aspect-[3/4] bg-dark-950 overflow-hidden relative">
+                                    <div className="aspect-[4/3] bg-dark-950 overflow-hidden relative flex items-center justify-center">
                                         <img
                                             src={award.src}
                                             alt={award.title}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                            className="max-w-full max-h-full object-contain p-6 group-hover:scale-105 transition-transform duration-700"
                                         />
                                         {/* Overlay gradient */}
                                         <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
@@ -178,7 +178,7 @@ const Awards = () => {
                 </div>
 
                 {/* Exhibition Section */}
-                <div className="mt-32">
+                {/* <div className="mt-32">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
@@ -218,7 +218,7 @@ const Awards = () => {
                             />
                         </motion.div>
                     </div>
-                </div>
+                </div> */}
             </section>
 
             {/* Image Preview Modal */}

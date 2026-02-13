@@ -1,29 +1,54 @@
 
 // Fiber Marking Images
-import fiberMain1 from '../assets/images/product-images/fiber-marking/ChatGPT Image Feb 11, 2026, 02_46_20 PM.png';
-import fiberMain2 from '../assets/images/product-images/fiber-marking/ChatGPT Image Feb 11, 2026, 02_48_00 PM.png';
+import fiberMain1 from '../assets/images/product-images/fiber-marking/1.png';
+import fiberMain2 from '../assets/images/product-images/fiber-marking/2.png';
+import fiberMain3 from '../assets/images/product-images/fiber-marking/3.png';
+import fiberMain4 from '../assets/images/product-images/fiber-marking/4.png';
+import fiberMain5 from '../assets/images/product-images/fiber-marking/5.png';
 
 // Fly Marking Image
-import flyMain from '../assets/images/product-images/fly-marking/ChatGPT Image Feb 11, 2026, 02_49_23 PM.png';
+import flyMain from '../assets/images/product-images/fly-marking/1.png';
+import flyMain2 from '../assets/images/product-images/fly-marking/2.png';
+import flyMain3 from '../assets/images/product-images/fly-marking/3.png';
+import flyMain4 from '../assets/images/product-images/fly-marking/4.png';
+import flyMain5 from '../assets/images/product-images/fly-marking/5.png';
 
 // UV Marking Image
-import uvMain from '../assets/images/product-images/uv-marking/ChatGPT Image Feb 11, 2026, 02_50_49 PM.png';
+import uvMain from '../assets/images/product-images/uv-marking/1.png';
+import uvMain2 from '../assets/images/product-images/uv-marking/2.png';
+import uvMain3 from '../assets/images/product-images/uv-marking/3.png';
+import uvMain4 from '../assets/images/product-images/uv-marking/4.png';
 
 // CO2 Marking Image
-import co2MarkMain from '../assets/images/product-images/co2-marking/ChatGPT Image Feb 11, 2026, 02_52_40 PM.png';
+import co2MarkMain from '../assets/images/product-images/co2-marking/1.png';
+import co2MarkMain2 from '../assets/images/product-images/co2-marking/2.png';
+import co2MarkMain3 from '../assets/images/product-images/co2-marking/3.png';
+import co2MarkMain4 from '../assets/images/product-images/co2-marking/4.png';
 
 // CO2 Cutting Image
-import co2CutMain from '../assets/images/product-images/co2-cutting/Gemini_Generated_Image_ogq39sogq39sogq3.png';
+import co2CutMain from '../assets/images/product-images/co2-cutting/1.png';
+import co2CutMain2 from '../assets/images/product-images/co2-cutting/2.png';
+import co2CutMain3 from '../assets/images/product-images/co2-cutting/3.png';
+import co2CutMain4 from '../assets/images/product-images/co2-cutting/4.png';
 
 // Jewelry Soldering Images
-import solderMain1 from '../assets/images/product-images/jewelry-soldering/Gemini_Generated_Image_3uta8f3uta8f3uta.png';
-import solderMain2 from '../assets/images/product-images/jewelry-soldering/Gemini_Generated_Image_i2ti4fi2ti4fi2ti.png';
+import solderMain1 from '../assets/images/product-images/jewelry-soldering/1.png';
+import solderMain2 from '../assets/images/product-images/jewelry-soldering/2.png';
+import solderMain3 from '../assets/images/product-images/jewelry-soldering/3.png';
+import solderMain4 from '../assets/images/product-images/jewelry-soldering/4.png';
 
 // Jewelry Cutting Image
-import jewelCutMain from '../assets/images/product-images/jewelry-cutting/Gemini_Generated_Image_ipcpdjipcpdjipcp.png';
+import jewelCutMain from '../assets/images/product-images/jewelry-cutting/1.png';
+import jewelCutMain2 from '../assets/images/product-images/jewelry-cutting/2.png';
+import jewelCutMain3 from '../assets/images/product-images/jewelry-cutting/3.png';
+import jewelCutMain4 from '../assets/images/product-images/jewelry-cutting/4.png';
+import jewelCutMain5 from '../assets/images/product-images/jewelry-cutting/5.png';
 
 // Welding & Cleaning Image
-import weldMain from '../assets/images/product-images/welding-cleaning/Gemini_Generated_Image_w9eah4w9eah4w9ea.png';
+import weldMain from '../assets/images/product-images/welding-cleaning/1.png';
+import weldMain2 from '../assets/images/product-images/welding-cleaning/2.png';
+import weldMain3 from '../assets/images/product-images/welding-cleaning/3.png';
+import weldMain4 from '../assets/images/product-images/welding-cleaning/4.png';
 
 // Import Application Highlights for Product 1 (Fiber Laser Marking)
 import fiberApp1 from '../assets/images/application-highlight/1 Fiber Laser Marking/1604453005472569.jpg';
@@ -178,7 +203,10 @@ export const products = [
         ],
         images: [
             fiberMain1,
-            fiberMain2
+            fiberMain2,
+            fiberMain3,
+            fiberMain4,
+            fiberMain5
         ],
         tags: ['Pulsed Fiber', 'EZCAD', 'High Precision', 'Industrial'],
         applicationHighlights: [
@@ -233,7 +261,11 @@ export const products = [
             'Power Supply: 230V AC 50/60Hz - Single Phase'
         ],
         images: [
-            flyMain
+            flyMain,
+            flyMain2,
+            flyMain3,
+            flyMain4,
+            flyMain5
         ],
         tags: ['Continuous Marking', 'On-the-fly', 'Production Line'],
         applicationHighlights: [
@@ -301,7 +333,7 @@ export const products = [
             'Optional Accessories: Auto Z Axis, XY Stage, Rotary Table, Flip/Flop Stage, Vision System, Loading/Unloading Stage, Enclosed Cabinet'
         ],
         images: [
-            uvMain
+            uvMain, uvMain2, uvMain3, uvMain4
         ],
         tags: ['Cold Marking', 'Sensitive Materials', 'Micro-Marking'],
         applicationHighlights: [
@@ -345,7 +377,7 @@ export const products = [
             'Electricity Req.: 220V / 50Hz'
         ],
         images: [
-            co2MarkMain
+            co2MarkMain, co2MarkMain2, co2MarkMain3, co2MarkMain4
         ],
         tags: ['Non-Metallic', 'Organic Materials', 'Wood Engraving'],
         applicationHighlights: [
@@ -393,7 +425,7 @@ export const products = [
             'Graphic File Support: PLT, CDR, AI, DWG, DST, DXF, BMP, JPEG, TIFF, GIF, PCX'
         ],
         images: [
-            co2CutMain
+            co2CutMain, co2CutMain2, co2CutMain3, co2CutMain4
         ],
         tags: ['MDF Cutting', 'Acrylic Work', 'Non-Metallic'],
         applicationHighlights: [
@@ -436,7 +468,9 @@ export const products = [
         ],
         images: [
             solderMain1,
-            solderMain2
+            solderMain2,
+            solderMain3,
+            solderMain4
         ],
         tags: ['Jewellery Welding', 'Gold & Silver', 'Micro-Welding'],
         applicationHighlights: [
@@ -479,7 +513,7 @@ export const products = [
             'Min. Character Height: 0.2 mm'
         ],
         images: [
-            jewelCutMain
+            jewelCutMain, jewelCutMain2, jewelCutMain3, jewelCutMain4, jewelCutMain5
         ],
         tags: ['Precision Cutting', 'Precious Metals', 'Custom Design'],
         applicationHighlights: [
@@ -518,7 +552,7 @@ export const products = [
             'Observing System: Red Light'
         ],
         images: [
-            weldMain
+            weldMain, weldMain2, weldMain3, weldMain4
         ],
         tags: ['Rust Removal', 'Metal Welding', 'Restoration'],
         applicationHighlights: [

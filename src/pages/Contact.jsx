@@ -29,7 +29,7 @@ const ContactInfo = () => {
                 '38, Sardar Patel Industrial Estate,',
                 'Odhav Ring Road, Ahmedabad – 382415'
             ],
-            link: 'https://goo.gl/maps/xyz' // User should provide actual map link
+            link: 'https://maps.app.goo.gl/wYFrznd9c3fDqJ1ZA'
         }
     ];
 
@@ -51,7 +51,7 @@ const ContactInfo = () => {
                     {item.details.map((detail, idx) => (
                         <p key={idx} className="text-text-muted text-sm font-mono">{detail}</p>
                     ))}
-                    <a href={item.link} className="mt-4 inline-block text-primary text-xs font-bold uppercase tracking-wider hover:underline">Get in touch</a>
+                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-primary text-xs font-bold uppercase tracking-wider hover:underline">Get in touch</a>
                 </motion.div>
             ))}
         </div>
@@ -154,10 +154,10 @@ const ContactForm = () => {
 
 const GoogleMap = () => {
     return (
-        <section className="w-full h-[500px] bg-dark-800 border-t border-dark-700 mt-20 grayscale invert opacity-50 hover:opacity-100 transition-opacity duration-700">
+        <section className="w-full h-[500px] bg-dark-800 border-t border-dark-700 mt-20 opacity-80 hover:opacity-100 transition-opacity duration-700">
             <iframe
                 title="Office Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.4635650116!2d72.6713!3d23.0125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e87a2df856991%3A0x8670564e9a089069!2sOdhav%2C%20Ahmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1706970000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14687.552073472873!2d72.6534294!3d23.0278835!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87240098ab420609%3A0x3991436ead352acb!2sArrow%20Laser!5e0!3m2!1sen!2sin!4v1770982847842!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

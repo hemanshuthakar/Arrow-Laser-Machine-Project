@@ -15,7 +15,7 @@ const PageHero = ({ title, subtitle, breadcrumb, images = heroCarouselImages }) 
         return () => clearInterval(interval);
     }, [images]);
     return (
-        <section className="relative mt-28 pt-20 pb-32 bg-dark-900 overflow-hidden border-b border-dark-700">
+        <section className="relative mt-24 pt-12 lg:pt-16 pb-20 lg:pb-28 bg-dark-900 overflow-hidden border-b border-dark-700">
             {/* Background Elements */}
             <div className="absolute inset-0 z-0">
                 {images && images.length > 0 ? (

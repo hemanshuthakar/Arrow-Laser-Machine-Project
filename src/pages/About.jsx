@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { Target, Eye, ShieldAlert, Zap, Layers, ShieldCheck, Timer, BadgeIndianRupee, CheckCircle2, User } from 'lucide-react';
 import PageHero from '../components/PageHero';
 
-import indPackaging from '../assets/images/ABOUT US IMAGE.jpeg';
-import ownerImg from '../assets/Owner.png';
+import indPackaging from '../assets/images/about_us_banner1.png';
+import ownerImg from '../assets/Owner-2.jpeg';
 
 const MissionVision = () => {
     const values = [
@@ -29,7 +29,7 @@ const MissionVision = () => {
     ];
 
     return (
-        <section className="section-padding bg-dark-900">
+        <section className="pt-8 lg:pt-12 pb-16 lg:pb-24 bg-dark-900">
             <div className="container-custom">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {values.map((item, i) => (
@@ -91,7 +91,7 @@ const WhyChooseUs = () => {
     return (
         <section className="section-padding bg-dark-800">
             <div className="container-custom">
-                <div className="text-center mb-16">
+                <div className="text-center mb-12">
                     <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Engineered Excellence</span>
                     <h2 className="text-4xl md:text-5xl font-bold">Why Choose Arrow Laser Machine?</h2>
                 </div>
@@ -195,7 +195,7 @@ const Leadership = () => {
     return (
         <section className="section-padding bg-dark-800 border-t border-dark-700">
             <div className="container-custom text-center">
-                <h2 className="text-4xl font-bold mb-16 uppercase tracking-widest text-white">Leadership</h2>
+                <h2 className="text-4xl font-bold mb-12 uppercase tracking-widest text-white">Leadership</h2>
                 <div className="flex flex-wrap justify-center items-center gap-8 max-w-4xl mx-auto">
                     {leaders.map((leader, index) => (
                         <motion.div
@@ -240,7 +240,7 @@ const Industries = () => {
     return (
         <section className="section-padding bg-dark-900 overflow-hidden">
             <div className="container-custom">
-                <div className="text-center mb-16">
+                <div className="text-center mb-12">
                     <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Our Impact</span>
                     <h2 className="text-4xl md:text-5xl font-bold">Industries We Serve</h2>
                 </div>
