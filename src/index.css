@@ -154,3 +154,17 @@
   background-color: rgba(245, 158, 11, 0.3);
   color: white;
 }
+
+.hero-machine-transform {
+  @apply transition-transform duration-700;
+}
+
+@media (min-width: 1024px) {
+  .hero-machine-transform {
+    transform: perspective(1000px) rotateY(-8deg) rotateX(2deg);
+  }
+  
+  .hero-machine-transform:hover {
+    transform: perspective(1000px) rotateY(-4deg) rotateX(1deg) scale(1.02);
+  }
+}

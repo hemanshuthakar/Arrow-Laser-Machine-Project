@@ -63,7 +63,7 @@ const Hero = ({ onInquiry }) => {
     };
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-dark-900">
+        <section className="relative min-h-[100dvh] lg:min-h-screen flex items-center justify-center pt-20 pb-12 sm:pt-32 md:pt-48 lg:pt-32 md:pb-20 overflow-hidden bg-dark-900">
             {/* Background */}
             <div className="absolute inset-0 z-0">
                 {/* Animated grid background */}
@@ -71,7 +71,7 @@ const Hero = ({ onInquiry }) => {
                     style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
             </div>
 
-            <div className="relative w-full h-screen"> {/* Container for absolute slides */}
+            <div className="relative w-full min-h-[100dvh] lg:h-screen flex items-center"> {/* Container for absolute slides */}
                 <AnimatePresence initial={false} mode="popLayout">
                     <motion.div
                         key={currentSlide}
@@ -88,7 +88,7 @@ const Hero = ({ onInquiry }) => {
                                 {/* Left Side - Text Content */}
                                 <div className="text-left">
                                     <div
-                                        className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono uppercase tracking-[0.3em] mb-10"
+                                        className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] md:tracking-[0.3em] mb-6 md:mb-10"
                                     >
                                         <span className="relative flex h-2 w-2">
                                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -97,30 +97,30 @@ const Hero = ({ onInquiry }) => {
                                         <span>{slides[currentSlide].badge}</span>
                                     </div>
 
-                                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-8 uppercase tracking-tight">
-                                        {slides[currentSlide].titleFirst} <br />
+                                    <h1 className="text-[28px] sm:text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] md:leading-tight mb-6 md:mb-8 uppercase tracking-tight">
+                                        {slides[currentSlide].titleFirst} <br className="hidden lg:block" />
                                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-primary/40">
                                             {slides[currentSlide].titleHighlight}
                                         </span>
                                     </h1>
 
-                                    <p className="text-lg md:text-xl text-text-muted mb-12 leading-relaxed font-medium">
+                                    <p className="text-base md:text-xl text-text-muted mb-8 md:mb-12 leading-relaxed font-medium max-w-xl">
                                         {slides[currentSlide].desc}
                                     </p>
 
                                     <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
                                         <button
                                             onClick={() => navigate('/products')}
-                                            className="btn-primary flex items-center justify-center space-x-3 px-10 py-5 group shadow-[0_0_30px_rgba(245,158,11,0.3)] hover:shadow-[0_0_50px_rgba(245,158,11,0.5)] transition-all"
+                                            className="btn-primary w-full sm:w-auto flex items-center justify-center space-x-3 px-8 md:px-10 py-4 md:py-5 group shadow-[0_0_30px_rgba(245,158,11,0.3)] hover:shadow-[0_0_50px_rgba(245,158,11,0.5)] transition-all"
                                         >
-                                            <span className="font-bold tracking-[0.2em] text-sm">{slides[currentSlide].btnPrimary}</span>
-                                            <Zap size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                            <span className="font-bold tracking-[0.2em] text-xs md:text-sm">{slides[currentSlide].btnPrimary}</span>
+                                            <Zap size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                         </button>
                                         <button
                                             onClick={onInquiry}
-                                            className="btn-outline flex items-center justify-center space-x-3 px-10 py-5 border-2"
+                                            className="btn-outline w-full sm:w-auto flex items-center justify-center space-x-3 px-8 md:px-10 py-4 md:py-5 border-2"
                                         >
-                                            <span className="font-bold tracking-[0.2em] text-sm">{slides[currentSlide].btnSecondary}</span>
+                                            <span className="font-bold tracking-[0.2em] text-xs md:text-sm">{slides[currentSlide].btnSecondary}</span>
                                         </button>
                                     </div>
                                 </div>
@@ -128,9 +128,8 @@ const Hero = ({ onInquiry }) => {
                                 {/* Right Side - Machine Image */}
                                 <div className="relative flex justify-center lg:justify-end">
                                     <div
-                                        className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(245,158,11,0.3)] border-4 border-primary/30 bg-gradient-to-br from-dark-800 to-dark-900 p-2"
+                                        className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(245,158,11,0.3)] border-4 border-primary/30 bg-gradient-to-br from-dark-800 to-dark-900 p-2 hero-machine-transform"
                                         style={{
-                                            transform: 'perspective(1000px) rotateY(-8deg) rotateX(2deg)',
                                             maxWidth: '550px',
                                             width: '100%'
                                         }}
@@ -140,7 +139,7 @@ const Hero = ({ onInquiry }) => {
                                                 src={slides[currentSlide].image}
                                                 alt="Arrow Laser Machine"
                                                 className="w-full h-auto object-contain"
-                                                style={{ minHeight: '400px', maxHeight: '500px' }}
+                                                style={{ minHeight: '300px', maxHeight: '500px' }}
                                             />
                                         </div>
                                         {/* Glow effect */}
@@ -160,7 +159,7 @@ const Hero = ({ onInquiry }) => {
             <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 opacity-50 z-20"
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center space-y-2 opacity-50 z-20"
             >
                 <span className="text-[10px] uppercase font-mono tracking-[0.4em] text-white">SCROLL</span>
                 <div className="w-[1px] h-10 bg-gradient-to-b from-primary to-transparent" />

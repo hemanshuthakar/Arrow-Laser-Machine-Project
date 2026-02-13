@@ -30,14 +30,14 @@ const Header = () => {
 
     return (
         <>
-            <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-dark-900/90 backdrop-blur-md py-4 border-b border-dark-700' : 'bg-transparent py-6'}`}>
+            <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-dark-900/90 backdrop-blur-md py-2 md:py-4 border-b border-dark-700' : 'bg-transparent py-3 md:py-6'}`}>
                 <div className="container-custom flex justify-between items-center">
                     {/* Logo */}
                     <Link to="/" className="block">
                         <img
                             src="/logo.png"
                             alt="Arrow Laser Machine"
-                            className="h-12 w-auto object-contain rounded-sm px-2 py-1"
+                            className="h-8 sm:h-10 md:h-12 w-auto object-contain rounded-sm px-2 py-1"
                         />
                     </Link>
 
@@ -83,7 +83,7 @@ const Header = () => {
                             exit={{ opacity: 0, height: 0 }}
                             className="lg:hidden bg-dark-800 border-b border-dark-700"
                         >
-                            <div className="container-custom py-8 flex flex-col space-y-6">
+                            <div className="container-custom py-8 flex flex-col items-center space-y-6 text-center">
                                 {navLinks.map((link) => (
                                     <Link
                                         key={link.name}
@@ -99,7 +99,7 @@ const Header = () => {
                                         setIsOpen(false);
                                         setIsInquiryOpen(true);
                                     }}
-                                    className="btn-primary text-center"
+                                    className="btn-primary w-full max-w-xs text-center"
                                 >
                                     Enquire Now
                                 </button>
