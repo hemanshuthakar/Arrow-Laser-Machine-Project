@@ -53,7 +53,7 @@ const Hero = ({ onInquiry }) => {
     };
 
     return (
-        <section className="relative flex justify-center hero-pt-responsive pb-20 overflow-hidden bg-[#0a0a0a]">
+        <section className="relative flex justify-center hero-pt-responsive overflow-hidden bg-[#0a0a0a]">
             {/* Background */}
             <div className="absolute inset-0 z-0">
                 {/* Animated grid background */}
@@ -61,7 +61,7 @@ const Hero = ({ onInquiry }) => {
                     style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
             </div>
 
-            <div className="relative w-full h-[350px] sm:h-[500px] md:h-[650px] lg:h-[800px] flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
+            <div className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] 2xl:h-[750px] max-h-[75vh] flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
                 <AnimatePresence initial={false} mode="wait">
                     <motion.div
                         key={currentSlide}
@@ -69,25 +69,17 @@ const Hero = ({ onInquiry }) => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.8, ease: "easeInOut" }}
-                        className="w-full h-full flex items-center justify-center"
+                        className="w-full h-full flex items-center justify-center p-2"
                     >
-                        <div className="w-full h-full relative z-10 flex items-center justify-center">
-                            {/* Full Banner Image Slide - Centered & Contained */}
-                            <div className="relative w-full h-full flex items-center justify-center">
-                                <motion.div
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    className="relative w-full h-full flex items-center justify-center"
-                                >
-                                    <img
-                                        src={slides[currentSlide].image}
-                                        alt={`Arrow Laser Banner ${slides[currentSlide].id}`}
-                                        className="max-w-full max-h-full object-contain block"
-                                    />
-                                    {/* Minimal bottom wash to blend with section below */}
-                                    <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />
-                                </motion.div>
-                            </div>
+                        <div className="relative w-full h-full flex items-center justify-center">
+                            {/* Full Banner Image Slide - Perfectly Contained */}
+                            <img
+                                src={slides[currentSlide].image}
+                                alt={`Arrow Laser Banner ${slides[currentSlide].id}`}
+                                className="max-w-full max-h-full object-contain block"
+                            />
+                            {/* Suble bottom wash */}
+                            <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />
                         </div>
                     </motion.div>
                 </AnimatePresence>
