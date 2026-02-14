@@ -6,13 +6,14 @@ import Counter from '../components/Counter';
 import InquiryModal from '../components/InquiryModal';
 import { products } from '../data/products';
 import indWood from '../assets/images/industries/ind_wood.png';
-import catWelding from '../assets/images/gallary/20250706_120020.jpg';
-import catCleaning from '../assets/images/gallary/20250706_120027.jpg';
+import catWelding from '../assets/images/gallary/1.jpg';
+import catCleaning from '../assets/images/gallary/2.jpg';
 // Banner Images from Hero Section
-import heroBanner from '../assets/images/BANNER IMAGE/1.png';
+import heroBanner1 from '../assets/images/BANNER IMAGE/1.png';
+import heroBanner2 from '../assets/images/BANNER IMAGE/2.png';
+import heroBanner3 from '../assets/images/BANNER IMAGE/3.png';
+import heroBanner4 from '../assets/images/BANNER IMAGE/4.png';
 import prodFiberMarking from '../assets/images/home_desc_image.png';
-import prodUvMarking from '../assets/images/BANNER IMAGE/3.png';
-import banner4 from '../assets/images/BANNER IMAGE/4.png';
 
 const Hero = ({ onInquiry }) => {
     const navigate = useNavigate();
@@ -21,20 +22,20 @@ const Hero = ({ onInquiry }) => {
     const slides = [
         {
             id: 1,
-            image: heroBanner,
+            image: heroBanner1,
 
         },
         {
             id: 2,
-            image: prodFiberMarking
+            image: heroBanner2
         },
         {
             id: 3,
-            image: prodUvMarking
+            image: heroBanner3
         },
         {
             id: 4,
-            image: banner4
+            image: heroBanner4
         }
     ];
 
@@ -60,32 +61,31 @@ const Hero = ({ onInquiry }) => {
                     style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
             </div>
 
-            <div className="relative w-full h-[250px] sm:h-[400px] md:h-[550px] lg:h-[780px] flex items-start"> {/* Height controlled container */}
-                <AnimatePresence initial={false} mode="popLayout">
+            <div className="relative w-full h-[350px] sm:h-[500px] md:h-[650px] lg:h-[800px] flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
+                <AnimatePresence initial={false} mode="wait">
                     <motion.div
                         key={currentSlide}
-                        variants={slideVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         transition={{ duration: 0.8, ease: "easeInOut" }}
-                        className="absolute inset-0 flex items-start justify-center"
+                        className="w-full h-full flex items-center justify-center"
                     >
-                        <div className="w-full relative z-10">
-                            {/* Full-Width Banner Image Slide */}
-                            <div className="flex justify-center items-start w-full">
+                        <div className="w-full h-full relative z-10 flex items-center justify-center">
+                            {/* Full Banner Image Slide - Centered & Contained */}
+                            <div className="relative w-full h-full flex items-center justify-center">
                                 <motion.div
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
-                                    className="relative w-full overflow-hidden"
+                                    className="relative w-full h-full flex items-center justify-center"
                                 >
                                     <img
                                         src={slides[currentSlide].image}
                                         alt={`Arrow Laser Banner ${slides[currentSlide].id}`}
-                                        className="w-full h-auto min-h-[250px] sm:min-h-[400px] md:min-h-[550px] lg:min-h-[780px] object-cover object-top block"
+                                        className="max-w-full max-h-full object-contain block"
                                     />
-                                    {/* Subtle gradient to merge with dark theme at bottom */}
-                                    <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent pointer-events-none" />
+                                    {/* Minimal bottom wash to blend with section below */}
+                                    <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none" />
                                 </motion.div>
                             </div>
                         </div>
@@ -109,7 +109,7 @@ const Hero = ({ onInquiry }) => {
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-primary w-8' : 'bg-dark-700 hover:bg-primary/50'
+                        className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-primary w-6' : 'bg-white/20 hover:bg-white/40'
                             }`}
                         aria-label={`Go to slide ${index + 1}`}
                     />
@@ -346,7 +346,7 @@ const Categories = () => {
             title: 'Laser Marking',
             icon: Layers,
             desc: 'Permanent identification, branding, and tracing for industrial components.',
-            image: prodUvMarking,
+            image: heroBanner3,
             color: 'from-blue-500/20'
         },
         {
