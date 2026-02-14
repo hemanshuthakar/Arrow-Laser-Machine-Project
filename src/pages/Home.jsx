@@ -53,7 +53,7 @@ const Hero = ({ onInquiry }) => {
     };
 
     return (
-        <section className="relative flex justify-center hero-pt-responsive overflow-hidden bg-[#0a0a0a]">
+        <section className="relative flex justify-center hero-pt-responsive pb-20 overflow-hidden bg-[#0a0a0a]">
             {/* Background */}
             <div className="absolute inset-0 z-0">
                 {/* Animated grid background */}
@@ -61,7 +61,7 @@ const Hero = ({ onInquiry }) => {
                     style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
             </div>
 
-            <div className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[650px] 2xl:h-[750px] max-h-[75vh] flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
+            <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[85vh] 2xl:h-[800px] flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
                 <AnimatePresence initial={false} mode="wait">
                     <motion.div
                         key={currentSlide}
