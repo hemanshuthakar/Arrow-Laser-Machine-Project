@@ -61,7 +61,7 @@ const Hero = ({ onInquiry }) => {
                     style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
             </div>
 
-            <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[85vh] 2xl:h-[800px] flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
+            <div className="relative w-full h-[350px] sm:h-[500px] md:h-[650px] lg:h-[800px] flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
                 <AnimatePresence initial={false} mode="wait">
                     <motion.div
                         key={currentSlide}
