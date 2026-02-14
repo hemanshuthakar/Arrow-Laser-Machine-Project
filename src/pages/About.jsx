@@ -57,7 +57,6 @@ const MissionVision = () => {
 const WhyChooseUs = () => {
     const features = [
         {
-            title: 'Advanced Laser Technology',
             title: 'Reliable Performance',
             icon: Shield,
             desc: 'Built with premium components from Germany and Japan for continuous industrial use.'

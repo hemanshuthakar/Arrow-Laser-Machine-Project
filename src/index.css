@@ -19,6 +19,8 @@
   --animate-laser-sweep: laserSweep 3s ease-in-out infinite;
 
   --breakpoint-xs: 480px;
+  --breakpoint-3xl: 1920px;
+  --breakpoint-4xl: 2560px;
 
   @keyframes laserSweep {
     0% {
