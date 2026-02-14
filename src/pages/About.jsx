@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, ShieldAlert, Zap, Layers, ShieldCheck, Timer, BadgeIndianRupee, CheckCircle2, User } from 'lucide-react';
+import { Target, Eye, ShieldAlert, Zap, Layers, ShieldCheck, Timer, BadgeIndianRupee, CheckCircle2, User, Shield, Activity, Award } from 'lucide-react';
 import PageHero from '../components/PageHero';
 
 import indPackaging from '../assets/images/about_us_banner1.png';
