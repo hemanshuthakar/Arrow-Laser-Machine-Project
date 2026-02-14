@@ -22,14 +22,14 @@ const Gallery = () => {
                 breadcrumb="Gallery"
             />
 
-            <div className="container-custom py-16">
+            <div className="container-custom py-12 md:py-16">
                 {/* Filters */}
-                <div className="flex justify-center space-x-4 mb-16">
+                <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12 md:mb-16 px-4">
                     {filters.map((f) => (
                         <button
                             key={f}
                             onClick={() => setFilter(f)}
-                            className={`px-8 py-3 rounded-sm text-sm font-bold uppercase tracking-widest transition-all duration-300 border ${filter === f
+                            className={`px-5 md:px-8 py-2.5 md:py-3 rounded-sm text-[10px] md:text-sm font-bold uppercase tracking-widest transition-all duration-300 border ${filter === f
                                 ? 'bg-primary border-primary text-dark-900 shadow-[0_0_20px_rgba(245,158,11,0.3)]'
                                 : 'border-dark-700 text-text-muted hover:border-primary/50 hover:text-white'
                                 }`}

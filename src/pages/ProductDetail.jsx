@@ -130,9 +130,7 @@ const ProductDetail = () => {
                                 alt={product.name}
                                 className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-105"
                             />
-                            <div className="absolute top-6 right-6 z-30 w-24 h-24 pointer-events-none">
-                                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_15px_rgba(0,0,0,0.5)]" />
-                            </div>
+
                             <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity bg-dark-900/80 p-2 rounded-sm text-primary">
                                 <Maximize2 size={20} />
                             </div>

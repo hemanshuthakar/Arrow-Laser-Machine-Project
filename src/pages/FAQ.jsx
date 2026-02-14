@@ -37,8 +37,8 @@ const FAQ = () => {
                 breadcrumb="FAQ"
             />
 
-            <div className="container-custom py-24">
-                <div className="max-w-4xl mx-auto space-y-4">
+            <div className="container-custom py-12 md:py-24">
+                <div className="max-w-4xl mx-auto space-y-4 px-4 sm:px-0">
                     {faqs.map((faq, i) => (
                         <motion.div
                             key={i}
@@ -49,17 +49,17 @@ const FAQ = () => {
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
-                                className="w-full px-8 py-6 flex items-center justify-between text-left group"
+                                className="w-full px-5 sm:px-8 py-5 sm:py-6 flex items-center justify-between text-left group"
                             >
-                                <div className="flex items-center space-x-4">
-                                    <Terminal size={18} className={`${openIndex === i ? 'text-primary' : 'text-text-muted group-hover:text-white'}`} />
-                                    <span className={`text-lg font-bold ${openIndex === i ? 'text-white' : 'text-text-muted group-hover:text-white'}`}>
+                                <div className="flex items-center space-x-3 sm:space-x-4">
+                                    <Terminal size={14} sm={18} className={`${openIndex === i ? 'text-primary' : 'text-text-muted group-hover:text-white'} shrink-0`} />
+                                    <span className={`text-base sm:text-lg font-bold ${openIndex === i ? 'text-white' : 'text-text-muted group-hover:text-white'}`}>
                                         {faq.question}
                                     </span>
                                 </div>
                                 <ChevronDown
-                                    className={`transition-transform duration-300 ${openIndex === i ? 'rotate-180 text-primary' : 'text-text-muted rotate-0'}`}
-                                    size={20}
+                                    className={`transition-transform duration-300 shrink-0 ${openIndex === i ? 'rotate-180 text-primary' : 'text-text-muted rotate-0'}`}
+                                    size={18}
                                 />
                             </button>
 
@@ -71,9 +71,9 @@ const FAQ = () => {
                                         exit={{ height: 0, opacity: 0 }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="px-16 pb-8 text-text-muted leading-relaxed relative">
+                                        <div className="px-8 sm:px-16 pb-6 sm:pb-8 text-sm sm:text-base text-text-muted leading-relaxed relative">
                                             {/* Laser line side indicator */}
-                                            <div className="absolute left-10 top-0 bottom-8 w-[1px] bg-primary/30" />
+                                            <div className="absolute left-4 sm:left-10 top-0 bottom-6 sm:bottom-8 w-[1px] bg-primary/30" />
                                             {faq.answer}
                                         </div>
                                     </motion.div>

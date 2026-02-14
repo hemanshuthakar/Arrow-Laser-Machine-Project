@@ -1,14 +1,14 @@
-// Import Banner Images
-import banner1 from '../assets/images/BANNER IMAGE/1.png';
-import banner2 from '../assets/images/BANNER IMAGE/2.png';
-import banner3 from '../assets/images/BANNER IMAGE/3.png';
-import banner4 from '../assets/images/BANNER IMAGE/4.png';
+// Hero images for Internal Pages (About, Products, Gallery, etc.)
+// Separated from Home Page promotional banners
+import pageBanner1 from '../assets/images/about_us_banner1.png';
+import pageBanner2 from '../assets/images/industries/ind_automotive.png';
+import pageBanner3 from '../assets/images/industries/ind_electronics.png';
+import pageBanner4 from '../assets/images/industries/ind_medical.png';
 
-// This is the single source of truth for the background carousel used across all pages.
-// Admin can easily add, remove or reorder images here.
+// This is the source of truth for the background used across all INTERNAL pages.
 export const heroCarouselImages = [
-    banner1,
-    banner2,
-    banner3,
-    banner4
+    pageBanner1,
+    pageBanner2,
+    pageBanner3,
+    pageBanner4
 ];

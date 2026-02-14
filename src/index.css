@@ -18,6 +18,8 @@
 
   --animate-laser-sweep: laserSweep 3s ease-in-out infinite;
 
+  --breakpoint-xs: 480px;
+
   @keyframes laserSweep {
     0% {
       transform: translateX(-100%);
@@ -31,8 +33,29 @@
 }
 
 @layer base {
+
+  html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
   body {
-    @apply bg-dark-900 text-text-body font-sans antialiased overflow-x-hidden;
+    @apply bg-dark-900 text-text-body font-sans antialiased;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    width: 100%;
+    overflow-x: hidden;
   }
 
   h1,
@@ -48,6 +71,8 @@
 @layer components {
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .btn-primary {

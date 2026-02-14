@@ -29,9 +29,9 @@ const MissionVision = () => {
     ];
 
     return (
-        <section className="pt-8 lg:pt-12 pb-16 lg:pb-24 bg-dark-900">
+        <section className="pt-8 lg:pt-12 pb-16 lg:pb-24 bg-dark-900 border-b border-dark-700/50">
             <div className="container-custom">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4 sm:px-0">
                     {values.map((item, i) => (
                         <motion.div
                             key={i}
@@ -39,13 +39,13 @@ const MissionVision = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className={`${item.color} p-12 rounded-sm border border-dark-700 hover:border-primary/50 transition-all duration-500 group`}
+                            className={`${item.color} p-8 md:p-12 rounded-sm border border-dark-700 hover:border-primary/50 transition-all duration-500 group h-full`}
                         >
-                            <div className="w-16 h-16 border border-dark-700 flex items-center justify-center rounded-sm mb-8 group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                            <div className="w-16 h-16 border border-dark-700 flex items-center justify-center rounded-sm mb-8 group-hover:bg-primary group-hover:border-primary transition-all duration-300 mx-auto sm:mx-0">
                                 <item.icon className="text-primary group-hover:text-dark-900" size={32} />
                             </div>
-                            <h3 className="text-2xl font-bold mb-6 group-hover:text-white transition-colors">{item.title}</h3>
-                            <p className="text-text-muted leading-relaxed">{item.desc}</p>
+                            <h3 className="text-2xl font-bold mb-6 group-hover:text-white transition-colors text-center sm:text-left">{item.title}</h3>
+                            <p className="text-text-muted leading-relaxed text-center sm:text-left">{item.desc}</p>
                         </motion.div>
                     ))}
                 </div>
@@ -58,23 +58,19 @@ const WhyChooseUs = () => {
     const features = [
         {
             title: 'Advanced Laser Technology',
-            icon: Zap,
-            desc: 'High-speed, high-precision, and maintenance-free laser solutions.'
+            title: 'Reliable Performance',
+            icon: Shield,
+            desc: 'Built with premium components from Germany and Japan for continuous industrial use.'
         },
         {
-            title: 'Wide Range of Applications',
-            icon: Layers,
-            desc: 'Ideal for marking logos, brand names, serial numbers, barcodes, QR codes, and more on metals, plastics, ceramics, glass, wood, and other materials.'
+            title: 'Precision at Velocity',
+            icon: Activity,
+            desc: 'Ultra-stable gantry systems ensuring micron-level accuracy at high processing speeds.'
         },
         {
-            title: 'Unmatched Warranty & Benefits',
-            icon: Timer,
-            desc: 'One-year machine warranty, two-year laser source warranty, and exclusive add-ons such as Wi-Fi adapter, antivirus software, and accessories.'
-        },
-        {
-            title: 'Instant Availability & Fast Delivery',
-            icon: ShieldCheck,
-            desc: 'Ready stock and same-day dispatch for urgent requirements.'
+            title: 'Certified Quality',
+            icon: Award,
+            desc: 'TUV and CE certified machines, meeting the most stringent international safety standards.'
         },
         {
             title: '24/7 Support & Service',
@@ -89,13 +85,13 @@ const WhyChooseUs = () => {
     ];
 
     return (
-        <section className="section-padding bg-dark-800">
+        <section className="section-padding bg-dark-800 relative overflow-hidden">
             <div className="container-custom">
-                <div className="text-center mb-12">
-                    <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Engineered Excellence</span>
-                    <h2 className="text-4xl md:text-5xl font-bold">Why Choose Arrow Laser Machine?</h2>
+                <div className="text-center mb-12 px-4">
+                    <span className="text-primary font-mono text-xs sm:text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Engineered Excellence</span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">Why Choose Arrow Laser Machine?</h2>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 px-4 sm:px-0">
                     {features.map((feature, i) => (
                         <motion.div
                             key={i}
@@ -103,11 +99,11 @@ const WhyChooseUs = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="glass-card p-10 border-dark-700 hover:border-primary/30 transition-all group"
+                            className="glass-card p-8 sm:p-10 border-dark-700 hover:border-primary/30 transition-all group lg:min-h-[280px]"
                         >
-                            <feature.icon className="text-primary mb-6" size={40} />
-                            <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
-                            <p className="text-text-muted leading-relaxed">{feature.desc}</p>
+                            <feature.icon className="text-primary mb-6" size={32} sm={40} />
+                            <h3 className="text-lg sm:text-xl font-bold text-white mb-4">{feature.title}</h3>
+                            <p className="text-sm sm:text-base text-text-muted leading-relaxed">{feature.desc}</p>
                         </motion.div>
                     ))}
                 </div>
@@ -118,23 +114,24 @@ const WhyChooseUs = () => {
 
 const AboutSection = () => {
     return (
-        <section className="section-padding bg-dark-900 overflow-hidden">
+        <section className="section-padding bg-dark-900 overflow-hidden relative">
             <div className="container-custom">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 items-center">
                     <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
+                        className="px-4 sm:px-0"
                     >
-                        <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">About Arrow Laser Machine</span>
-                        <h2 className="text-4xl md:text-5xl mb-8 leading-tight">Leading Choice for Industrial Laser Solutions</h2>
-                        <p className="text-text-body mb-6 leading-relaxed">
+                        <span className="text-primary font-mono text-xs sm:text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">About Arrow Laser Machine</span>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl mb-6 sm:mb-8 leading-tight">Leading Choice for Industrial Laser Solutions</h2>
+                        <p className="text-text-body mb-6 text-sm sm:text-base leading-relaxed">
                             Welcome to Arrow Laser Machine, your trusted Manufacturer, Importer and Supplier of a wide range of Fiber Laser Marking Machines, Jewellery Laser Machines, Laser Engraving & Cutting Machines, Fiber Laser Sources, and Laser Marking Machine Parts. Established in 2022 in Ahmedabad, Gujarat, India, we specialize in precision laser marking, engraving, and etching solutions tailored for a wide range of industries.
                         </p>
-                        <p className="text-text-body mb-8 leading-relaxed">
+                        <p className="text-text-body mb-6 text-sm sm:text-base leading-relaxed">
                             Our state-of-the-art laser machines are designed for precision marking and engraving on various materials, including metals, plastics, ceramics, glass, wood, and more. Leveraging cutting-edge laser technology, we deliver sharp, permanent, and high-quality results—whether you need to mark logos, serial numbers, barcodes, QR codes, or intricate designs.
                         </p>
-                        <p className="text-text-body mb-8 leading-relaxed italic border-l-2 border-primary pl-6">
+                        <p className="text-text-body mb-6 text-sm sm:text-base leading-relaxed italic border-l-2 border-primary pl-4 sm:pl-6 bg-primary/2 py-2">
                             Customer satisfaction is at the core of our operations. We take pride in offering eco-friendly laser marking solutions that exceed industry standards. At Arrow Laser, we combine reliability and innovation to provide permanent marking solutions that you can trust.
                         </p>
 
@@ -200,7 +197,6 @@ const Leadership = () => {
                     {leaders.map((leader, index) => (
                         <motion.div
                             key={index}
-                            whileHover={{ y: -10 }}
                             className="glass-card p-8 rounded-sm group border-primary/20 max-w-sm w-full"
                         >
                             <div className="w-full aspect-square bg-dark-900 rounded-sm mb-6 transition-all border border-dark-700 overflow-hidden relative flex items-center justify-center">
@@ -208,12 +204,12 @@ const Leadership = () => {
                                     <img
                                         src={leader.image}
                                         alt={leader.name}
-                                        className="w-full h-full object-cover filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
+                                        className="w-full h-full object-cover"
                                     />
                                 ) : (
                                     <User size={64} className="text-dark-700 group-hover:text-primary transition-colors duration-500" />
                                 )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-40 group-hover:opacity-0 transition-opacity duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-40" />
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-2">{leader.name}</h3>
                             <p className="text-primary font-mono text-sm uppercase tracking-widest font-bold">{leader.role}</p>

@@ -61,7 +61,7 @@ const Hero = ({ onInquiry }) => {
                     style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
             </div>
 
-            <div className="relative w-full h-[250px] sm:h-[350px] md:h-[500px] lg:h-[400px] xl:h-[500px] 2xl:h-[800px] flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
+            <div className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] xl:h-[600px] 2xl:h-[650px] flex items-center justify-center bg-[#0a0a0a] overflow-hidden">
                 <AnimatePresence initial={false} mode="wait">
                     <motion.div
                         key={currentSlide}
@@ -113,13 +113,13 @@ const Hero = ({ onInquiry }) => {
 
 const TechnicalStats = () => {
     return (
-        <section className="relative py-8 bg-dark-950 border-y border-dark-700 overflow-hidden">
+        <section className="relative py-8 md:py-12 bg-dark-950 border-y border-dark-700 overflow-hidden">
             {/* Background Grid */}
             <div className="absolute inset-0 opacity-[0.05]"
                 style={{ backgroundImage: 'linear-gradient(#f59e0b 1px, transparent 1px), linear-gradient(90deg, #f59e0b 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
 
-            <div className="container-custom relative z-10 w-full px-4 overflow-hidden">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-4 md:gap-8 lg:gap-16">
+            <div className="container-custom relative z-10 w-full px-4 sm:px-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-y-12 gap-x-4 md:gap-8 lg:gap-16">
                     {[
                         { label: 'Precision', icon: Cpu, value: 0.1, suffix: 'mm', decimals: 1 },
                         { label: 'Speed', icon: Zap, value: 80, suffix: 'm/min' },
@@ -134,10 +134,10 @@ const TechnicalStats = () => {
                             transition={{ delay: i * 0.1, type: 'spring', stiffness: 100 }}
                             className="flex flex-col items-center text-center group w-full"
                         >
-                            <div className="text-primary mb-4 p-4 bg-dark-900 border border-dark-700/50 rounded-2xl group-hover:bg-primary group-hover:text-dark-900 transition-all duration-500 shadow-2xl group-hover:shadow-primary/20 group-hover:-translate-y-1">
-                                <stat.icon size={24} />
+                            <div className="text-primary mb-3 md:mb-4 p-3 md:p-4 bg-dark-900 border border-dark-700/50 rounded-2xl group-hover:bg-primary group-hover:text-dark-900 transition-all duration-500 shadow-2xl group-hover:shadow-primary/20 group-hover:-translate-y-1">
+                                <stat.icon size={22} className="md:w-6 md:h-6" />
                             </div>
-                            <div className="text-white font-mono text-3xl md:text-4xl lg:text-5xl font-black flex items-baseline mb-2 whitespace-nowrap">
+                            <div className="text-white font-mono text-xl xs:text-2xl md:text-3xl lg:text-5xl font-black flex items-baseline mb-1 whitespace-nowrap">
                                 {stat.decimals ? (
                                     <span className="flex">
                                         0.<Counter value={stat.value * 10} duration={1.5} />
@@ -145,7 +145,7 @@ const TechnicalStats = () => {
                                 ) : (
                                     <Counter value={stat.value} duration={1.5} />
                                 )}
-                                <span className="text-xs md:text-sm lg:text-base ml-1 text-primary italic font-bold shrink-0">{stat.suffix}</span>
+                                <span className="text-[10px] md:text-xs lg:text-base ml-1 text-primary italic font-bold shrink-0">{stat.suffix}</span>
                             </div>
                             <div className="flex flex-col items-center">
                                 <span className="text-text-muted text-[8px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.4em] font-black group-hover:text-primary transition-colors">
@@ -166,14 +166,14 @@ const AboutPreview = () => {
     return (
         <section className="section-padding bg-dark-800 relative overflow-hidden">
             <div className="container-custom">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 items-center">
                     {/* Image Side */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="relative"
+                        className="relative px-4 sm:px-0"
                     >
                         <div className="relative z-10 p-2 border border-dark-700 bg-dark-900 rounded-sm overflow-hidden group">
                             <div className="aspect-[4/3] bg-dark-800 flex items-center justify-center relative overflow-hidden">
@@ -191,44 +191,45 @@ const AboutPreview = () => {
                             </div>
                         </div>
 
-                        {/* Experience Badge */}
+                        {/* Experience Badge - Positioned safely for mobile */}
                         <motion.div
                             initial={{ x: 20, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.5 }}
-                            className="absolute -bottom-10 -right-10 z-20 bg-primary p-8 rounded-sm shadow-2xl min-w-[160px]"
+                            className="absolute -bottom-4 right-0 md:-bottom-10 md:-right-10 z-20 bg-primary p-4 sm:p-8 rounded-sm shadow-2xl min-w-[110px] sm:min-w-[160px]"
                         >
-                            <h3 className="text-4xl font-bold text-dark-900 mb-1 leading-none">
+                            <h3 className="text-2xl sm:text-4xl font-bold text-dark-900 mb-1 leading-none">
                                 <Counter value={5} />+
                             </h3>
-                            <p className="text-sm font-semibold text-dark-900/70 uppercase tracking-widest leading-none">Years Service</p>
+                            <p className="text-[9px] sm:text-sm font-semibold text-dark-900/70 uppercase tracking-widest leading-none">Years Service</p>
                         </motion.div>
                     </motion.div>
 
                     {/* Content Side */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
+                        className="mt-8 lg:mt-0 px-4 sm:px-0"
                     >
-                        <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block">Engineered Excellence</span>
-                        <h2 className="text-4xl md:text-5xl mb-8">Redefining Industrial <br className="hidden md:block" /> Precision Standards</h2>
+                        <span className="text-primary font-mono text-xs sm:text-sm uppercase tracking-[0.3em] font-semibold mb-4 block underline underline-offset-8 decoration-primary/30">Engineered Excellence</span>
+                        <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl mb-6 sm:mb-8 leading-tight font-black uppercase tracking-tight">Redefining Industrial <br className="hidden md:block" /> Precision Standards</h2>
 
-                        <p className="text-text-body mb-8 leading-relaxed">
+                        <p className="text-text-body mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed">
                             Arrow Laser Machine designs and manufactures world-class laser systems for marking, engraving, cutting, welding, and cleaning applications across diverse industries. Established in 2022, we deliver precision laser technology for industrial, commercial, and customized applications.
                         </p>
 
-                        <ul className="space-y-4 mb-10">
+                        <ul className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
                             {[
                                 'Global Standard Certifications (CE, ISO 9001)',
                                 'Dedicated 24/7 Technical Support Unit',
                                 'Proprietary Laser Control Software',
                                 'Energy Efficient Manufacturing Systems'
                             ].map((item, idx) => (
-                                <li key={idx} className="flex items-center space-x-3 text-text-muted">
-                                    <CheckCircle2 size={20} className="text-primary" />
+                                <li key={idx} className="flex items-center space-x-3 text-text-muted text-sm sm:text-base">
+                                    <CheckCircle2 size={18} className="text-primary shrink-0" />
                                     <span>{item}</span>
                                 </li>
                             ))}
@@ -236,11 +237,11 @@ const AboutPreview = () => {
 
                         <button
                             onClick={() => navigate('/about')}
-                            className="flex items-center space-x-4 group text-white font-bold uppercase tracking-widest text-sm"
+                            className="flex items-center space-x-4 group text-white font-bold uppercase tracking-widest text-xs sm:text-sm"
                         >
                             <span>More About Our Legacy</span>
-                            <div className="w-10 h-10 rounded-full border border-dark-700 flex items-center justify-center group-hover:border-primary group-hover:bg-primary group-hover:text-dark-900 transition-all duration-300">
-                                <ArrowRight size={18} />
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-dark-700 flex items-center justify-center group-hover:border-primary group-hover:bg-primary group-hover:text-dark-900 transition-all duration-300">
+                                <ArrowRight size={16} />
                             </div>
                         </button>
                     </motion.div>
@@ -248,7 +249,7 @@ const AboutPreview = () => {
             </div>
 
             {/* Decorative vertical line */}
-            <div className="absolute left-0 top-0 h-full w-[1px] bg-dark-700" />
+            <div className="absolute left-0 top-0 h-full w-[1px] bg-dark-700 hidden lg:block" />
         </section>
     );
 };
@@ -268,7 +269,7 @@ const FeaturedProducts = () => {
                     <h2 className="text-4xl md:text-5xl mb-6">Cutting-Edge Laser Solutions</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mb-12">
                     {featuredList.map((p, i) => (
                         <motion.div
                             key={p.id}
@@ -287,11 +288,6 @@ const FeaturedProducts = () => {
                                     className="w-full h-full object-cover transition-all duration-700 scale-105 group-hover:scale-100 opacity-90 group-hover:opacity-100"
                                 />
 
-                                {/* Logo Overlay for All Featured Products */}
-                                <div className="absolute top-4 right-4 z-20 w-12 h-12 pointer-events-none">
-                                    <img src="/logo.png" alt="Logo" className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(0,0,0,0.5)]" />
-                                </div>
-
                                 <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-80" />
 
                                 {/* Product Info Overlay */}
@@ -309,9 +305,9 @@ const FeaturedProducts = () => {
                             <div className="p-6 border-t border-dark-700/50 bg-gradient-to-b from-dark-800 to-dark-900 absolute bottom-0 w-full">
                                 <div className="w-12 h-1 bg-secondary/50 mb-4 rounded-full group-hover:w-full group-hover:bg-secondary transition-all duration-500" />
                                 <div className="flex justify-between items-center mb-1">
-                                    <h3 className="text-xl font-bold text-white group-hover:text-secondary transition-colors font-heading leading-tight">{p.name}</h3>
+                                    <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-secondary transition-colors font-heading leading-tight">{p.name}</h3>
                                 </div>
-                                <p className="text-sm font-mono text-secondary font-bold tracking-widest">{p.price === 'Contact for Quote' ? 'PREMIUM GRADE' : p.price}</p>
+                                <p className="text-xs md:text-sm font-mono text-secondary font-bold tracking-widest">{p.price === 'Contact for Quote' ? 'PREMIUM GRADE' : p.price}</p>
                             </div>
                         </motion.div>
                     ))}

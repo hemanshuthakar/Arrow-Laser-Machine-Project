@@ -87,11 +87,11 @@ const Industries = () => {
                 breadcrumb="Industries"
             />
 
-            <section className="section-padding container-custom">
-                <div className="text-center mb-16">
-                    <span className="text-primary font-mono text-sm uppercase tracking-[0.3em] font-semibold mb-4 block underline underline-offset-8">Global Impact</span>
-                    <h2 className="text-4xl md:text-6xl mb-8">Empowering Diverse Sectors</h2>
-                    <p className="text-text-muted text-lg max-w-3xl mx-auto">
+            <section className="section-padding container-custom px-4 sm:px-6">
+                <div className="text-center mb-12 sm:mb-16">
+                    <span className="text-primary font-mono text-[10px] sm:text-xs uppercase tracking-[0.3em] font-semibold mb-4 block underline underline-offset-8 decoration-primary/30">Global Impact</span>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 sm:mb-8 font-black uppercase tracking-tight">Empowering Diverse Sectors</h2>
+                    <p className="text-text-muted text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
                         Arrow Laser Machine solutions are engineered to meet the unique challenges of various industries, delivering precision and efficiency where it matters most.
                     </p>
                 </div>
