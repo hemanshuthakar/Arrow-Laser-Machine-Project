@@ -205,10 +205,10 @@ const InquiryModal = ({ isOpen, onClose, product = null }) => {
                                                     className="w-full bg-dark-900 border border-dark-700 py-3 px-4 text-text-muted focus:outline-none focus:border-primary transition-colors text-sm appearance-none"
                                                 >
                                                     <option value="">Select Machinery</option>
-                                                    <option value="Laser 3D Cutting Series">Laser 3D Cutting Series</option>
-                                                    <option value="Laser Marking Systems Series">Laser Marking Systems Series</option>
-                                                    <option value="Laser Cleaning Systems Series">Laser Cleaning Systems Series</option>
-                                                    <option value="Handheld Laser Welding Series">Handheld Laser Welding Series</option>
+                                                    <option value="Laser Marking Systems">Laser Marking Systems</option>
+                                                    <option value="Laser Cutting & Engraving">Laser Cutting & Engraving</option>
+                                                    <option value="Jewellery Laser Solutions">Jewellery Laser Solutions</option>
+                                                    <option value="Laser Welding & Cleaning">Laser Welding & Cleaning Systems</option>
                                                 </select>
                                             </div>
                                         </div>
